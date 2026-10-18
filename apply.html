@@ -19,10 +19,12 @@
 
     <div class="form-card">
         <h1>Model Profile Submission</h1>
-        <p>Complete your profile details and upload your portfolio photos below to launch your listing on Zelo Agency.</p>
-        
-        <form id="onboardForm" action="https://formspree.io/f/xoejrarb" method="POST" enctype="multipart/form-data">
-            
+        <p>Complete your profile details and paste your portfolio link below to launch your listing on Zelo Agency.</p>
+
+        <form id="onboardForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="74bf2f06-97ae-4738-b731-bc60c29f3964">
+            <input type="hidden" name="subject" value="New Model Application - Zelo Agency">
+
             <label>Stage Name / Alias</label>
             <input type="text" name="Stage Name" required placeholder="e.g. Alex Rivera">
 
@@ -41,8 +43,8 @@
             <label>Email Address</label>
             <input type="email" name="Email" required placeholder="yourname@domain.com">
 
-            <label>Upload Portfolio Photos (Select 1-5 Images)</label>
-            <input type="file" name="Portfolio Photos" accept="image/*" multiple required>
+            <label>Portfolio or Photo Drive Link</label>
+            <input type="url" name="portfolio" placeholder="https://drive.google.com/... or Instagram link" required>
 
             <label>Select Listing Option</label>
             <select name="Plan" id="plan" required>
@@ -53,38 +55,45 @@
             <label>Bio / Profile Introduction</label>
             <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
 
-            <button type="submit" class="btn-submit" id="submitBtn">Submit Details & Proceed to Payment ›</button>
+            <button type="submit" class="btn-submit" id="submitBtn">Submit Details & Proceed to Payment</button>
         </form>
     </div>
 
     <script>
-        document.getElementById('onboardForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            const data = new FormData(form);
-            const selectedPlan = document.getElementById('plan').value;
-            const btn = document.getElementById('submitBtn');
+    document.getElementById('onboardForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const data = new FormData(form);
+        const selectedPlan = document.getElementById('plan').value;
+        const btn = document.getElementById('submitBtn');
 
-            btn.innerText = "Uploading Photos & Submitting...";
-            btn.disabled = true;
+        btn.innerText = "Submitting Details...";
+        btn.disabled = true;
 
-            // Submit details and photo attachments to Formspree
-            fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                // Redirect to Stripe Checkout after successful form and image upload
+        // Submit details to Web3Forms
+        fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(async (response) => {
+            if (response.ok) {
+                // Redirect to Stripe Checkout after successful submission
                 if (selectedPlan === 'spotlight') {
                     window.location.href = "https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01";
                 } else {
                     window.location.href = "https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00";
                 }
-            }).catch(error => {
-                alert('Submission received! Proceeding to payment...');
-                window.location.href = "https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00";
-            });
+            } else {
+                alert('There was an issue submitting your application. Please check your inputs and try again.');
+                btn.innerText = "Submit Details & Proceed to Payment";
+                btn.disabled = false;
+            }
+        }).catch(error => {
+            alert('Submission error. Please check your internet connection and try again.');
+            btn.innerText = "Submit Details & Proceed to Payment";
+            btn.disabled = false;
         });
+    });
     </script>
 
 </body>
