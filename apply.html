@@ -19,11 +19,12 @@
 
     <div class="form-card">
         <h1>Model Profile Submission</h1>
-        <p>Complete your profile details and paste your portfolio link below to launch your listing on Zelo Agency.</p>
+        <p>Complete your profile details and upload your portfolio photos below to launch your listing on Zelo Agency.</p>
 
-        <form id="onboardForm" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="74bf2f06-97ae-4738-b731-bc60c29f3964">
-            <input type="hidden" name="subject" value="New Model Application - Zelo Agency">
+        <form id="onboardForm" action="https://formsubmit.co/zeloagency.au@hotmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New Model Application - Zelo Agency">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
 
             <label>Stage Name / Alias</label>
             <input type="text" name="Stage Name" required placeholder="e.g. Alex Rivera">
@@ -43,8 +44,8 @@
             <label>Email Address</label>
             <input type="email" name="Email" required placeholder="yourname@domain.com">
 
-            <label>Portfolio or Photo Drive Link</label>
-            <input type="url" name="portfolio" placeholder="https://drive.google.com/... or Instagram link" required>
+            <label>Upload Portfolio Photos (Select 1-5 Images)</label>
+            <input type="file" name="attachment" accept="image/*" multiple required>
 
             <label>Select Listing Option</label>
             <select name="Plan" id="plan" required>
@@ -67,17 +68,15 @@
         const selectedPlan = document.getElementById('plan').value;
         const btn = document.getElementById('submitBtn');
 
-        btn.innerText = "Submitting Details...";
+        btn.innerText = "Uploading Photos & Submitting...";
         btn.disabled = true;
 
-        // Submit details to Web3Forms
         fetch(form.action, {
             method: 'POST',
             body: data,
             headers: { 'Accept': 'application/json' }
         }).then(async (response) => {
             if (response.ok) {
-                // Redirect to Stripe Checkout after successful submission
                 if (selectedPlan === 'spotlight') {
                     window.location.href = "https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01";
                 } else {
