@@ -3,192 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zelo Talent Agency | Premium Representation</title>
+    <title>Zelo Talent Agency | Premium Model Representation</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg-deep: #0b0b0b;
+            --card-bg: #141414;
+            --gold: #d4af37;
+            --gold-light: #F3E5AB;
+            --gold-dark: #AA771C;
+            --text-main: #ffffff;
+            --text-muted: #aaaaaa;
         }
 
         body {
-            background-color: #0b0b0b;
-            color: #ffffff;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
         }
 
-        /* Hero Header */
         header {
-            padding: 100px 20px 80px 20px;
+            padding: 80px 20px 60px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0b0b0b 70%);
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 1px solid #222;
+            background: radial-gradient(circle at center, #1c1c1c 0%, #0b0b0b 100%);
         }
 
-        .location-tag {
-            color: #d4af37;
+        .logo-tag {
             font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 25px;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         h1 {
-            color: #ffffff;
-            font-size: 3.2rem;
-            font-weight: 800;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+            color: var(--text-main);
+            font-size: 3rem;
+            letter-spacing: 3px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
         }
 
-        .hero-text {
-            color: #a0a0a0;
-            font-size: 1.1rem;
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
             max-width: 650px;
-            margin: 0 auto 40px auto;
-            font-weight: 400;
+            margin: 0 auto 35px auto;
         }
 
-        .hero-buttons {
+        .hero-actions {
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 20px;
+            margin-top: 30px;
             flex-wrap: wrap;
         }
 
-        .btn-gold {
-            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA771C 100%);
-            color: #000000;
-            font-weight: 700;
+        .btn {
             padding: 16px 36px;
             border-radius: 4px;
+            font-weight: bold;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 0.85rem;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+            font-size: 0.9rem;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .btn-gold:hover {
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-            transform: translateY(-2px);
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+            color: #000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
         }
 
         .btn-outline {
+            border: 1px solid var(--gold);
+            color: var(--gold);
             background: transparent;
-            color: #d4af37;
-            border: 1px solid #d4af37;
-            font-weight: 700;
-            padding: 15px 35px;
-            border-radius: 4px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
         }
 
-        .btn-outline:hover {
-            background: rgba(212, 175, 55, 0.1);
+        .btn:hover {
             transform: translateY(-2px);
+            opacity: 0.95;
         }
 
-        /* Divisions Section */
-        .divisions-section {
-            padding: 80px 20px 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .container {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--gold);
             text-align: center;
-        }
-
-        .section-heading {
-            color: #d4af37;
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 3px;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
             text-transform: uppercase;
-            margin-bottom: 60px;
         }
 
-        .cards-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        @media (max-width: 900px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .card {
-            background-color: #121212;
-            border: 1px solid #1f1f1f;
-            border-radius: 12px;
+            background: var(--card-bg);
             padding: 40px 30px;
-            text-align: left;
-            transition: all 0.3s ease;
+            border: 1px solid #222;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
         }
 
         .card:hover {
-            border-color: #d4af37;
-            transform: translateY(-4px);
+            border-color: var(--gold);
         }
 
         .card h3 {
-            color: #d4af37;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+            color: var(--gold);
+            margin-top: 0;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
 
         .card p {
-            color: #8e8e8e;
+            color: var(--text-muted);
+            margin: 0;
             font-size: 0.95rem;
-            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="location-tag">Melbourne &bull; Sydney &bull; Brisbane</div>
+        <div class="logo-tag">Melbourne &bull; Sydney &bull; Brisbane</div>
         <h1>ZELO TALENT AGENCY</h1>
-        <p class="hero-text">Connecting elite commercial, editorial, and event talent with world-class brands across Australia.</p>
+        <p class="subtitle">Connecting elite commercial, editorial, and event talent with world-class brands across Australia.</p>
         
-        <div class="hero-buttons">
-            <a href="apply.html" class="btn-gold">Model Application</a>
-            <a href="#divisions" class="btn-outline">Explore Services</a>
+        <div class="hero-actions">
+            <a href="apply.html" class="btn btn-gold">Model Application</a>
+            <a href="#services" class="btn btn-outline">Explore Services</a>
         </div>
     </header>
 
-    <section class="divisions-section" id="divisions">
-        <h2 class="section-heading">Representation & Divisions</h2>
-        
-        <div class="cards-grid">
+    <div class="container" id="services">
+        <h2 class="section-title">Representation & Divisions</h2>
+        <div class="services-grid">
             <div class="card">
                 <h3>Commercial & Editorial</h3>
                 <p>High-caliber representation for fashion campaigns, print advertising, brand ambassadorships, and digital media projects.</p>
             </div>
-
             <div class="card">
                 <h3>Event & Luxury Activations</h3>
                 <p>Professional brand ambassadors and elite talent curated specifically for high-end corporate events, hospitality, and luxury brand showcases.</p>
             </div>
-
             <div class="card">
                 <h3>Spotlight Management</h3>
                 <p>Accelerated career placement and prioritized digital exposure designed to maximize reach across national markets.</p>
             </div>
         </div>
-    </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Zelo Talent Agency. All rights reserved. &bull; Enquiries: zeloagency.au@hotmail.com
+    </footer>
 
 </body>
 </html>
