@@ -26,9 +26,11 @@
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00">
+            
             <!-- Quick Action Links for Inbox -->
-<input type="hidden" name="Action_Approve" value="mailto:jwinter_23@mail.com?subject=Application%20Approved%20-%20Zelo%20Agency&body=Hi!%20Your%20application%20to%20Zelo%20Agency%20has%20been%20approved.%20Welcome%20to%20the%20roster!">
-<input type="hidden" name="Action_Reject" value="mailto:jwinter_23@mail.com?subject=Application%20Status%20-%20Zelo%20Agency&body=Thank%20you%20for%20applying.%20Unfortunately,%20we%20are%20not%20moving%20forward%20at%20this%20time.">  
+            <input type="hidden" name="Action_Approve" value="mailto:jwinter_23@mail.com?subject=Application%20Approved%20-%20Zelo%20Agency&body=Hi!%20Your%20application%20to%20Zelo%20Agency%20has%20been%20approved.%20Welcome%20to%20the%20roster!">
+            <input type="hidden" name="Action_Reject" value="mailto:jwinter_23@mail.com?subject=Application%20Status%20-%20Zelo%20Agency&body=Thank%20you%20for%20applying.%20Unfortunately,%20we%20are%20not%20moving%20forward%20at%20this%20time.">  
+
             <label>Stage Name / Alias</label>
             <input type="text" name="Stage Name" required placeholder="e.g. Alex Rivera">
 
@@ -62,41 +64,6 @@
             <button type="submit" class="btn-submit" id="submitBtn">Submit Details & Proceed to Payment</button>
         </form>
     </div>
-
-    <script>
-    document.getElementById('onboardForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const form = this;
-        const data = new FormData(form);
-        const selectedPlan = document.getElementById('plan').value;
-        const btn = document.getElementById('submitBtn');
-
-        btn.innerText = "Uploading Photos & Submitting...";
-        btn.disabled = true;
-
-        fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        }).then(async (response) => {
-            if (response.ok) {
-                if (selectedPlan === 'spotlight') {
-                    window.location.href = "https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01";
-                } else {
-                    window.location.href = "https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00";
-                }
-            } else {
-                alert('There was an issue submitting your application. Please check your inputs and try again.');
-                btn.innerText = "Submit Details & Proceed to Payment";
-                btn.disabled = false;
-            }
-        }).catch(error => {
-            alert('Submission error. Please check your internet connection and try again.');
-            btn.innerText = "Submit Details & Proceed to Payment";
-            btn.disabled = false;
-        });
-    });
-    </script>
 
 </body>
 </html>
