@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susanna — Zelo Talent Agency</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --card-bg: #141418;
+            --accent-gold: #d4af37;
+            --text-light: #f4f4f6;
+            --text-muted: #a0a0ab;
+            --border-color: #26262e;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Profile Layout */
+        .profile-wrapper {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .profile-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-item.featured {
+            grid-column: span 2;
+            height: 540px;
+        }
+
+        /* Details Sidebar */
+        .details-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .profile-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
+
+        .profile-title {
+            font-size: 2.2rem;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .profile-meta {
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            margin-bottom: 28px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* Rates Table */
+        .rates-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 32px;
+        }
+
+        .rates-table th, .rates-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .rates-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .rates-table td.price {
+            text-align: right;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        /* Action Buttons */
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #25D366; /* WhatsApp Green */
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-wrapper">
+            
+            <!-- Left Column: Photo Gallery -->
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" class="gallery-item featured" alt="Featured Photo">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" class="gallery-item" alt="Portfolio Photo 1">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" class="gallery-item" alt="Portfolio Photo 2">
+            </div>
+
+            <!-- Right Column: Profile Specs & Booking -->
+            <div class="details-panel">
+                <div class="profile-header">
+                    <h1 class="profile-title">Susanna</h1>
+                    <div class="profile-meta">Sydney • Available Now</div>
+                </div>
+
+                <!-- Attributes Table -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Location</div>
+                        <div class="stat-value">Sydney CBD</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Height</div>
+                        <div class="stat-value">175 cm</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Hair</div>
+                        <div class="stat-value">Brunette</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Eyes</div>
+                        <div class="stat-value">Hazel</div>
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="bio-section">
+                    Experienced talent available for brand campaigns, promotional events, and corporate activations nationwide. Professional, punctual, and reliable.
+                </div>
+
+                <!-- Booking Rates -->
+                <table class="rates-table">
+                    <thead>
+                        <tr>
+                            <th>Duration / Event</th>
+                            <th style="text-align: right;">Investment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hourly Booking</td>
+                            <td class="price">$350 AUD</td>
+                        </tr>
+                        <tr>
+                            <td>Half Day (4 Hours)</td>
+                            <td class="price">$1,200 AUD</td>
+                        </tr>
+                        <tr>
+                            <td>Full Day Activation</td>
+                            <td class="price">$2,200 AUD</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Call to Action Buttons -->
+                <div class="cta-group">
+                    <a href="https://wa.me/61406133210?text=Hi%20Zelo%20Agency,%20I'm%20interested%20in%20booking%20Susanna." class="btn btn-primary" target="_blank">
+                        Book via WhatsApp
+                    </a>
+                    <a href="sms:0406133210?body=Hi%20Zelo%20Agency,%20I%20would%20like%20to%20inquire%20about%20booking%20Susanna." class="btn btn-secondary">
+                        Send Booking Inquiry (SMS)
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
