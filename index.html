@@ -1,492 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="hn6LpSxHUMWnbvaWEUucTXW8TImGtWerQDFOFN3pna0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zelo Talent Agency | Genuine & Professional</title>
+    <title>Apply / Onboard | Zelo Talent Agency</title>
     <style>
-        /* Base Reset & Variables */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #111111;
-            --accent: #d4af37; /* Elegant Gold */
-            --bg-light: #f9f9f9;
-            --text-dark: #222222;
-            --text-muted: #666666;
-            --success: #2ec4b6;
-            --danger: #e71d36;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Hero */
-        header {
-            background-color: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 40px 0 30px;
-            border-bottom: 4px solid var(--accent);
-        }
-
-        .header-logo-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: var(--accent);
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 10px;
-        }
-
-        /* City Navigation Filters */
-        .filters {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .filter-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            list-style: none;
-        }
-
-        .filter-btn {
-            background: none;
-            border: 1px solid #ddd;
-            padding: 8px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* Profile Grid Section */
-        .section-title {
-            text-align: center;
-            margin: 40px 0 20px;
-            font-size: 1.8rem;
-            position: relative;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        /* Profile Cards */
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .image-placeholder {
-            width: 100%;
-            height: 320px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: white;
-            z-index: 10;
-        }
-
-        .badge.active { background-color: var(--success); }
-        .badge.off { background-color: var(--text-muted); }
-
-        .card-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .card-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background-color: var(--primary);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .contact-section h2 {
-            margin-bottom: 10px;
-            color: var(--accent);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .contact-method {
-            background: rgba(255,255,255,0.05);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .contact-method h4 {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .contact-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 1px dashed var(--accent);
-        }
-
-        .contact-link:hover {
-            color: white;
-            border-bottom-style: solid;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0a0a0a;
-            color: #777;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.85rem;
-            border-top: 1px solid #222;
-        }
-
-        /* Responsive Layout fixes */
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-        }
+        body { background: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; padding: 40px 20px; text-align: center; }
+        .form-card { max-width: 600px; margin: 0 auto; background: #141414; padding: 30px; border-radius: 8px; border: 1px solid #d4af37; text-align: left; }
+        h1 { color: #d4af37; font-size: 1.8rem; margin-bottom: 10px; text-align: center; }
+        p { color: #aaa; margin-bottom: 25px; text-align: center; font-size: 0.95rem; }
+        label { display: block; margin-top: 15px; color: #d4af37; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; background: #222; border: 1px solid #333; color: #fff; border-radius: 4px; box-sizing: border-box; }
+        input[type="file"] { background: #1a1a1a; padding: 10px; border: 1px dashed #d4af37; cursor: pointer; }
+        .btn-submit { display: block; width: 100%; margin-top: 25px; padding: 14px; background: linear-gradient(135deg, #F3E5AB, #D4AF37, #AA771C); color: #000; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-    <!-- Header / Branding -->
-    <header>
-        <div class="container">
-            <div class="header-logo-wrapper">
-                <!-- Hexagon Gold Emblem Logo -->
-                <svg width="280" height="120" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Outer Hexagon Crest -->
-                    <path d="M140 10 L170 30 L170 65 L140 85 L110 65 L110 30 Z" stroke="url(#goldGradient)" stroke-width="2.5" fill="none" />
-                    
-                    <!-- Monogram Z -->
-                    <path d="M128 38 H152 L128 58 H152" stroke="url(#goldGradient)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                    
-                    <!-- Diamond Accent -->
-                    <polygon points="140,20 144,24 140,28 136,24" fill="#D4AF37" />
-                    
-                    <!-- Subtitle -->
-                    <text x="140" y="105" fill="#D4AF37" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="4" text-anchor="middle">EXCLUSIVE TALENT</text>
-                    
-                    <!-- Gold Gradient Definition -->
-                    <defs>
-                        <linearGradient id="goldGradient" x1="110" y1="10" x2="170" y2="85" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#F3E5AB"/>
-                            <stop offset="50%" stop-color="#D4AF37"/>
-                            <stop offset="100%" stop-color="#AA771C"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-            <p>♥ Genuine | Exclusive | Memorable ♥</p>
-        </div>
-    </header>
+    <div class="form-card">
+        <h1>Model Profile Submission</h1>
+        <p>Complete your profile details and upload your portfolio photos below to launch your listing on Zelo Agency.</p>
 
-    <!-- Navigation / Filters -->
-    <!-- Navigation / Filters -->
-    <nav class="filters">
-        <div class="container">
-            <ul class="filter-tabs">
-                <li><button class="filter-btn active" onclick="filterCity('all', this)">All Talent</button></li>
-                <li><button class="filter-btn" onclick="filterCity('sydney', this)">Sydney</button></li>
-                <li><button class="filter-btn" onclick="filterCity('melbourne', this)">Melbourne</button></li>
-                <li><button class="filter-btn" onclick="filterCity('brisbane', this)">Brisbane</button></li>
-                <li><button class="filter-btn" onclick="filterCity('perth', this)">Perth</button></li>
-                <li><button class="filter-btn" onclick="filterCity('adelaide', this)">Adelaide</button></li>
-                <li><a href="apply.html" class="filter-btn" style="background: #bdaf72; color: #ffffff; text-decoration: none; border-color: #bdaf72;">✨ Apply / Join Us</a></li>
-            </ul>
-        </div>
-    </nav>
+        <form id="onboardForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="access_key" value="74bf2f06-97ae-4738-b731-bc60c29f3964">
+            <input type="hidden" name="subject" value="New Model Application - Zelo Agency">
 
-    <!-- Main Content -->
-    <main class="container">
-        <h2 class="section-title">Featured Portfolios</h2>
-        
-        <div class="grid" id="talent-grid">
-            <!-- Profile Card 1 -->
-            <a href="#" class="card-link talent-card" data-city="melbourne">
-                <div class="card">
-                    <span class="badge active">Available</span>
-                    <div class="image-placeholder">Alex Rivera</div>
-                    <div class="card-info">
-                        <h3>Alex Rivera</h3>
-                        <p>Melbourne</p>
-                    </div>
-                </div>
-            </a>
+            <label>Stage Name / Alias</label>
+            <input type="text" name="Stage Name" required placeholder="e.g. Alex Rivera">
 
-            <!-- Profile Card 2 -->
-            <a href="#" class="card-link talent-card" data-city="sydney">
-                <div class="card">
-                    <span class="badge active">Available</span>
-                    <div class="image-placeholder">Jordan Lee</div>
-                    <div class="card-info">
-                        <h3>Jordan Lee</h3>
-                        <p>Sydney</p>
-                    </div>
-                </div>
-            </a>
+            <label>Primary City</label>
+            <select name="City" required>
+                <option value="Sydney">Sydney</option>
+                <option value="Melbourne">Melbourne</option>
+                <option value="Brisbane">Brisbane</option>
+                <option value="Perth">Perth</option>
+                <option value="Adelaide">Adelaide</option>
+            </select>
 
-            <!-- Profile Card 3 -->
-            <a href="#" class="card-link talent-card" data-city="brisbane">
-                <div class="card">
-                    <span class="badge active">Available</span>
-                    <div class="image-placeholder">Morgan Taylor</div>
-                    <div class="card-info">
-                        <h3>Morgan Taylor</h3>
-                        <p>Brisbane</p>
-                    </div>
-                </div>
-            </a>
+            <label>Mobile Number / Contact SMS</label>
+            <input type="tel" name="Mobile" required placeholder="0400 000 000">
 
-            <!-- Profile Card 4 -->
-            <a href="#" class="card-link talent-card" data-city="adelaide">
-                <div class="card">
-                    <span class="badge off">Booked</span>
-                    <div class="image-placeholder">Sam Jenkins</div>
-                    <div class="card-info">
-                        <h3>Sam Jenkins</h3>
-                        <p>Adelaide</p>
-                    </div>
-                </div>
-            </a>
+            <label>Email Address</label>
+            <input type="email" name="Email" required placeholder="yourname@domain.com">
 
-            <!-- Profile Card 5 -->
-            <a href="#" class="card-link talent-card" data-city="perth">
-                <div class="card">
-                    <span class="badge off">Booked</span>
-                    <div class="image-placeholder">Casey Smith</div>
-                    <div class="card-info">
-                        <h3>Casey Smith</h3>
-                        <p>Perth</p>
-                    </div>
-                </div>
-            </a>
+            <label>Upload Portfolio Photos (Select 1-5 Images)</label>
+            <input type="file" name="attachment" accept="image/*" multiple required>
 
-            <!-- Profile Card 6 -->
-            <a href="#" class="card-link talent-card" data-city="melbourne">
-                <div class="card">
-                    <span class="badge active">Available</span>
-                    <div class="image-placeholder">Taylor Wong</div>
-                    <div class="card-info">
-                        <h3>Taylor Wong</h3>
-                        <p>Melbourne</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </main>
+            <label>Select Listing Option</label>
+            <select name="Plan" id="plan" required>
+                <option value="standard">Standard Listing ($49/mo)</option>
+                <option value="spotlight">👑 Spotlight Boost ($25/wk)</option>
+            </select>
 
-    <!-- Booking / Contact Block -->
-    <section class="contact-section">
-        <div class="container">
-            <h2>Connect With Our Agency</h2>
-            <p>Choose your preferred communication platform below</p>
-            
-            <div class="contact-grid">
-                <div class="contact-method">
-                    <h4>SMS & Call Bookings</h4>
-                    <p>Direct Agency Line: <strong>0406 133 210</strong></p>
-                    <a href="sms:0406133210" class="contact-link">Send Text / Call ›</a>
-                </div>
-                <div class="contact-method">
-                    <h4>WhatsApp Chat</h4>
-                    <p>Connect instantly with an agent online</p>
-                    <a href="https://wa.me/61406133210" class="contact-link">Chat via WhatsApp ›</a>
-                </div>
-                <div class="contact-method">
-                    <h4>Email Enquiries</h4>
-                    <p>Direct Email: <strong>zeloagency.au@hotmail.com</strong></p>
-                    <a href="mailto:zeloagency.au@hotmail.com" class="contact-link">Send Email ›</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            <label>Bio / Profile Introduction</label>
+            <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
 
-    <!-- Roster Pricing Slots -->
-    <section style="background: #fdfdfd; border-top: 1px solid #ddd; padding: 60px 0;">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 10px; color: #111;">Join Our Premium Roster</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 40px;">Select your advertising placement option to launch your portfolio profile live</p>
-            
-            <div class="contact-grid">
-                <!-- Plan 1 -->
-                <div class="contact-method" style="background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 40px 30px; text-align: center; border-radius: 8px;">
-                    <h3 style="font-size: 1.6rem; margin-bottom: 10px; color: #111111;">Standard Listing</h3>
-                    <p style="font-size: 2rem; font-weight: bold; color: #bdaf72; margin-bottom: 15px;">$49 <span style="font-size: 1rem; font-weight: normal; color: #666;">/ month</span></p>
-                    <p style="color: #666; margin-bottom: 30px; font-size: 0.95rem;">Premium grid card placement directory slot active across Australia 24/7.</p>
-                    <a href="https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00" class="contact-link" style="background: #111111; color: #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; width: 80%;">Purchase Slot ›</a>
-                </div>
+            <button type="submit" class="btn-submit" id="submitBtn">Submit Details & Proceed to Payment</button>
+        </form>
+    </div>
 
-                <!-- Plan 2 -->
-                <div class="contact-method" style="background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 40px 30px; text-align: center; border: 2px solid #bdaf72; position: relative; border-radius: 8px;">
-                    <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #bdaf72; color: white; padding: 4px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Highly Requested</span>
-                    <h3 style="font-size: 1.6rem; margin-bottom: 10px; color: #111111;">👑 Spotlight Boost</h3>
-                    <p style="font-size: 2rem; font-weight: bold; color: #bdaf72; margin-bottom: 15px;">$25 <span style="font-size: 1rem; font-weight: normal; color: #666;">/ week</span></p>
-                    <p style="color: #666; margin-bottom: 30px; font-size: 0.95rem;">Lock your portfolio card directly inside our top row grid positions for massive exposure.</p>
-                    <a href="https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01" class="contact-link" style="background: #bdaf72; color: #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; width: 80%;">Boost Profile ›</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- National Geo-Targeted SEO Hub -->
-    <section style="background: #0a0a0a; color: #888888; padding: 40px 20px; font-family: sans-serif; font-size: 0.85rem; border-top: 1px solid #1a1a1a; line-height: 1.8; width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto; text-align: left;">
-            <h4 style="color: #bdaf72; margin-bottom: 15px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Zelo Agency National Coverage Hub</h4>
-            <p style="margin-bottom: 20px;">
-                Zelo Agency is Australia's fastest-growing flat-rate adult advertising listing network, connecting sophisticated clients with premium independent companions and elite private escort providers nationwide. Our directory architecture optimizes macro-visibility, allowing clients to securely locate active independent providers across all major Australian states and metropolitan cities.
-            </p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; color: #666666;">
-                <div>
-                    <strong style="color: #aaaaaa; display: block; margin-bottom: 5px;">📍 Victoria & New South Wales:</strong>
-                    Independent Companions Victoria • Elite Escorts Victoria • Melbourne Companion Roster • Private Companion Roster New South Wales • Independent Roster Sydney • Sydney Escort Advertising.
-                </div>
-                <div>
-                    <strong style="color: #aaaaaa; display: block; margin-bottom: 5px;">📍 Queensland & Western Australia:</strong>
-                    Queensland Adult Providers • Elite Roster Brisbane • Gold Coast Independent Companions • Brisbane Companion Services • Western Australia Private Directory Listings • Perth Escorts.
-                </div>
-                <div>
-                    <strong style="color: #aaaaaa; display: block; margin-bottom: 5px;">📍 South Australia, Northern Territory & National:</strong>
-                    South Australia Elite Companions • Adelaide Private Escorts • Northern Territory Companion Directories • Darwin Independent Providers • Luxury Adult Directory Australia • Flat-Rate Companion Banner Spaces.
-                </div>
-            </div>
-            
-            <p style="margin-top: 20px; font-size: 0.75rem; color: #444444; border-top: 1px solid #151515; padding-top: 15px;">
-                Optimized Content Index: This platform registers public media profiles and verified flat-rate display banners for independent sole-trader adult providers operating legally under Australian state guidelines. Zelo Agency does not operate an agency booking desk and acts solely as an organic search optimization engine.
-            </p>
-        </div>
-    </section>
-
-    <!-- Official Business & Advertisement Footer Hub -->
-    <footer style="background: #111111; color: #ffffff; padding: 40px 20px; text-align: center; font-family: sans-serif; border-top: 1px solid #bdaf72; width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h3 style="color: #bdaf72; margin-bottom: 15px; font-size: 1.4rem;">Zelo Agency Corporate Hub</h3>
-            <p style="color: #aaaaaa; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;">
-                Are you an independent provider looking to update your media assets, or a local adult-industry business wanting high-exposure visibility? Get in touch with our operations desk 24/7.
-            </p>
-            <p style="color: #ffffff; font-size: 0.95rem; margin-bottom: 25px;">
-                📞 <strong>0406 133 210</strong> &nbsp;|&nbsp; 📧 <strong>zeloagency.au@hotmail.com</strong>
-            </p>
-            
-            <div style="margin-bottom: 35px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="mailto:zeloagency.au@hotmail.com" style="background: transparent; color: #ffffff; border: 1px solid #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">📧 Email Support</a>
-                <a href="tel:0406133210" style="background: transparent; color: #ffffff; border: 1px solid #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">📞 Call 0406 133 210</a>
-                <a href="https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02" style="background: #bdaf72; color: #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">🚀 Buy Display Banner Ad (A$99/mo)</a>
-            </div>
-            
-            <p style="color: #666666; font-size: 0.8rem; margin-top: 30px; border-top: 1px solid #222222; padding-top: 20px;">
-                &copy; 2026 Zelo Agency Australia. All rights reserved. 18+ Adult Directory & Flat-Rate Advertising Platform.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Interactive Filtering Script -->
     <script>
-        function filterCity(city, btn) {
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    document.getElementById('onboardForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const data = new FormData(form);
+        const selectedPlan = document.getElementById('plan').value;
+        const btn = document.getElementById('submitBtn');
 
-            const cards = document.querySelectorAll('.talent-card');
-            cards.forEach(card => {
-                if (city === 'all' || card.getAttribute('data-city') === city) {
-                    card.style.display = 'block';
+        btn.innerText = "Uploading Photos & Submitting...";
+        btn.disabled = true;
+
+        fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(async (response) => {
+            if (response.ok) {
+                if (selectedPlan === 'spotlight') {
+                    window.location.href = "https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01";
                 } else {
-                    card.style.display = 'none';
+                    window.location.href = "https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00";
                 }
-            });
-        }
+            } else {
+                alert('There was an issue submitting your application. Please check your inputs and try again.');
+                btn.innerText = "Submit Details & Proceed to Payment";
+                btn.disabled = false;
+            }
+        }).catch(error => {
+            alert('Submission error. Please check your internet connection and try again.');
+            btn.innerText = "Submit Details & Proceed to Payment";
+            btn.disabled = false;
+        });
+    });
     </script>
+
 </body>
 </html>
