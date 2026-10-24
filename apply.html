@@ -27,7 +27,7 @@
             <input type="text" name="Stage_Name" required placeholder="e.g. Alex Rivera">
 
             <label>Select Offering / Listing Tier</label>
-            <select name="Listing_Tier" required>
+            <select name="Listing_Tier" id="listingTier" required>
                 <option value="Standard Monthly Listing ($49/mo)">Standard Monthly Listing ($49 / month)</option>
                 <option value="Spotlight Boost Upgrade ($25/wk)">Spotlight Boost Upgrade ($25 / week)</option>
                 <option value="Premium Banner Advertisement ($99/mo)">Premium Banner Advertisement ($99 / month)</option>
@@ -80,6 +80,21 @@
     </div>
 
     <script>
+        // Auto-select dropdown based on URL query parameter from homepage buttons
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tierParam = urlParams.get('tier');
+            const tierSelect = document.getElementById('listingTier');
+
+            if (tierParam === 'standard') {
+                tierSelect.value = 'Standard Monthly Listing ($49/mo)';
+            } else if (tierParam === 'spotlight') {
+                tierSelect.value = 'Spotlight Boost Upgrade ($25/wk)';
+            } else if (tierParam === 'banner') {
+                tierSelect.value = 'Premium Banner Advertisement ($99/mo)';
+            }
+        });
+
         document.getElementById('onboardForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
