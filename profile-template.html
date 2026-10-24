@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Susanna - Zelo Talent Agency</title>
+    <title>{{Stage_Name}} - Zelo Talent Agency</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -46,6 +46,18 @@
             margin-bottom: 30px;
         }
         .top-image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        /* Selfie Gallery Grid */
+        .selfie-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .selfie-grid img {
             width: 100%;
             height: auto;
             display: block;
@@ -174,63 +186,70 @@
         .about-text { font-size: 14px; line-height: 1.6; color: #444; }
         .about-subtitle { font-style: italic; font-size: 13px; margin-bottom: 15px; color: #555; }
         .see-more { color: #b22222; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; display: inline-block; margin-top: 10px; font-weight: bold; }
-        .rates-container { display: flex; gap: 40px; margin-bottom: 20px; }
+        .rates-container { display: flex; gap: 40px; margin-bottom: 15px; }
         .rate-column { flex: 1; }
         .rate-column h3 { font-size: 15px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
-        .rate-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px; }
+        .rate-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
         .rate-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
         .rate-table td:last-child { text-align: right; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 20px; font-size: 13px; color: #444; list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
-        .availability-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }
+        .rates-note { font-size: 12px; color: #555; margin-bottom: 30px; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 20px; font-size: 13px; color: #444; list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
+        .availability-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
         .availability-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; }
         .availability-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
         .availability-table td:last-child { text-align: right; }
+        .availability-note { font-size: 12px; color: #555; margin-bottom: 30px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; font-size: 12px; margin-bottom: 20px; }
+        .contact-item label { display: block; color: #777; text-transform: uppercase; font-size: 10px; margin-bottom: 3px; letter-spacing: 0.5px; }
+        .contact-item a, .contact-item span { font-weight: bold; color: #b22222; text-decoration: none; }
+        .preferred-method { font-size: 12px; color: #444; margin-bottom: 30px; line-height: 1.5; }
+        .preferred-method strong { color: #111; text-transform: uppercase; font-size: 10px; display: block; margin-bottom: 3px; letter-spacing: 0.5px; color: #777; }
         .subscribe-box { border: 1px solid #333; padding: 20px; margin-top: 25px; margin-bottom: 20px; }
         .subscribe-box h4 { margin: 0 0 8px 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
         .subscribe-box p { margin: 0 0 15px 0; font-size: 12px; color: #666; }
         .subscribe-btn { background: #b22222; color: #fff; border: none; padding: 10px 18px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; font-weight: bold; }
         .tours-note { font-size: 13px; color: #444; margin-bottom: 40px; }
         @media (max-width: 768px) {
-            .top-image-grid, .specs-grid, .rates-container, .services-grid { grid-template-columns: 1fr; }
+            .top-image-grid, .specs-grid, .rates-container, .services-grid, .contact-grid, .selfie-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header matching your layout -->
+    <!-- Header -->
     <div class="site-header">
         <h1>Zelo Agency</h1>
-        <p>Susanna ♥</p>
+        <p>{{Stage_Name}} ♥</p>
     </div>
 
     <div class="profile-container">
 
-        <!-- Top Two Photos Grid (Update src with your image filenames) -->
+        <!-- Top Two Photos Grid -->
         <div class="top-image-grid">
-            <img src="susanna-1.jpg" alt="Susanna Photo 1">
-            <img src="susanna-2.jpg" alt="Susanna Photo 2">
+            <img src="{{Photo_1}}" alt="{{Stage_Name}} Photo 1">
+            <img src="{{Photo_2}}" alt="{{Stage_Name}} Photo 2">
         </div>
 
         <!-- Profile Specs Section -->
         <div class="profile-specs">
             <h2>Profile</h2>
             <div class="specs-grid">
-                <div class="spec-item"><label>Location</label><span>Sydney</span></div>
-                <div class="spec-item"><label>Height</label><span>175 CM</span></div>
-                <div class="spec-item"><label>Eyes</label><span>Hazel</span></div>
-                <div class="spec-item"><label>Email</label><span>N/A</span></div>
+                <div class="spec-item"><label>Location</label><span>{{City}}</span></div>
+                <div class="spec-item"><label>Height</label><span>{{Height}}</span></div>
+                <div class="spec-item"><label>Eyes</label><span>{{Eyes}}</span></div>
+                <div class="spec-item"><label>Email</label><span>{{Email}}</span></div>
                 
-                <div class="spec-item"><label>Age</label><span>24</span></div>
-                <div class="spec-item"><label>Dress Size</label><span>8</span></div>
-                <div class="spec-item"><label>Place of Service</label><span>Incall, Outcall</span></div>
+                <div class="spec-item"><label>Age</label><span>{{Age}}</span></div>
+                <div class="spec-item"><label>Dress Size</label><span>{{Dress_Size}}</span></div>
+                <div class="spec-item"><label>Place of Service</label><span>{{Place_Of_Service}}</span></div>
                 <div class="verified-badge">Photos Verified.</div>
 
-                <div class="spec-item"><label>Phone</label><span>0406 133 210</span></div>
-                <div class="spec-item"><label>Hair</label><span>Brunette</span></div>
-                <div class="spec-item"><label>Body Type</label><span>Athletic</span></div>
+                <div class="spec-item"><label>Phone</label><span>{{Phone}}</span></div>
+                <div class="spec-item"><label>Hair</label><span>{{Hair}}</span></div>
+                <div class="spec-item"><label>Body Type</label><span>{{Body_Type}}</span></div>
             </div>
             
-            <a href="https://wa.me/61406133210?text=Hi%20Zelo%20Agency,%20I'd%20like%20to%20book%20Susanna..." class="whatsapp-cta" target="_blank">Book Susanna via WhatsApp</a>
+            <a href="https://wa.me/{{Phone}}?text=Hi%20Zelo%20Agency,%20I'd%20like%20to%20book%20{{Stage_Name}}..." class="whatsapp-cta" target="_blank">Book {{Stage_Name}} via WhatsApp</a>
         </div>
 
         <!-- BOTTOM SECTIONS -->
@@ -245,15 +264,24 @@
         <details>
             <summary>My Selfie Gallery</summary>
             <div class="accordion-content">
-                <p style="margin: 0; color: #666; font-size: 13px;">Selfie images go here.</p>
+                <div class="selfie-grid">
+                    <img src="{{Selfie_1}}" alt="{{Stage_Name}} Selfie 1">
+                    <img src="{{Selfie_2}}" alt="{{Stage_Name}} Selfie 2">
+                    <img src="{{Selfie_3}}" alt="{{Stage_Name}} Selfie 3">
+                </div>
             </div>
         </details>
 
-        <!-- Accordion: My Video -->
+        <!-- Accordion: My Videos -->
         <details>
-            <summary>My Video</summary>
+            <summary>My Videos</summary>
             <div class="accordion-content">
-                <p style="margin: 0; color: #666; font-size: 13px;">Video embeds go here.</p>
+                <div style="text-align: center;">
+                    <video controls style="max-width: 100%; height: auto; max-height: 400px;">
+                        <source src="{{Video_Url}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </details>
 
@@ -268,12 +296,12 @@
         <!-- About me Section -->
         <div class="section-title">About me</div>
         <div class="about-subtitle">
-            <strong>Sydney's elite talent</strong><br>
+            <strong>A Modern Day Courtesan *</strong><br>
             Independent Companion
         </div>
         <div class="about-text">
-            <p>My name is Susanna.</p>
-            <p>Elegantly presented, sweet and smooth.</p>
+            <p>My name is {{Stage_Name}}.</p>
+            <p>{{Bio}}</p>
             <a href="#more" class="see-more">See More</a>
         </div>
 
@@ -283,19 +311,32 @@
             <div class="rate-column">
                 <h3>Incall</h3>
                 <table class="rate-table">
-                    <tr><td>1 Hour</td><td>$700</td></tr>
-                    <tr><td>2 Hours</td><td>$1200</td></tr>
-                    <tr><td>3 Hours</td><td>$1700</td></tr>
+                    <tr><td>30 minutes</td><td>$800</td><td>NGFE $1000</td></tr>
+                    <tr><td>1 Hour</td><td>$1200</td><td>NGFE $1500</td></tr>
+                    <tr><td>1.5 Hours</td><td>$1600</td><td>NGFE $2000</td></tr>
+                    <tr><td>2 Hours</td><td>$2200</td><td>NGFE $2500</td></tr>
+                    <tr><td>3 Hours</td><td>$3300</td><td>NGFE $3600</td></tr>
+                    <tr><td>4 Hours</td><td>$4000</td><td>GFE/NGFE</td></tr>
                 </table>
             </div>
             <div class="rate-column">
                 <h3>Outcall</h3>
                 <table class="rate-table">
-                    <tr><td>1 Hour</td><td>$700</td></tr>
-                    <tr><td>2 Hours</td><td>$1200</td></tr>
-                    <tr><td>3 Hours</td><td>$1700</td></tr>
+                    <tr><td>2 Hours</td><td>$1000</td><td>Social Rate (2 Hour Min)</td></tr>
+                    <tr><td>1 Hour</td><td>$1200</td><td>NGFE $1500</td></tr>
+                    <tr><td>1.5 Hours</td><td>$1600</td><td>NGFE $2000</td></tr>
+                    <tr><td>2 Hours</td><td>$2200</td><td>NGFE $2500</td></tr>
+                    <tr><td>3 Hours</td><td>$3300</td><td>NGFE $3600</td></tr>
+                    <tr><td>4 Hours</td><td>$4000</td><td>GFE/NGFE</td></tr>
+                    <tr><td>Drinks Date</td><td>$2500</td><td>3 Hours Split Evenly.</td></tr>
+                    <tr><td>Dinner Date</td><td>$3500</td><td>4 Hours Split Evenly.</td></tr>
+                    <tr><td>Extended Dinner</td><td>$5000</td><td>6 Hours Split Evenly.</td></tr>
+                    <tr><td>Overnight</td><td>$9500</td><td>12h: 6h Beauty Sleep</td></tr>
                 </table>
             </div>
+        </div>
+        <div class="rates-note">
+            A $200 deposit per hour booked is required. This can be sent through via Beem It, Bank Transfer or Crypto.
         </div>
 
         <!-- Services Section -->
@@ -303,13 +344,67 @@
         <ul class="services-grid">
             <li>Affectionate cuddling</li>
             <li>Affectionate kissing</li>
+            <li>Anal play – On you</li>
+            <li>B + D – bondage + discipline</li>
+            <li>BBBJ – bare back blow job</li>
+            <li>BDSM</li>
+            <li>BLS – balls licking and sucking</li>
+            <li>Body worship</li>
+            <li>Bondage</li>
+            <li>CBT – cock and ball torture</li>
+            <li>CD – cross dressing</li>
+            <li>Costumes</li>
+            <li>Costumes and role play</li>
+            <li>DATY – oral on me</li>
+            <li>DFK – deep French kissing</li>
+            <li>DT – deep throat</li>
             <li>Dinner companion</li>
+            <li>Dirty talk</li>
+            <li>Disabled Clients</li>
             <li>Doggy style</li>
+            <li>Erotic sensual massage</li>
+            <li>FE – female ejaculation</li>
+            <li>FK – French kissing</li>
+            <li>Fetish</li>
+            <li>Filming</li>
+            <li>Fire and ice – hot/cold BJ</li>
+            <li>Fly Me To You</li>
+            <li>Foot fetish</li>
             <li>GFE – girlfriend experience</li>
+            <li>HJ – hand job</li>
+            <li>Happy ending</li>
             <li>Kissing</li>
+            <li>Light bondage</li>
+            <li>Light spanking</li>
+            <li>MSOG – multiple shots on goal</li>
+            <li>Maid</li>
+            <li>Massage</li>
+            <li>Masturbation</li>
             <li>Multiple positions</li>
+            <li>Mutual masturbation</li>
+            <li>Mutual natural oral</li>
+            <li>Nurse</li>
+            <li>Overnight stays</li>
+            <li>PSE – porn star experience</li>
+            <li>PSE – with filming</li>
             <li>Passionate kissing</li>
+            <li>Photography</li>
+            <li>Rimming – On me</li>
+            <li>Role play</li>
+            <li>School girl</li>
+            <li>Secretary</li>
+            <li>Sex toys</li>
             <li>Sexy lingerie</li>
+            <li>Sexy shower for 2</li>
+            <li>Social escort</li>
+            <li>Squirting</li>
+            <li>Strap on – on you</li>
+            <li>Strip tease</li>
+            <li>Travel Companion</li>
+            <li>blindfold</li>
+            <li>companionship</li>
+            <li>erotic teasing</li>
+            <li>lunch date</li>
         </ul>
 
         <!-- When can we meet? Section -->
@@ -323,27 +418,70 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Monday</td><td>12:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Tuesday</td><td>12:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Wednesday</td><td>12:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Thursday</td><td>12:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Friday</td><td>12:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Saturday</td><td>12:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Sunday</td><td>12:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Monday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Tuesday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Wednesday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Thursday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Friday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Saturday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Sunday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
             </tbody>
         </table>
+        <div class="availability-note">
+            Flexible hours by appointment. Pre-bookings are recommended to avoid disappointment.
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section-title">Contact</div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <label>Telephone ⓘ SMS Only</label>
+                <span>{{Phone}}</span>
+            </div>
+            <div class="contact-item">
+                <label>E-Mail ⓘ</label>
+                <a href="mailto:{{Email}}">{{Email}}</a>
+            </div>
+            <div class="contact-item">
+                <label>My Website</label>
+                <a href="{{Website_Url}}" target="_blank">my website</a>
+            </div>
+            <div class="contact-item">
+                <label>Follow Me On</label>
+                <a href="{{Twitter_Url}}" target="_blank">twitter</a>
+            </div>
+            <div class="contact-item">
+                <label>Follow Me On</label>
+                <a href="{{Instagram_Url}}" target="_blank">instagram</a>
+            </div>
+        </div>
+
+        <div class="preferred-method">
+            <strong>Preferred Contact Method</strong>
+            Text Message: {{Phone}}<br>
+            Booking Form:zeloagency.com.au/apply
+        </div>
+
+        <!-- Digital Services Section -->
+        <div class="section-title">Digital Services</div>
+        <div class="contact-grid" style="grid-template-columns: 1fr;">
+            <div class="contact-item">
+                <label>WhatsApp 💬</label>
+                <span>{{Phone}}</span>
+            </div>
+        </div>
 
         <!-- Subscribe Box -->
         <div class="subscribe-box">
             <h4>Subscribe to my availability</h4>
-            <p>Be notified when Susanna becomes available for bookings on short notice.</p>
+            <p>Be notified when {{Stage_Name}} becomes available for bookings on short notice.</p>
             <button class="subscribe-btn">Subscribe to my availability</button>
         </div>
 
         <!-- Tours Section -->
         <div class="section-title">Tours</div>
         <div class="tours-note">
-            Currently no tours planned. Subscribe to receive updates when <strong>Susanna</strong> plans a tour to your city.
+            Currently no tours planned. Subscribe to receive updates when <strong>{{Stage_Name}}</strong> plans a tour to your city.
         </div>
 
     </div>
