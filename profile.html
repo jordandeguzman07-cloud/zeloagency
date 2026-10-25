@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -150,8 +150,36 @@
             border-top: 1px solid #e0e0e0;
             background: #fafafa;
         }
+        .section-title {
+            font-size: 20px;
+            font-weight: normal;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: serif;
+        }
+        .about-text { font-size: 14px; line-height: 1.6; color: #444; }
+        .rates-container { display: flex; gap: 40px; margin-bottom: 15px; }
+        .rate-column { flex: 1; }
+        .rate-column h3 { font-size: 15px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
+        .rate-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
+        .rate-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .rate-table td:last-child { text-align: right; }
+        .rates-note { font-size: 12px; color: #555; margin-bottom: 30px; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 20px; font-size: 13px; color: #444; list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
+        .availability-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
+        .availability-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; }
+        .availability-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .availability-table td:last-child { text-align: right; }
+        .availability-note { font-size: 12px; color: #555; margin-bottom: 30px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; font-size: 12px; margin-bottom: 20px; }
+        .contact-item label { display: block; color: #777; text-transform: uppercase; font-size: 10px; margin-bottom: 3px; letter-spacing: 0.5px; }
+        .contact-item a, .contact-item span { font-weight: bold; color: #b22222; text-decoration: none; }
         @media (max-width: 768px) {
-            .top-image-grid, .specs-grid, .selfie-grid { grid-template-columns: 1fr; }
+            .top-image-grid, .specs-grid, .rates-container, .services-grid, .contact-grid, .selfie-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -202,6 +230,55 @@
                 </div>
             </div>
         </details>
+
+        <!-- About Section -->
+        <div class="section-title">About Me</div>
+        <p class="about-text">Sophisticated, genuine, and attentive. Providing elite companion experiences across Sydney with complete discretion and professionalism.</p>
+
+        <!-- Rates Section -->
+        <div class="section-title">Rates & Tariffs</div>
+        <div class="rates-container">
+            <div class="rate-column">
+                <h3>Incall Rates</h3>
+                <table class="rate-table">
+                    <tr><td>1 Hour</td><td>$350</td></tr>
+                    <tr><td>2 Hours</td><td>$600</td></tr>
+                    <tr><td>Overnight</td><td>$1,800</td></tr>
+                </table>
+            </div>
+            <div class="rate-column">
+                <h3>Outcall Rates</h3>
+                <table class="rate-table">
+                    <tr><td>1 Hour</td><td>$400</td></tr>
+                    <tr><td>2 Hours</td><td>$700</td></tr>
+                    <tr><td>Overnight</td><td>$2,200</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="section-title">Services</div>
+        <ul class="services-grid">
+            <li>Dinner Dates</li>
+            <li>Social Events</li>
+            <li>Incall Bookings</li>
+            <li>Outcall Bookings</li>
+            <li>Travel Companion</li>
+            <li>VIP Hosting</li>
+        </ul>
+
+        <!-- Contact Section -->
+        <div class="section-title">Contact & Booking</div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <label>Direct Phone</label>
+                <span>0406 133 210</span>
+            </div>
+            <div class="contact-item">
+                <label>Email Agency</label>
+                <a href="mailto:admin@zeloagency.com.au">admin@zeloagency.com.au</a>
+            </div>
+        </div>
 
     </div>
 
