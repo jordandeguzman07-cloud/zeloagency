@@ -1,4 +1,4 @@
-f<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,8 +51,8 @@ f<!DOCTYPE html>
             display: block;
             object-fit: cover;
         }
-        /* Selfie Gallery Grid */
-        .selfie-grid {
+        /* Gallery Grids */
+        .selfie-grid, .video-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
@@ -62,6 +62,13 @@ f<!DOCTYPE html>
             height: auto;
             display: block;
             object-fit: cover;
+        }
+        .video-grid video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            background: #000;
         }
         /* Profile Details Box */
         .profile-specs {
@@ -168,18 +175,12 @@ f<!DOCTYPE html>
         .rate-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
         .rate-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
         .rate-table td:last-child { text-align: right; }
-        .rates-note { font-size: 12px; color: #555; margin-bottom: 30px; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 20px; font-size: 13px; color: #444; list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
-        .availability-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
-        .availability-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; }
-        .availability-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
-        .availability-table td:last-child { text-align: right; }
-        .availability-note { font-size: 12px; color: #555; margin-bottom: 30px; }
         .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; font-size: 12px; margin-bottom: 20px; }
         .contact-item label { display: block; color: #777; text-transform: uppercase; font-size: 10px; margin-bottom: 3px; letter-spacing: 0.5px; }
         .contact-item a, .contact-item span { font-weight: bold; color: #b22222; text-decoration: none; }
         @media (max-width: 768px) {
-            .top-image-grid, .specs-grid, .rates-container, .services-grid, .contact-grid, .selfie-grid { grid-template-columns: 1fr; }
+            .top-image-grid, .specs-grid, .rates-container, .services-grid, .contact-grid, .selfie-grid, .video-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -220,6 +221,16 @@ f<!DOCTYPE html>
             
             <a id="whatsapp-link" href="#" class="whatsapp-cta" target="_blank">Book <span id="cta-name">Talent</span> via WhatsApp</a>
         </div>
+
+        <!-- Accordion: Video Gallery -->
+        <details>
+            <summary>Video Gallery</summary>
+            <div class="accordion-content">
+                <div class="video-grid" id="video-container">
+                    <!-- Videos populated dynamically -->
+                </div>
+            </div>
+        </details>
 
         <!-- Accordion: My Selfie Gallery -->
         <details>
@@ -299,6 +310,9 @@ f<!DOCTYPE html>
                 body: "Sexy",
                 photo1: "images/susanna/1.jpg",
                 photo2: "images/susanna/2.jpg",
+                videos: [
+                    // Add video file paths here when available, e.g. "images/susanna/vid1.mp4"
+                ],
                 selfies: [
                     "images/susanna/3.jpg",
                     "images/susanna/4.jpg",
@@ -329,6 +343,14 @@ f<!DOCTYPE html>
             document.getElementById('spec-hair').innerText = p.hair;
             document.getElementById('spec-body').innerText = p.body;
             document.getElementById('whatsapp-link').href = p.whatsapp;
+
+            // Populate Video Gallery dynamically
+            const videoContainer = document.getElementById('video-container');
+            if (p.videos && p.videos.length > 0) {
+                videoContainer.innerHTML = p.videos.map(vid => `<video controls src="${vid}"></video>`).join('');
+            } else {
+                videoContainer.innerHTML = '<p style="font-size: 12px; color: #777; grid-column: span 3; text-align: center; padding: 10px;">Videos coming soon.</p>';
+            }
 
             // Populate Selfie Gallery dynamically
             const selfieContainer = document.getElementById('selfie-container');
