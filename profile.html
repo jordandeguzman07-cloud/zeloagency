@@ -169,18 +169,39 @@
             font-family: serif;
         }
         .about-text { font-size: 14px; line-height: 1.6; color: #444; }
+        
+        /* Rates Tables */
         .rates-container { display: flex; gap: 40px; margin-bottom: 15px; }
         .rate-column { flex: 1; }
-        .rate-column h3 { font-size: 15px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
+        .rate-column h3 { font-size: 15px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; font-family: serif; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
         .rate-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
         .rate-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
-        .rate-table td:last-child { text-align: right; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 20px; font-size: 13px; color: #444; list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
+        .rate-table td:nth-child(2) { text-align: right; padding-right: 15px; }
+        .rate-table td:last-child { text-align: right; color: #555; }
+
+        /* Services Grid */
+        .services-grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 20px; font-size: 13px; color: #444; list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
+
+        /* Availability Table */
+        .availability-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px; }
+        .availability-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; text-transform: uppercase; font-size: 11px; color: #777; }
+        .availability-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .availability-table td:nth-child(2) { text-align: left; }
+        .availability-table td:last-child { text-align: right; }
+        .availability-note { font-size: 12px; color: #555; margin-bottom: 30px; }
+
+        /* Subscription & Box Styling */
+        .subscribe-box { border: 1px solid #e0e0e0; padding: 25px; margin-top: 25px; margin-bottom: 30px; background: #fff; }
+        .subscribe-box h4 { margin: 0 0 8px 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-family: serif; }
+        .subscribe-box p { margin: 0 0 15px 0; font-size: 12px; color: #666; }
+        .subscribe-btn { background: #b22222; color: #fff; border: none; padding: 10px 18px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; font-weight: bold; }
+
         .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; font-size: 12px; margin-bottom: 20px; }
         .contact-item label { display: block; color: #777; text-transform: uppercase; font-size: 10px; margin-bottom: 3px; letter-spacing: 0.5px; }
         .contact-item a, .contact-item span { font-weight: bold; color: #b22222; text-decoration: none; }
+
         @media (max-width: 768px) {
-            .top-image-grid, .specs-grid, .rates-container, .services-grid, .contact-grid, .selfie-grid, .video-grid { grid-template-columns: 1fr; }
+            .top-image-grid, .specs-grid, .rates-container, .services-grid-3col, .contact-grid, .selfie-grid, .video-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -247,39 +268,151 @@
         <p class="about-text">Sophisticated, genuine, and attentive. Providing elite companion experiences across Sydney with complete discretion and professionalism.</p>
 
         <!-- Rates Section -->
-        <div class="section-title">Rates & Tariffs</div>
+        <div class="section-title">Rates</div>
         <div class="rates-container">
             <div class="rate-column">
-                <h3>Incall Rates</h3>
+                <h3>Incall</h3>
                 <table class="rate-table">
-                    <tr><td>1 Hour</td><td>$350</td></tr>
-                    <tr><td>2 Hours</td><td>$600</td></tr>
-                    <tr><td>Overnight</td><td>$1,800</td></tr>
+                    <tr><td>30 minutes</td><td>$800</td><td>NGFE $1000</td></tr>
+                    <tr><td>1 Hour</td><td>$1200</td><td>NGFE $1500</td></tr>
+                    <tr><td>1.5 Hours</td><td>$1600</td><td>NGFE $2000</td></tr>
+                    <tr><td>2 Hours</td><td>$2200</td><td>NGFE $2500</td></tr>
+                    <tr><td>3 Hours</td><td>$3300</td><td>NGFE $3600</td></tr>
+                    <tr><td>4 Hours</td><td>$4000</td><td>GFE/NGFE</td></tr>
                 </table>
             </div>
             <div class="rate-column">
-                <h3>Outcall Rates</h3>
+                <h3>Outcall</h3>
                 <table class="rate-table">
-                    <tr><td>1 Hour</td><td>$400</td></tr>
-                    <tr><td>2 Hours</td><td>$700</td></tr>
-                    <tr><td>Overnight</td><td>$2,200</td></tr>
+                    <tr><td>2 Hours</td><td>$1000</td><td>Social Rate (2 Hour Minimum)</td></tr>
+                    <tr><td>1 Hour</td><td>$1200</td><td>NGFE $1500</td></tr>
+                    <tr><td>1.5 Hours</td><td>$1600</td><td>NGFE $2000</td></tr>
+                    <tr><td>2 Hours</td><td>$2200</td><td>NGFE $2500</td></tr>
+                    <tr><td>3 Hours</td><td>$3300</td><td>NGFE $3600</td></tr>
+                    <tr><td>4 Hours</td><td>$4000</td><td>GFE/NGFE</td></tr>
+                    <tr><td>Drinks Date</td><td>$2500</td><td>3 Hours Split Evenly.</td></tr>
+                    <tr><td>Dinner Date</td><td>$3500</td><td>4 Hours Split Evenly.</td></tr>
+                    <tr><td>Extended Dinner Date</td><td>$5000</td><td>6 Hours Split Evenly.</td></tr>
+                    <tr><td>Overnight</td><td>$9500</td><td>12 Hours: 6 Hours Beauty Sleep</td></tr>
                 </table>
             </div>
         </div>
 
         <!-- Services Section -->
         <div class="section-title">Services</div>
-        <ul class="services-grid">
-            <li>Dinner Dates</li>
-            <li>Social Events</li>
-            <li>Incall Bookings</li>
-            <li>Outcall Bookings</li>
-            <li>Travel Companion</li>
-            <li>VIP Hosting</li>
-        </ul>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 20px; font-size: 13px; color: #444; margin-bottom: 20px;">
+            <ul style="padding-left: 20px; margin: 0;">
+                <li>Affectionate cuddling</li>
+                <li>B + D – bondage + discipline</li>
+                <li>BLS – balls licking and sucking</li>
+                <li>CBT – cock and ball torture</li>
+                <li>Costumes and role play</li>
+                <li>DT – deep throat</li>
+                <li>Disabled Clients</li>
+                <li>FE – female ejaculation (squirt)</li>
+                <li>Filming</li>
+                <li>Foot fetish</li>
+                <li>Happy ending</li>
+                <li>Light spanking</li>
+                <li>Massage</li>
+                <li>Mutual masturbation</li>
+                <li>Overnight stays</li>
+                <li>Passionate kissing</li>
+                <li>Role play</li>
+                <li>Sex toys</li>
+                <li>Social escort</li>
+                <li>Strip tease</li>
+                <li>companionship</li>
+            </ul>
+            <ul style="padding-left: 20px; margin: 0;">
+                <li>Affectionate kissing</li>
+                <li>BBBJ – bare back blow job</li>
+                <li>Body worship</li>
+                <li>CD – cross dressing</li>
+                <li>DATY – oral on me</li>
+                <li>Dinner companion</li>
+                <li>Doggy style</li>
+                <li>FK – French kissing</li>
+                <li>Fire and ice – hot and cold BJ</li>
+                <li>GFE – girlfriend experience</li>
+                <li>Kissing</li>
+                <li>MSOG – multiple shots on goal</li>
+                <li>Masturbation</li>
+                <li>Mutual natural oral</li>
+                <li>PSE – porn star experience</li>
+                <li>Photography</li>
+                <li>School girl</li>
+                <li>Sexy lingerie</li>
+                <li>Squirting</li>
+                <li>Travel Companion</li>
+                <li>erotic teasing</li>
+            </ul>
+            <ul style="padding-left: 20px; margin: 0;">
+                <li>Anal play – On you</li>
+                <li>BDSM</li>
+                <li>Bondage</li>
+                <li>Costumes</li>
+                <li>DFK – deep French kissing</li>
+                <li>Dirty talk</li>
+                <li>Erotic sensual massage</li>
+                <li>Fetish</li>
+                <li>Fly Me To You</li>
+                <li>HJ – hand job</li>
+                <li>Light bondage</li>
+                <li>Maid</li>
+                <li>Multiple positions</li>
+                <li>Nurse</li>
+                <li>PSE – porn star experience – With filming</li>
+                <li>Rimming – On me</li>
+                <li>Secretary</li>
+                <li>Sexy shower for 2</li>
+                <li>Strap on – on you</li>
+                <li>blindfold</li>
+                <li>lunch date</li>
+            </ul>
+        </div>
+        <p style="font-size: 13px; color: #555; margin-bottom: 40px;">Get in touch to tailor your perfect booking!</p>
+
+        <!-- Availability Section -->
+        <div class="section-title">When can we meet?</div>
+        <table class="availability-table">
+            <thead>
+                <tr>
+                    <th>Weekday</th>
+                    <th>From</th>
+                    <th>Until</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Monday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Tuesday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Wednesday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Thursday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Friday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Saturday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td>Sunday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+            </tbody>
+        </table>
+        <p class="availability-note">• Flexible hours by appointment.<br>Pre-bookings are recommended to avoid disappointment.</p>
+
+        <div class="subscribe-box">
+            <h4>Subscribe to my availability</h4>
+            <p>Be notified when <span id="sub-name">Susanna</span> becomes available for bookings on short notice.</p>
+            <button class="subscribe-btn" onclick="alert('Subscription feature active.')">Subscribe to my availability</button>
+        </div>
+
+        <!-- Tours Section -->
+        <div class="section-title">Tours</div>
+        <p style="font-size: 13px; color: #444; margin-bottom: 15px;">Currently no tours planned. Subscribe to receive updates when <span id="tour-name">Susanna</span> plans a tour to your city</p>
+        
+        <div class="subscribe-box">
+            <h4>Subscribe to my tours in your city</h4>
+            <p>Be notified when <span id="tour-sub-name">Susanna</span> tours to your selected cities</p>
+            <button class="subscribe-btn" onclick="alert('Tour subscription feature active.')">Subscribe to my tours</button>
+        </div>
 
         <!-- Contact Section -->
-        <div class="section-title">Contact & Booking</div>
+        <div class="section-title">Contact</div>
         <div class="contact-grid">
             <div class="contact-item">
                 <label>Direct Phone</label>
@@ -311,7 +444,7 @@
                 photo1: "images/susanna/1.jpg",
                 photo2: "images/susanna/2.jpg",
                 videos: [
-                    // Add video file paths here when available, e.g. "images/susanna/vid1.mp4"
+                    // Add video file paths here when available
                 ],
                 selfies: [
                     "images/susanna/3.jpg",
@@ -331,6 +464,9 @@
             document.getElementById('page-title').innerText = p.name + " | Zelo Agency";
             document.getElementById('header-name').innerText = p.name + " — " + p.status;
             document.getElementById('cta-name').innerText = p.name;
+            document.getElementById('sub-name').innerText = p.name;
+            document.getElementById('tour-name').innerText = p.name;
+            document.getElementById('tour-sub-name').innerText = p.name;
             document.getElementById('profile-photo-1').src = p.photo1;
             document.getElementById('profile-photo-2').src = p.photo2;
             document.getElementById('spec-city').innerText = p.city;
