@@ -198,7 +198,7 @@
             <summary>My Selfie Gallery</summary>
             <div class="accordion-content">
                 <div class="selfie-grid" id="selfie-container">
-                    <!-- Selfies populated dynamically or placeholder -->
+                    <!-- Selfies populated dynamically -->
                 </div>
             </div>
         </details>
@@ -219,8 +219,13 @@
                 phone: "0406 133 210",
                 hair: "Dark",
                 body: "Sexy",
-                photo1: "images/susanna-1.jpg",
-                photo2: "images/susanna-2.jpg",
+                photo1: "images/susanna/1.jpg",
+                photo2: "images/susanna/2.jpg",
+                selfies: [
+                    "images/susanna/3.jpg",
+                    "images/susanna/4.jpg",
+                    "images/susanna/5.jpg"
+                ],
                 whatsapp: "https://wa.me/61406133210"
             }
         };
@@ -246,6 +251,12 @@
             document.getElementById('spec-hair').innerText = p.hair;
             document.getElementById('spec-body').innerText = p.body;
             document.getElementById('whatsapp-link').href = p.whatsapp;
+
+            // Populate Selfie Gallery dynamically
+            const selfieContainer = document.getElementById('selfie-container');
+            if (p.selfies && p.selfies.length > 0) {
+                selfieContainer.innerHTML = p.selfies.map(img => `<img src="${img}" alt="Selfie Gallery">`).join('');
+            }
         } else {
             document.getElementById('header-name').innerText = "Profile Not Found";
         }
