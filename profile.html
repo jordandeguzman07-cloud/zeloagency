@@ -464,12 +464,14 @@
                 photo2: "images/susanna/2.jpg",
                 selfie1: "images/susanna/3.jpg",
                 selfie2: "images/susanna/4.jpg",
-                selfie3: "images/susanna/5.jpg"
+                selfie3: "images/susanna/5.jpg",
+                video: "images/susanna/video.mp4"
             }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
-        const talentKey = urlParams.get('name') ? urlParams.get('name').toLowerCase() : '';
+        // Default to 'susanna' if no parameter is provided in the URL
+        const talentKey = urlParams.get('name') ? urlParams.get('name').toLowerCase() : 'susanna';
         const talent = talentDatabase[talentKey];
 
         if (talent) {
@@ -504,6 +506,12 @@
             if(talent.selfie1) document.getElementById('selfie-1').src = talent.selfie1;
             if(talent.selfie2) document.getElementById('selfie-2').src = talent.selfie2;
             if(talent.selfie3) document.getElementById('selfie-3').src = talent.selfie3;
+
+            if(talent.video) {
+                const videoElem = document.getElementById('video-source');
+                videoElem.src = talent.video;
+                videoElem.parentElement.load();
+            }
         } else {
             document.getElementById('page-title').textContent = "Profile Not Found | Zelo Agency";
             document.getElementById('header-name').textContent = "Profile Not Found";
