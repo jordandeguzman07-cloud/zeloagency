@@ -120,28 +120,6 @@
             letter-spacing: 1px;
             font-weight: bold;
         }
-        /* Bottom Sections Styling */
-        .vote-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            padding: 12px 0;
-            margin-bottom: 25px;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .vote-btn {
-            border: 1px solid #333;
-            padding: 8px 16px;
-            text-decoration: none;
-            color: #333;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
         details {
             border: 1px solid #e0e0e0;
             margin-bottom: 10px;
@@ -244,20 +222,12 @@
                 <div class="spec-item"><label>Place of Service</label><span id="spec-service">Incall, Outcall</span></div>
                 <div class="verified-badge">Photos Verified.</div>
 
-                <div class="spec-item"><label>Phone</label><span id="spec-phone">0410 864 180</span></div>
+                <div class="spec-item"><label>Phone</label><span id="spec-phone">0406 133 210</span></div>
                 <div class="spec-item"><label>Hair</label><span id="spec-hair">Dark</span></div>
                 <div class="spec-item"><label>Body Type</label><span id="spec-body">Sexy</span></div>
             </div>
             
             <a id="whatsapp-link" href="#" class="whatsapp-cta" target="_blank">Book <span id="cta-name">Talent</span> via WhatsApp</a>
-        </div>
-
-        <!-- BOTTOM SECTIONS -->
-
-        <!-- Vote Bar -->
-        <div class="vote-bar">
-            <span>Would you like to vote for your favourite image in my gallery?</span>
-            <a href="#vote" class="vote-btn">Click here to vote now</a>
         </div>
 
         <!-- Accordion: My Selfie Gallery -->
@@ -436,11 +406,11 @@
         <div class="contact-grid">
             <div class="contact-item">
                 <label>Telephone ⓘ SMS Only</label>
-                <span id="contact-phone">0410 864 180</span>
+                <span id="contact-phone">0406 133 210</span>
             </div>
             <div class="contact-item">
                 <label>E-Mail ⓘ</label>
-                <a id="contact-email" href="mailto:jordandeguzman07@gmail.com">jordandeguzman07@gmail.com</a>
+                <a id="contact-email" href="mailto:admin@zeloagency.com.au">admin@zeloagency.com.au</a>
             </div>
             <div class="contact-item">
                 <label>My Website</label>
@@ -458,7 +428,7 @@
 
         <div class="preferred-method">
             <strong>Preferred Contact Method</strong>
-            Text Message: <span id="pref-phone">0410 864 180</span><br>
+            Text Message: <span id="pref-phone">0406 133 210</span><br>
             Booking Form: zeloagency.com.au/apply
         </div>
 
@@ -467,7 +437,7 @@
         <div class="contact-grid" style="grid-template-columns: 1fr;">
             <div class="contact-item">
                 <label>WhatsApp 💬</label>
-                <span id="digital-phone">0410 864 180</span>
+                <span id="digital-phone">0406 133 210</span>
             </div>
         </div>
 
@@ -499,8 +469,8 @@
                 dress: "6",
                 body: "Sexy",
                 service: "Incall, Outcall",
-                phone: "0410 864 180",
-                email: "jordandeguzman07@gmail.com",
+                phone: "0406 133 210",
+                email: "admin@zeloagency.com.au",
                 bio: "I am delighted to join Zelo Agency!",
                 photo1: "images/susanna/1.jpg",
                 photo2: "images/susanna/2.jpg",
@@ -515,8 +485,8 @@
         const talent = talentDatabase[talentKey];
 
         if (talent) {
-            document.getElementById('page-title').textContent = `${talent.name} - Zelo Talent Agency`;
-            document.getElementById('header-name').textContent = talent.name;
+            document.getElementById('page-title').textContent = `${talent.name} (Display Only) - Zelo Talent Agency`;
+            document.getElementById('header-name').textContent = `${talent.name} — Display Only`;
             document.getElementById('cta-name').textContent = talent.name;
             document.getElementById('bio-name').textContent = talent.name;
             document.getElementById('sub-name').textContent = talent.name;
