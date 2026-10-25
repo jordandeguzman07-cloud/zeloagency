@@ -150,45 +150,8 @@
             border-top: 1px solid #e0e0e0;
             background: #fafafa;
         }
-        .section-title {
-            font-size: 20px;
-            font-weight: normal;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 8px;
-            margin-top: 45px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: serif;
-        }
-        .about-text { font-size: 14px; line-height: 1.6; color: #444; }
-        .about-subtitle { font-style: italic; font-size: 13px; margin-bottom: 15px; color: #555; }
-        .see-more { color: #b22222; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; display: inline-block; margin-top: 10px; font-weight: bold; }
-        .rates-container { display: flex; gap: 40px; margin-bottom: 15px; }
-        .rate-column { flex: 1; }
-        .rate-column h3 { font-size: 15px; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
-        .rate-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
-        .rate-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
-        .rate-table td:last-child { text-align: right; }
-        .rates-note { font-size: 12px; color: #555; margin-bottom: 30px; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 20px; font-size: 13px; color: #444; list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
-        .availability-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
-        .availability-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; }
-        .availability-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
-        .availability-table td:last-child { text-align: right; }
-        .availability-note { font-size: 12px; color: #555; margin-bottom: 30px; }
-        .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; font-size: 12px; margin-bottom: 20px; }
-        .contact-item label { display: block; color: #777; text-transform: uppercase; font-size: 10px; margin-bottom: 3px; letter-spacing: 0.5px; }
-        .contact-item a, .contact-item span { font-weight: bold; color: #b22222; text-decoration: none; }
-        .preferred-method { font-size: 12px; color: #444; margin-bottom: 30px; line-height: 1.5; }
-        .preferred-method strong { color: #111; text-transform: uppercase; font-size: 10px; display: block; margin-bottom: 3px; letter-spacing: 0.5px; color: #777; }
-        .subscribe-box { border: 1px solid #333; padding: 20px; margin-top: 25px; margin-bottom: 20px; }
-        .subscribe-box h4 { margin: 0 0 8px 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
-        .subscribe-box p { margin: 0 0 15px 0; font-size: 12px; color: #666; }
-        .subscribe-btn { background: #b22222; color: #fff; border: none; padding: 10px 18px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; font-weight: bold; }
-        .tours-note { font-size: 13px; color: #444; margin-bottom: 40px; }
         @media (max-width: 768px) {
-            .top-image-grid, .specs-grid, .rates-container, .services-grid, .contact-grid, .selfie-grid { grid-template-columns: 1fr; }
+            .top-image-grid, .specs-grid, .selfie-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -232,4 +195,60 @@
 
         <!-- Accordion: My Selfie Gallery -->
         <details>
-            <summary>My Selfie Gallery</
+            <summary>My Selfie Gallery</summary>
+            <div class="accordion-content">
+                <div class="selfie-grid" id="selfie-container">
+                    <!-- Selfies populated dynamically or placeholder -->
+                </div>
+            </div>
+        </details>
+
+    </div>
+
+    <script>
+        // Talent Database Mapping
+        const profiles = {
+            "susanna": {
+                name: "Susanna",
+                city: "Sydney",
+                height: "163 cm",
+                eyes: "Green",
+                age: "22",
+                dress: "6",
+                service: "Incall, Outcall",
+                phone: "0406 133 210",
+                hair: "Dark",
+                body: "Sexy",
+                photo1: "images/susanna-1.jpg",
+                photo2: "images/susanna-2.jpg",
+                whatsapp: "https://wa.me/61406133210"
+            }
+        };
+
+        // Extract query parameter ?name=
+        const urlParams = new URLSearchParams(window.location.search);
+        const talentKey = (urlParams.get('name') || '').toLowerCase();
+
+        if (profiles[talentKey]) {
+            const p = profiles[talentKey];
+            document.getElementById('page-title').innerText = p.name + " | Zelo Agency";
+            document.getElementById('header-name').innerText = p.name;
+            document.getElementById('cta-name').innerText = p.name;
+            document.getElementById('profile-photo-1').src = p.photo1;
+            document.getElementById('profile-photo-2').src = p.photo2;
+            document.getElementById('spec-city').innerText = p.city;
+            document.getElementById('spec-height').innerText = p.height;
+            document.getElementById('spec-eyes').innerText = p.eyes;
+            document.getElementById('spec-age').innerText = p.age;
+            document.getElementById('spec-dress').innerText = p.dress;
+            document.getElementById('spec-service').innerText = p.service;
+            document.getElementById('spec-phone').innerText = p.phone;
+            document.getElementById('spec-hair').innerText = p.hair;
+            document.getElementById('spec-body').innerText = p.body;
+            document.getElementById('whatsapp-link').href = p.whatsapp;
+        } else {
+            document.getElementById('header-name').innerText = "Profile Not Found";
+        }
+    </script>
+</body>
+</html>
