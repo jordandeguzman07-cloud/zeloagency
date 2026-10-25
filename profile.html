@@ -210,6 +210,7 @@
         const profiles = {
             "susanna": {
                 name: "Susanna",
+                status: "Display Only",
                 city: "Sydney",
                 height: "163 cm",
                 eyes: "Green",
@@ -237,7 +238,7 @@
         if (profiles[talentKey]) {
             const p = profiles[talentKey];
             document.getElementById('page-title').innerText = p.name + " | Zelo Agency";
-            document.getElementById('header-name').innerText = p.name;
+            document.getElementById('header-name').innerText = p.name + " — " + p.status;
             document.getElementById('cta-name').innerText = p.name;
             document.getElementById('profile-photo-1').src = p.photo1;
             document.getElementById('profile-photo-2').src = p.photo2;
