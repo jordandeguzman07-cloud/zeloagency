@@ -163,7 +163,7 @@
             <label>Bio / Profile Introduction</label>
             <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
 
-            <button type="submit" class="btn-submit" id="submitBtn">Submit Application for Review</button>
+            <button type="submit" class="btn-submit" id="submitBtn">Submit Application & Continue to Stripe</button>
         </form>
     </div>
 
@@ -186,7 +186,7 @@
         document.getElementById('onboardForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Submitting Application...';
+            submitBtn.textContent = 'Submitting & Redirecting to Stripe...';
             submitBtn.disabled = true;
 
             const formData = new FormData(this);
@@ -205,17 +205,13 @@
                     body: formData
                 });
 
-                // Replace the form card content with a success message
-                document.querySelector('.form-card').innerHTML = `
-                    <h1>Application Received</h1>
-                    <p style="color: #fff; margin-top: 20px; font-size: 1.05rem;">
-                        Thank you for applying to Zelo Agency. Your profile, rates, services, and photos have been sent to our team for review. We will contact you via email shortly.
-                    </p>
-                `;
+                // Immediately redirect to your verified Stripe 14-day trial payment link
+                window.location.href = 'https://buy.stripe.com/7sYBj3efG6RJcHc1NR8ww00';
+
             } catch (error) {
                 console.error('Webhook submission error:', error);
-                submitBtn.textContent = 'Submission Failed - Try Again';
-                submitBtn.disabled = false;
+                // Fallback redirect to Stripe even if webhook hiccups, ensuring user flow is never blocked
+                window.location.href = 'https://buy.stripe.com/7sYBj3efG6RJcHc1NR8ww00';
             }
         });
     </script>
