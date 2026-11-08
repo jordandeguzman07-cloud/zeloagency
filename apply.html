@@ -15,23 +15,38 @@
     <title>Apply / Onboard | Zelo Talent Agency</title>
     <style>
         body { background: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; padding: 40px 20px; text-align: center; }
-        .form-card { max-width: 600px; margin: 0 auto; background: #141414; padding: 30px; border-radius: 8px; border: 1px solid #d4af37; text-align: left; }
+        .form-card { max-width: 650px; margin: 0 auto; background: #141414; padding: 30px; border-radius: 8px; border: 1px solid #d4af37; text-align: left; }
         h1 { color: #d4af37; font-size: 1.8rem; margin-bottom: 10px; text-align: center; }
         p { color: #aaa; margin-bottom: 25px; text-align: center; font-size: 0.95rem; }
         label { display: block; margin-top: 15px; color: #d4af37; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
         input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; background: #222; border: 1px solid #333; color: #fff; border-radius: 4px; box-sizing: border-box; }
         input[type="file"] { background: #1a1a1a; padding: 10px; border: 1px dashed #d4af37; cursor: pointer; }
-        .btn-submit { display: block; width: 100%; margin-top: 25px; padding: 14px; background: linear-gradient(135deg, #F3E5AB, #D4AF37, #AA771C); color: #000; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .section-header { color: #d4af37; font-size: 1.1rem; border-bottom: 1px solid #333; padding-bottom: 6px; margin-top: 30px; margin-bottom: 10px; font-family: serif; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .rates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; background: #1a1a1a; padding: 15px; border: 1px solid #333; border-radius: 4px; }
+        .services-grid label { display: flex; align-items: center; gap: 6px; color: #ccc; font-weight: normal; font-size: 0.8rem; text-transform: none; margin-top: 0; cursor: pointer; }
+        .services-grid input[type="checkbox"] { width: auto; margin: 0; cursor: pointer; }
+
+        .btn-submit { display: block; width: 100%; margin-top: 30px; padding: 14px; background: linear-gradient(135deg, #F3E5AB, #D4AF37, #AA771C); color: #000; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
         .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+        @media (max-width: 768px) {
+            .rates-grid, .services-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <div class="form-card">
         <h1>Model Profile Submission</h1>
-        <p>Complete your profile details and upload your portfolio photos below to submit your application to Zelo Agency.</p>
+        <p>Complete your profile details, select your rates and services, and upload your portfolio photos below.</p>
 
         <form id="onboardForm">
+            <div class="section-header">Basic Details</div>
+            
             <label>Stage Name / Alias</label>
             <input type="text" name="Stage_Name" required placeholder="e.g. Alex Rivera">
 
@@ -78,6 +93,70 @@
             <label>Place of Service</label>
             <input type="text" name="Place_Of_Service" required value="Incall, Outcall">
 
+
+            <!-- Rates Section -->
+            <div class="section-header">Rates Setup</div>
+            <div class="rates-grid">
+                <div>
+                    <label>Incall 1 Hour Rate ($)</label>
+                    <input type="text" name="Incall_1Hr_Rate" placeholder="e.g. $1200">
+                </div>
+                <div>
+                    <label>Outcall 1 Hour Rate ($)</label>
+                    <input type="text" name="Outcall_1Hr_Rate" placeholder="e.g. $1200">
+                </div>
+                <div>
+                    <label>Incall Overnight Rate ($)</label>
+                    <input type="text" name="Incall_Overnight_Rate" placeholder="e.g. $4000">
+                </div>
+                <div>
+                    <label>Outcall Overnight Rate ($)</label>
+                    <input type="text" name="Outcall_Overnight_Rate" placeholder="e.g. $9500">
+                </div>
+            </div>
+            <label>Custom Rates / Additional Details</label>
+            <textarea name="Custom_Rates_Notes" rows="2" placeholder="List any specific 30min, 2hr, or dinner date rates..."></textarea>
+
+
+            <!-- Services Section -->
+            <div class="section-header">Services Offered</div>
+            <label>Select all services you provide:</label>
+            <div class="services-grid">
+                <label><input type="checkbox" name="Services[]" value="Affectionate cuddling"> Affectionate cuddling</label>
+                <label><input type="checkbox" name="Services[]" value="Affectionate kissing"> Affectionate kissing</label>
+                <label><input type="checkbox" name="Services[]" value="Anal play – On you"> Anal play – On you</label>
+                <label><input type="checkbox" name="Services[]" value="B + D – bondage + discipline"> B + D – bondage + discipline</label>
+                <label><input type="checkbox" name="Services[]" value="BBBJ – bare back blow job"> BBBJ – bare back blow job</label>
+                <label><input type="checkbox" name="Services[]" value="BDSM"> BDSM</label>
+                <label><input type="checkbox" name="Services[]" value="BLS – balls licking"> BLS – balls licking</label>
+                <label><input type="checkbox" name="Services[]" value="Body worship"> Body worship</label>
+                <label><input type="checkbox" name="Services[]" value="Bondage"> Bondage</label>
+                <label><input type="checkbox" name="Services[]" value="CBT – cock and ball torture"> CBT – cock and ball torture</label>
+                <label><input type="checkbox" name="Services[]" value="CD – cross dressing"> CD – cross dressing</label>
+                <label><input type="checkbox" name="Services[]" value="Costumes"> Costumes</label>
+                <label><input type="checkbox" name="Services[]" value="DATY – oral on me"> DATY – oral on me</label>
+                <label><input type="checkbox" name="Services[]" value="DFK – deep French kissing"> DFK – deep French kissing</label>
+                <label><input type="checkbox" name="Services[]" value="Dinner companion"> Dinner companion</label>
+                <label><input type="checkbox" name="Services[]" value="Dirty talk"> Dirty talk</label>
+                <label><input type="checkbox" name="Services[]" value="Doggy style"> Doggy style</label>
+                <label><input type="checkbox" name="Services[]" value="Erotic sensual massage"> Erotic sensual massage</label>
+                <label><input type="checkbox" name="Services[]" value="FE – female ejaculation"> FE – female ejaculation</label>
+                <label><input type="checkbox" name="Services[]" value="Fetish"> Fetish</label>
+                <label><input type="checkbox" name="Services[]" value="Filming"> Filming</label>
+                <label><input type="checkbox" name="Services[]" value="Fly Me To You"> Fly Me To You</label>
+                <label><input type="checkbox" name="Services[]" value="Foot fetish"> Foot fetish</label>
+                <label><input type="checkbox" name="Services[]" value="GFE – girlfriend experience"> GFE – girlfriend experience</label>
+                <label><input type="checkbox" name="Services[]" value="Happy ending"> Happy ending</label>
+                <label><input type="checkbox" name="Services[]" value="HJ – hand job"> HJ – hand job</label>
+                <label><input type="checkbox" name="Services[]" value="Massage"> Massage</label>
+                <label><input type="checkbox" name="Services[]" value="Overnight stays"> Overnight stays</label>
+                <label><input type="checkbox" name="Services[]" value="PSE – porn star experience"> PSE – porn star experience</label>
+                <label><input type="checkbox" name="Services[]" value="Travel Companion"> Travel Companion</label>
+            </div>
+
+
+            <div class="section-header" style="margin-top: 35px;">Portfolio & Bio</div>
+            
             <label>Portfolio Photos (Select Images)</label>
             <input type="file" name="Photos" accept="image/*" multiple required>
 
@@ -123,7 +202,7 @@
                 document.querySelector('.form-card').innerHTML = `
                     <h1>Application Received</h1>
                     <p style="color: #fff; margin-top: 20px; font-size: 1.05rem;">
-                        Thank you for applying to Zelo Agency. Your profile and photos have been sent to our team for review. We will contact you via email shortly.
+                        Thank you for applying to Zelo Agency. Your profile, rates, services, and photos have been sent to our team for review. We will contact you via email shortly.
                     </p>
                 `;
             } catch (error) {
