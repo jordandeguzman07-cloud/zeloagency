@@ -122,36 +122,36 @@
             <div class="section-header">Services Offered</div>
             <label>Select all services you provide:</label>
             <div class="services-grid">
-                <label><input type="checkbox" name="Services" value="Affectionate cuddling"> Affectionate cuddling</label>
-                <label><input type="checkbox" name="Services" value="Affectionate kissing"> Affectionate kissing</label>
-                <label><input type="checkbox" name="Services" value="Anal play – On you"> Anal play – On you</label>
-                <label><input type="checkbox" name="Services" value="B + D – bondage + discipline"> B + D – bondage + discipline</label>
-                <label><input type="checkbox" name="Services" value="BBBJ – bare back blow job"> BBBJ – bare back blow job</label>
-                <label><input type="checkbox" name="Services" value="BDSM"> BDSM</label>
-                <label><input type="checkbox" name="Services" value="BLS – balls licking"> BLS – balls licking</label>
-                <label><input type="checkbox" name="Services" value="Body worship"> Body worship</label>
-                <label><input type="checkbox" name="Services" value="Bondage"> Bondage</label>
-                <label><input type="checkbox" name="Services" value="CBT – cock and ball torture"> CBT – cock and ball torture</label>
-                <label><input type="checkbox" name="Services" value="CD – cross dressing"> CD – cross dressing</label>
-                <label><input type="checkbox" name="Services" value="Costumes"> Costumes</label>
-                <label><input type="checkbox" name="Services" value="DATY – oral on me"> DATY – oral on me</label>
-                <label><input type="checkbox" name="Services" value="DFK – deep French kissing"> DFK – deep French kissing</label>
-                <label><input type="checkbox" name="Services" value="Dinner companion"> Dinner companion</label>
-                <label><input type="checkbox" name="Services" value="Dirty talk"> Dirty talk</label>
-                <label><input type="checkbox" name="Services" value="Doggy style"> Doggy style</label>
-                <label><input type="checkbox" name="Services" value="Erotic sensual massage"> Erotic sensual massage</label>
-                <label><input type="checkbox" name="Services" value="FE – female ejaculation"> FE – female ejaculation</label>
-                <label><input type="checkbox" name="Services" value="Fetish"> Fetish</label>
-                <label><input type="checkbox" name="Services" value="Filming"> Filming</label>
-                <label><input type="checkbox" name="Services" value="Fly Me To You"> Fly Me To You</label>
-                <label><input type="checkbox" name="Services" value="Foot fetish"> Foot fetish</label>
-                <label><input type="checkbox" name="Services" value="GFE – girlfriend experience"> GFE – girlfriend experience</label>
-                <label><input type="checkbox" name="Services" value="Happy ending"> Happy ending</label>
-                <label><input type="checkbox" name="Services" value="HJ – hand job"> HJ – hand job</label>
-                <label><input type="checkbox" name="Services" value="Massage"> Massage</label>
-                <label><input type="checkbox" name="Services" value="Overnight stays"> Overnight stays</label>
-                <label><input type="checkbox" name="Services" value="PSE – porn star experience"> PSE – porn star experience</label>
-                <label><input type="checkbox" name="Services" value="Travel Companion"> Travel Companion</label>
+                <label><input type="checkbox" name="Service_Item" value="Affectionate cuddling"> Affectionate cuddling</label>
+                <label><input type="checkbox" name="Service_Item" value="Affectionate kissing"> Affectionate kissing</label>
+                <label><input type="checkbox" name="Service_Item" value="Anal play – On you"> Anal play – On you</label>
+                <label><input type="checkbox" name="Service_Item" value="B + D – bondage + discipline"> B + D – bondage + discipline</label>
+                <label><input type="checkbox" name="Service_Item" value="BBBJ – bare back blow job"> BBBJ – bare back blow job</label>
+                <label><input type="checkbox" name="Service_Item" value="BDSM"> BDSM</label>
+                <label><input type="checkbox" name="Service_Item" value="BLS – balls licking"> BLS – balls licking</label>
+                <label><input type="checkbox" name="Service_Item" value="Body worship"> Body worship</label>
+                <label><input type="checkbox" name="Service_Item" value="Bondage"> Bondage</label>
+                <label><input type="checkbox" name="Service_Item" value="CBT – cock and ball torture"> CBT – cock and ball torture</label>
+                <label><input type="checkbox" name="Service_Item" value="CD – cross dressing"> CD – cross dressing</label>
+                <label><input type="checkbox" name="Service_Item" value="Costumes"> Costumes</label>
+                <label><input type="checkbox" name="Service_Item" value="DATY – oral on me"> DATY – oral on me</label>
+                <label><input type="checkbox" name="Service_Item" value="DFK – deep French kissing"> DFK – deep French kissing</label>
+                <label><input type="checkbox" name="Service_Item" value="Dinner companion"> Dinner companion</label>
+                <label><input type="checkbox" name="Service_Item" value="Dirty talk"> Dirty talk</label>
+                <label><input type="checkbox" name="Service_Item" value="Doggy style"> Doggy style</label>
+                <label><input type="checkbox" name="Service_Item" value="Erotic sensual massage"> Erotic sensual massage</label>
+                <label><input type="checkbox" name="Service_Item" value="FE – female ejaculation"> FE – female ejaculation</label>
+                <label><input type="checkbox" name="Service_Item" value="Fetish"> Fetish</label>
+                <label><input type="checkbox" name="Service_Item" value="Filming"> Filming</label>
+                <label><input type="checkbox" name="Service_Item" value="Fly Me To You"> Fly Me To You</label>
+                <label><input type="checkbox" name="Service_Item" value="Foot fetish"> Foot fetish</label>
+                <label><input type="checkbox" name="Service_Item" value="GFE – girlfriend experience"> GFE – girlfriend experience</label>
+                <label><input type="checkbox" name="Service_Item" value="Happy ending"> Happy ending</label>
+                <label><input type="checkbox" name="Service_Item" value="HJ – hand job"> HJ – hand job</label>
+                <label><input type="checkbox" name="Service_Item" value="Massage"> Massage</label>
+                <label><input type="checkbox" name="Service_Item" value="Overnight stays"> Overnight stays</label>
+                <label><input type="checkbox" name="Service_Item" value="PSE – porn star experience"> PSE – porn star experience</label>
+                <label><input type="checkbox" name="Service_Item" value="Travel Companion"> Travel Companion</label>
             </div>
 
 
@@ -191,12 +191,12 @@
 
             const formData = new FormData(this);
 
-            // Collect all checked services into a comma-separated string so Make.com receives it cleanly as a single text variable
+            // Explicitly collect checked boxes into a text string variable called 'Services'
             const selectedServices = [];
-            document.querySelectorAll('input[name="Services"]:checked').forEach((checkbox) => {
+            document.querySelectorAll('input[name="Service_Item"]:checked').forEach((checkbox) => {
                 selectedServices.push(checkbox.value);
             });
-            formData.set('Services', selectedServices.join(', '));
+            formData.set('Services', selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected');
 
             try {
                 // Send form data directly to your Make.com Webhook (delivering to your inbox)
