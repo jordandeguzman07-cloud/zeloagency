@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB6ZGW8ZF3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KB6ZGW8ZF3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natalia | Zelo Agency</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        /* Top Header Styling */
+        .site-header {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 25px 20px;
+            margin-bottom: 30px;
+        }
+        .site-header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: #ff3333;
+            text-transform: uppercase;
+            font-family: serif;
+        }
+        .site-header p {
+            margin: 8px 0 0 0;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #bbb;
+        }
+        .tier-badge-container {
+            margin-top: 10px;
+        }
+        .tier-badge {
+            display: inline-block;
+            background: #d4af37;
+            color: #000;
+            font-weight: bold;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .profile-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+        }
+        /* Top Two-Column Images */
+        .top-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .top-image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 500px;
+        }
+        /* Gallery Grids */
+        .selfie-grid, .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .selfie-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        .video-grid video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            background: #000;
+        }
+        /* Profile Details Box */
+        .profile-specs {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        .profile-specs h2 {
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-family: serif;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px 10px;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .spec-item label {
+            display: block;
+            color: #777;
+            text-transform: uppercase;
+            font-size: 10px;
+            margin-bottom: 3px;
+            letter-spacing: 0.5px;
+        }
+        .spec-item span {
+            font-weight: bold;
+            color: #111;
+        }
+        .verified-badge {
+            border: 1px solid #333;
+            text-align: center;
+            padding: 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .whatsapp-cta {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            display: block;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        details {
+            border: 1px solid #e0e0e0;
+            margin-bottom: 10px;
+            background: #fff;
+        }
+        summary {
+            padding: 14px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            list-style: none;
+            position: relative;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: "▼";
+            position: absolute;
+            right: 20px;
+            font-size: 11px;
+            color: #555;
+        }
+        details[open] summary::after { content: "▲"; }
+        .accordion-content {
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+            background: #fafafa;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: normal;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: serif;
+        }
+        .about-text { font-size: 14px; line-height: 1.6; color: #444; white-space: pre-line; }
+        
+        /* Rates Table / Styling */
+        .rates-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px; }
+        .rates-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; text-transform: uppercase; font-size: 11px; color: #777; }
+        .rates-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .rates-table td:last-child { text-align: right; font-weight: bold; }
+
+        /* Availability Table */
+        .availability-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px; }
+        .availability-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; text-transform: uppercase; font-size: 11px; color: #777; }
+        .availability-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .availability-table td:nth-child(2) { text-align: left; }
+        .availability-table td:last-child { text-align: right; }
+        .availability-note { font-size: 12px; color: #555; margin-bottom: 30px; }
+
+        /* Subscription & Box Styling */
+        .subscribe-box { border: 1px solid #e0e0e0; padding: 25px; margin-top: 25px; margin-bottom: 30px; background: #fff; }
+        .subscribe-box h4 { margin: 0 0 8px 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-family: serif; }
+        .subscribe-box p { margin: 0 0 15px 0; font-size: 12px; color: #666; }
+        .subscribe-btn { background: #b22222; color: #fff; border: none; padding: 10px 18px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; font-weight: bold; }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; font-size: 12px; margin-bottom: 20px; }
+        .contact-item label { display: block; color: #777; text-transform: uppercase; font-size: 10px; margin-bottom: 3px; letter-spacing: 0.5px; }
+        .contact-item a, .contact-item span { font-weight: bold; color: #b22222; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .top-image-grid, .specs-grid, .contact-grid, .selfie-grid, .video-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="site-header">
+        <h1>Zelo Agency</h1>
+        <p>Natalia — Founding Customer ♥</p>
+        <div class="tier-badge-container">
+            <span class="tier-badge">FOUNDING CUSTOMER / STANDARD LISTING ($49/MO)</span>
+        </div>
+    </div>
+
+    <div class="profile-container">
+
+        <!-- Top Two Photos Grid -->
+        <div class="top-image-grid">
+            <img src="images/natalia.jpeg" alt="Natalia">
+            <img src="images/natalia.jpeg" alt="Natalia">
+        </div>
+
+        <!-- Profile Specs Section -->
+        <div class="profile-specs">
+            <h2>Profile</h2>
+            <div class="specs-grid">
+                <div class="spec-item"><label>Location</label><span>Melbourne</span></div>
+                <div class="spec-item"><label>Height</label><span>—</span></div>
+                <div class="spec-item"><label>Eyes</label><span>Brown</span></div>
+                <div class="spec-item"><label>Age</label><span>22</span></div>
+                
+                <div class="spec-item"><label>Dress Size</label><span>6-8</span></div>
+                <div class="spec-item"><label>Place of Service</label><span>Incall, Outcall</span></div>
+                <div class="spec-item"><label>Phone</label><span>0435 372 742</span></div>
+                <div class="verified-badge">Photos Verified.</div>
+
+                <div class="spec-item"><label>Hair</label><span>Blonde</span></div>
+                <div class="spec-item"><label>Body Type</label><span>Hourglass, petite</span></div>
+            </div>
+            
+            <a href="https://wa.me/61435372742" class="whatsapp-cta" target="_blank">Book Natalia via WhatsApp</a>
+        </div>
+
+        <!-- Accordion: Video Gallery -->
+        <details>
+            <summary>Video Gallery</summary>
+            <div class="accordion-content">
+                <div class="video-grid">
+                    <p style="font-size: 12px; color: #777; grid-column: span 3; text-align: center; padding: 10px;">Videos coming soon.</p>
+                </div>
+            </div>
+        </details>
+
+        <!-- Accordion: My Selfie Gallery -->
+        <details>
+            <summary>My Selfie Gallery</summary>
+            <div class="accordion-content">
+                <div class="selfie-grid">
+                    <img src="images/natalia.jpeg" alt="Natalia Selfie">
+                </div>
+            </div>
+        </details>
+
+        <!-- About Section -->
+        <div class="section-title">About Me</div>
+        <p class="about-text">So let’s put it this way, definitely a cheeky little troublemaker with a cute n cuddly side, and a crazy wild side. Perfect for whatever vibe you’re going for. I’m very open very easy to get along with and just l like to be me, hoping it makes you feel comfortable! Just be yourself. Very easy to get along with don’t ever be afraid to speak your mind. I’m down for basically everything just throw it at me and I’ll do my best to satisfy your needs. Just tell me what you’re after and we can work it out. Im very flexible just communicate, tell me what services/vibe you’re kind of looking for x easy to book I am very quick to respond. I take this seriously so if you waste my time once, you will not be able to book again. Preferably a bank deposit to lock in the booking so then I can work around you :) then rest in cash just before we start. Sometimes willing to negotiate on prices or outcalls just don’t be stupid with it.</p>
+
+        <!-- Rates Section -->
+        <div class="section-title">Rates</div>
+        <table class="rates-table">
+            <thead>
+                <tr>
+                    <th>Service / Duration</th>
+                    <th>Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Incall (1 Hour)</td><td>$800 starting price</td></tr>
+                <tr><td>Outcall (1 Hour)</td><td>$850</td></tr>
+                <tr><td>Incall (Overnight)</td><td>$8,000</td></tr>
+                <tr><td>Short Bookings (30 mins)</td><td>$400</td></tr>
+                <tr><td>Short Bookings (45 mins)</td><td>$600</td></tr>
+                <tr><td>Extended (2 Hours)</td><td>$1,600</td></tr>
+            </tbody>
+        </table>
+        <p style="font-size: 12px; color: #555; margin-bottom: 30px;"><strong>Custom Rates Notes:</strong> Doesn’t include natural services. Any of the extras on the list or even anything not included on the list doesn’t have an individually set price for each one. Just let me know exactly what you’re looking for / interested in; everything is basically on the table so just ask, we will work it out from there and then confirm the price all up.</p>
+
+        <!-- Services Section -->
+        <div class="section-title">Services</div>
+        <p style="font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 40px;">
+            Affectionate cuddling, Affectionate kissing, B + D – bondage + discipline, BBBJ – bare back blow job, BDSM, BLS – balls licking, Body worship, Bondage, Costumes, DATY – oral on me, DFK – deep French kissing, Dinner companion, Dirty talk, Doggy style, Erotic sensual massage, FE – female ejaculation, Fetish, Filming, Fly Me To You, Foot fetish, GFE – girlfriend experience, Happy ending, HJ – hand job, Massage, Overnight stays, PSE – porn star experience, Travel Companion.
+        </p>
+
+        <!-- Availability Section -->
+        <div class="section-title">When can we meet?</div>
+        <table class="availability-table">
+            <thead>
+                <tr>
+                    <th>Weekday</th>
+                    <th>From</th>
+                    <th>Until</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Monday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Tuesday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Wednesday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Thursday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Friday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>
