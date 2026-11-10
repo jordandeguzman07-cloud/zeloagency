@@ -200,6 +200,12 @@
             transition: transform 0.3s ease;
         }
 
+        /* Premium Border & Enhancement for Susanna's Card */
+        .card.premium-elite {
+            border: 2px solid var(--accent);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+        }
+
         .card:hover {
             transform: translateY(-5px);
         }
@@ -230,6 +236,13 @@
 
         .badge.active { background-color: var(--success); }
         .badge.off { background-color: var(--text-muted); }
+        
+        /* Red Premium Elite VIP Badge */
+        .badge.danger-vip { 
+            background-color: var(--danger); 
+            box-shadow: 0 2px 8px rgba(231, 29, 54, 0.4);
+            letter-spacing: 0.5px;
+        }
 
         .card-info {
             padding: 20px;
@@ -377,10 +390,10 @@
         <h2 class="section-title">Featured Portfolios</h2>
         
         <div class="grid" id="talent-grid">
-            <!-- Profile Card 1: Susanna -->
+            <!-- Profile Card 1: Susanna (Enhanced with Premium Border & Red VIP Badge) -->
             <a href="profile.html?name=susanna" class="card-link talent-card" data-city="sydney">
-                <div class="card">
-                    <span class="badge active">Available</span>
+                <div class="card premium-elite">
+                    <span class="badge danger-vip">Premium Elite VIP</span>
                     <div class="image-placeholder" style="background-image: url('images/susanna/1.jpg'); background-size: cover; background-position: center; color: transparent;">Susanna</div>
                     <div class="card-info">
                         <h3>Susanna</h3>
@@ -607,4 +620,4 @@
         }
     </script>
 </body>
-</html>
+</html>f
