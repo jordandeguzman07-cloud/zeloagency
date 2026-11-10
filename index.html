@@ -66,7 +66,7 @@
         /* Top Right Launch Announcement Banner */
         .launch-banner {
             position: fixed;
-            top: 45px;
+            top: 55px;
             right: 20px;
             z-index: 9999;
             background: rgba(20, 20, 20, 0.95);
@@ -304,7 +304,7 @@
         /* Responsive Layout fixes */
         @media (max-width: 768px) {
             .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-            .launch-banner { font-size: 11px; padding: 6px 10px; right: 10px; top: 35px; }
+            .launch-banner { font-size: 11px; padding: 6px 10px; right: 10px; top: 45px; }
         }
     </style>
 </head>
@@ -312,7 +312,7 @@
 
     <!-- Very Top Launch Event Link & Product Summary Bar -->
     <div class="top-launch-bar">
-        🚀 <strong>Zelo Agency Official Launch & Founding 50 Offer:</strong> Standard Listing ($49/mo), Spotlight Boost ($25/wk), & Premium Banner ($99/mo with 14-day trial). 
+        🚀 <strong>Zelo Agency Official Launch & Founding 50 Models EVENT:</strong> Standard Listing ($49/mo with 14-day trial), Spotlight Boost ($25/wk), & Premium Banner ($99/mo with 14-day trial). 
         <a href="apply.html">Join the Roster Now ›</a>
     </div>
 
@@ -580,4 +580,28 @@
                 <a href="safety.html" style="background: transparent; color: #bdaf72; border: 1px solid #bdaf72; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">🛡️ Safety & Resources</a>
             </div>
             
-            <p style="color: #666666;
+            <p style="color: #666666; font-size: 0.8rem; margin-top: 30px; border-top: 1px solid #222222; padding-top: 20px;">
+                &copy; 2026 Zelo Agency Australia. All rights reserved. 18+ Adult Directory & Flat-Rate Advertising Platform.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Filtering Script -->
+    <script>
+        function filterCity(city, btn) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.talent-card');
+            cards.forEach(card => {
+                if (city === 'all' || card.getAttribute('data-city') === city) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
