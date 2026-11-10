@@ -45,8 +45,11 @@
             padding: 0 20px;
         }
 
-        /* Top Announcement & Event Launch Bar */
+        /* Frozen Top Announcement & Event Launch Bar */
         .top-launch-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1002;
             background: #000000;
             color: #d4af37;
             text-align: center;
@@ -63,10 +66,10 @@
             margin-left: 8px;
         }
 
-        /* Top Right Launch Announcement Banner */
+        /* Top Right Launch Announcement Banner (Nudged down to clear frozen pane) */
         .launch-banner {
             position: fixed;
-            top: 55px;
+            top: 85px;
             right: 20px;
             z-index: 9999;
             background: rgba(20, 20, 20, 0.95);
@@ -131,14 +134,14 @@
             margin-top: 10px;
         }
 
-        /* City Navigation Filters */
+        /* Frozen City Navigation Filters */
         .filters {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             padding: 15px 0;
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: 41px; /* Locks right under top-launch-bar */
+            z-index: 1001;
         }
 
         .filter-tabs {
@@ -304,13 +307,13 @@
         /* Responsive Layout fixes */
         @media (max-width: 768px) {
             .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-            .launch-banner { font-size: 11px; padding: 6px 10px; right: 10px; top: 45px; }
+            .launch-banner { font-size: 11px; padding: 6px 10px; right: 10px; top: 95px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Very Top Launch Event Link & Product Summary Bar -->
+    <!-- Frozen Top Launch Event Link & Product Summary Bar -->
     <div class="top-launch-bar">
         🚀 <strong>Zelo Agency Official Launch & Founding 50 Models EVENT:</strong> Standard Listing ($49/mo with 14-day trial), Spotlight Boost ($25/wk), & Premium Banner ($99/mo with 14-day trial). 
         <a href="apply.html">Join the Roster Now ›</a>
@@ -354,7 +357,7 @@
         </div>
     </header>
 
-    <!-- Navigation / Filters -->
+    <!-- Frozen Navigation / Filters -->
     <nav class="filters">
         <div class="container">
             <ul class="filter-tabs">
