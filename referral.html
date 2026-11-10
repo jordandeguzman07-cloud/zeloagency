@@ -138,6 +138,13 @@
             font-size: 13px; 
             color: #666; 
         }
+        .subscribe-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
         .subscribe-btn { 
             background: #25d366; 
             color: #fff; 
@@ -151,6 +158,16 @@
             border-radius: 4px; 
             text-decoration: none;
             display: inline-block;
+        }
+        .email-link {
+            font-size: 13px;
+            font-weight: bold;
+            color: #111;
+            text-decoration: none;
+        }
+        .email-link:hover {
+            text-decoration: underline;
+            color: #b22222;
         }
         .back-link {
             display: inline-block;
@@ -238,7 +255,10 @@
         <div class="subscribe-box">
             <h4>Get Your Unique Referral Link</h4>
             <p>Reach out to our concierge team to generate your personal referral code and start tracking your rewards today.</p>
-            <a href="https://wa.me/61406133210" class="subscribe-btn" target="_blank">Contact Concierge via WhatsApp</a>
+            <div class="subscribe-actions">
+                <a href="https://wa.me/61406133210" class="subscribe-btn" target="_blank">Contact Concierge via WhatsApp</a>
+                <span>or email us at <a href="mailto:admin@zeloagency.com.au" class="email-link">admin@zeloagency.com.au</a></span>
+            </div>
         </div>
     </div>
 
