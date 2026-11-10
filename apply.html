@@ -200,9 +200,12 @@
             formData.set('Services', selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected');
 
             // Determine correct Stripe link based on chosen tier
-            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default fallback / standard
+            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default / Standard ($49)
+            
             if (selectedTier.includes('Premium Banner')) {
-                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02';
+                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99 Banner Link
+            } else if (selectedTier.includes('Spotlight Boost')) {
+                stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight Boost Link
             }
 
             try {
