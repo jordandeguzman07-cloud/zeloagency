@@ -40,12 +40,23 @@
             font-family: serif;
         }
         .site-header p {
-            margin: 8px 0 0 0;
+            margin: 8px 0 6px 0;
             font-size: 13px;
             letter-spacing: 1px;
-            color: #d4af37;
-            font-weight: 600;
+            color: #ccc;
+        }
+        /* Gold Badge Pill Styling */
+        .header-badge-pill {
+            display: inline-block;
+            background: #d4af37;
+            color: #111;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
         .profile-container {
             max-width: 1000px;
@@ -261,11 +272,13 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header matching Chloe Star style + Premium Elite VIP badge & Display Only sign -->
     <div class="site-header">
         <h1>Zelo Agency</h1>
-        <!-- Styled with Bold Gold Font, Red Heart, and Bold Red VIP matching directory card -->
-        <p><span id="header-name" style="color: #b8860b; font-weight: 800; font-size: 1.3rem; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Susanna <span style="color: #e71d36; font-size: 1.1rem;">❤ VIP</span></span></p>
+        <p><span id="header-name">Loading...</span></p>
+        <div>
+            <span class="header-badge-pill">Premium Elite VIP / Standard Listing</span>
+        </div>
     </div>
 
     <div class="profile-container">
@@ -491,11 +504,10 @@
     </div>
 
     <script>
-        // Talent Database Mapping
+        // Talent Database Mapping with bold gold name, red heart, VIP, and Display Only sign
         const profiles = {
             "susanna": {
-                name: "Susanna",
-                status: "Display Only",
+                headerText: '<span style="color: #b8860b; font-weight: 800; font-size: 1.25rem; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Susanna <span style="color: #e71d36; font-size: 0.9em;">❤ VIP</span></span> — Display Only ❤',
                 city: "Sydney",
                 height: "163 cm",
                 eyes: "Green",
@@ -507,9 +519,7 @@
                 body: "Sexy",
                 photo1: "images/susanna/1.jpg",
                 photo2: "images/susanna/2.jpg",
-                videos: [
-                    // Add video file paths here when available
-                ],
+                videos: [],
                 selfies: [
                     "images/susanna/3.jpg",
                     "images/susanna/4.jpg",
@@ -525,11 +535,12 @@
 
         if (profiles[talentKey]) {
             const p = profiles[talentKey];
-            document.getElementById('page-title').innerText = p.name + " | Zelo Agency";
-            document.getElementById('cta-name').innerText = p.name;
-            document.getElementById('sub-name').innerText = p.name;
-            document.getElementById('tour-name').innerText = p.name;
-            document.getElementById('tour-sub-name').innerText = p.name;
+            document.getElementById('page-title').innerText = "Susanna | Zelo Agency";
+            document.getElementById('header-name').innerHTML = p.headerText;
+            document.getElementById('cta-name').innerText = "Susanna";
+            document.getElementById('sub-name').innerText = "Susanna";
+            document.getElementById('tour-name').innerText = "Susanna";
+            document.getElementById('tour-sub-name').innerText = "Susanna";
             document.getElementById('profile-photo-1').src = p.photo1;
             document.getElementById('profile-photo-2').src = p.photo2;
             document.getElementById('spec-city').innerText = p.city;
