@@ -80,6 +80,11 @@
             flex-direction: column;
             justify-content: space-between;
         }
+        .rate-column.vip-banner {
+            border: 2px solid #d4af37;
+            background: #fffdf5;
+            position: relative;
+        }
         .rate-column h3 { 
             font-size: 15px; 
             text-transform: uppercase; 
@@ -99,6 +104,7 @@
         .rate-table td { 
             padding: 10px 0; 
             border-bottom: 1px solid #eee; 
+            vertical-align: top;
         }
         .rate-table td:nth-child(2) { 
             text-align: right; 
@@ -109,6 +115,22 @@
             text-align: right; 
             color: #555; 
             font-size: 12px;
+        }
+        .banner-features {
+            font-size: 12px;
+            color: #444;
+            margin: 15px 0;
+            line-height: 1.6;
+            border-top: 1px dashed #d4af37;
+            border-bottom: 1px dashed #d4af37;
+            padding: 12px 0;
+        }
+        .banner-features ul {
+            margin: 6px 0 0 15px;
+            padding: 0;
+        }
+        .banner-features li {
+            margin-bottom: 5px;
         }
         .subscribe-btn { 
             background: #111; 
@@ -128,6 +150,11 @@
         .subscribe-btn.spotlight {
             background: #d4af37;
             color: #111;
+        }
+        .subscribe-btn.banner {
+            background: #d4af37;
+            color: #111;
+            font-weight: 800;
         }
         .subscribe-box { 
             border: 1px solid #e0e0e0; 
@@ -210,7 +237,7 @@
 
         <div class="section-title">Roster Tiers & Rates</div>
         <div class="rates-container">
-            <!-- Standard Listing Tier (Now Highlighted as Top Request) -->
+            <!-- Standard Listing Tier (Highlighted as Top Request) -->
             <div class="rate-column" style="border: 2px solid #d4af37; position: relative;">
                 <span style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #d4af37; color: white; padding: 2px 12px; border-radius: 10px; font-size: 10px; font-weight: bold; text-transform: uppercase;">Top Request</span>
                 <div>
@@ -255,10 +282,11 @@
                 </div>
             </div>
 
-            <!-- Premium Banner Tier -->
-            <div class="rate-column">
+            <!-- Premium Banner Tier (Elite VIP Upgrade) -->
+            <div class="rate-column vip-banner">
+                <span style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #e71d36; color: white; padding: 2px 12px; border-radius: 10px; font-size: 10px; font-weight: bold; text-transform: uppercase; box-shadow: 0 2px 6px rgba(231,29,54,0.4);">Premium Elite VIP</span>
                 <div>
-                    <h3>Premium Banner</h3>
+                    <h3>Premium Banner & VIP</h3>
                     <table class="rate-table">
                         <tr>
                             <td>Monthly Rate</td>
@@ -271,9 +299,19 @@
                             <td>Includes 14-day trial</td>
                         </tr>
                     </table>
+                    
+                    <div class="banner-features">
+                        <strong>Exclusive VIP Package Features:</strong>
+                        <ul>
+                            <li><strong>Highest Exposure & Top Placement:</strong> Guaranteed permanent placement at the absolute top of the listing pages.</li>
+                            <li><strong>Custom Styling & Gold Name:</strong> Premium gold font treatment paired with an iconic red heart motif.</li>
+                            <li><strong>Activated SMS & WhatsApp Links:</strong> Direct inquiry buttons integrated seamlessly into your profile header.</li>
+                            <li><strong>Priority Support:</strong> Dedicated concierge assistance for rapid media updates.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div style="margin-top: 20px;">
-                    <a href="apply.html?tier=banner" class="subscribe-btn">Apply for Banner</a>
+                    <a href="apply.html?tier=banner" class="subscribe-btn banner">Apply for VIP Banner</a>
                 </div>
             </div>
         </div>
