@@ -289,19 +289,21 @@
             <img id="profile-photo-2" src="" alt="Photo 2">
         </div>
 
-        <!-- Profile Specs Section -->
+        <!-- Profile Specs Section (Labels kept, values removed) -->
         <div class="profile-specs">
             <h2>Profile</h2>
             <div class="specs-grid">
                 <div class="spec-item"><label>Location</label><span id="spec-city">Sydney</span></div>
                 <div class="spec-item"><label>Height</label><span id="spec-height">163 cm</span></div>
                 <div class="spec-item"><label>Eyes</label><span id="spec-eyes">Green</span></div>
+                <div class="spec-item"><label>Email</label><span id="spec-email"></span></div>
                 
                 <div class="spec-item"><label>Age</label><span id="spec-age">22</span></div>
                 <div class="spec-item"><label>Dress Size</label><span id="spec-dress">6</span></div>
                 <div class="spec-item"><label>Place of Service</label><span id="spec-service">Incall, Outcall</span></div>
                 <div class="verified-badge">Photos Verified.</div>
 
+                <div class="spec-item"><label>Phone</label><span id="spec-phone"></span></div>
                 <div class="spec-item"><label>Hair</label><span id="spec-hair">Dark</span></div>
                 <div class="spec-item"><label>Body Type</label><span id="spec-body">Sexy</span></div>
             </div>
@@ -477,6 +479,19 @@
             <button class="subscribe-btn" onclick="alert('Tour subscription feature active.')">Subscribe to my tours</button>
         </div>
 
+        <!-- Contact Section (Labels kept, phone and email values blanked out) -->
+        <div class="section-title">Contact</div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <label>Direct Phone</label>
+                <span id="contact-phone"></span>
+            </div>
+            <div class="contact-item">
+                <label>Email Agency</label>
+                <a id="contact-email" href="#"></a>
+            </div>
+        </div>
+
     </div>
 
     <!-- Sticky VIP Bottom Action Bar -->
@@ -499,6 +514,8 @@
                 age: "22",
                 dress: "6",
                 service: "Incall, Outcall",
+                phone: "",
+                email: "",
                 hair: "Dark",
                 body: "Sexy",
                 photo1: "images/susanna/1.jpg",
@@ -530,11 +547,15 @@
             document.getElementById('spec-city').innerText = p.city;
             document.getElementById('spec-height').innerText = p.height;
             document.getElementById('spec-eyes').innerText = p.eyes;
+            document.getElementById('spec-email').innerText = p.email;
             document.getElementById('spec-age').innerText = p.age;
             document.getElementById('spec-dress').innerText = p.dress;
             document.getElementById('spec-service').innerText = p.service;
+            document.getElementById('spec-phone').innerText = p.phone;
             document.getElementById('spec-hair').innerText = p.hair;
             document.getElementById('spec-body').innerText = p.body;
+            document.getElementById('contact-phone').innerText = p.phone;
+            document.getElementById('contact-email').innerText = p.email;
             document.getElementById('whatsapp-link').href = p.whatsapp;
 
             // Populate Video Gallery dynamically
