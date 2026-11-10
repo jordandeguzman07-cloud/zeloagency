@@ -20,6 +20,7 @@
             padding: 0;
             background-color: #fff;
             color: #333;
+            padding-bottom: 70px; /* Space for floating VIP bar */
         }
         /* Top Header Styling */
         .site-header {
@@ -28,6 +29,7 @@
             text-align: center;
             padding: 25px 20px;
             margin-bottom: 30px;
+            border-bottom: 4px solid #d4af37;
         }
         .site-header h1 {
             margin: 0;
@@ -41,6 +43,9 @@
             margin: 8px 0 0 0;
             font-size: 13px;
             letter-spacing: 1px;
+            color: #d4af37;
+            font-weight: 600;
+            text-transform: uppercase;
         }
         .profile-container {
             max-width: 1000px;
@@ -59,6 +64,7 @@
             height: auto;
             display: block;
             object-fit: cover;
+            border-radius: 6px;
         }
         /* Gallery Grids */
         .selfie-grid, .video-grid {
@@ -71,6 +77,7 @@
             height: auto;
             display: block;
             object-fit: cover;
+            border-radius: 4px;
         }
         .video-grid video {
             width: 100%;
@@ -78,6 +85,7 @@
             display: block;
             object-fit: cover;
             background: #000;
+            border-radius: 4px;
         }
         /* Profile Details Box */
         .profile-specs {
@@ -125,7 +133,7 @@
             justify-content: center;
         }
         .whatsapp-cta {
-            background-color: #000;
+            background-color: #25d366;
             color: #fff;
             text-align: center;
             padding: 12px;
@@ -135,11 +143,13 @@
             font-size: 11px;
             letter-spacing: 1px;
             font-weight: bold;
+            border-radius: 4px;
         }
         details {
             border: 1px solid #e0e0e0;
             margin-bottom: 10px;
             background: #fff;
+            border-radius: 4px;
         }
         summary {
             padding: 14px 20px;
@@ -188,29 +198,64 @@
         .rate-table td:nth-child(2) { text-align: right; padding-right: 15px; }
         .rate-table td:last-child { text-align: right; color: #555; }
 
-        /* Services Grid */
-        .services-grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 20px; font-size: 13px; color: #444; list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
-
-        /* Availability Table */
-        .availability-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px; }
-        .availability-table th { text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; text-transform: uppercase; font-size: 11px; color: #777; }
-        .availability-table td { padding: 8px 0; border-bottom: 1px solid #eee; }
-        .availability-table td:nth-child(2) { text-align: left; }
-        .availability-table td:last-child { text-align: right; }
-        .availability-note { font-size: 12px; color: #555; margin-bottom: 30px; }
-
         /* Subscription & Box Styling */
-        .subscribe-box { border: 1px solid #e0e0e0; padding: 25px; margin-top: 25px; margin-bottom: 30px; background: #fff; }
+        .subscribe-box { border: 1px solid #e0e0e0; padding: 25px; margin-top: 25px; margin-bottom: 30px; background: #fff; border-radius: 4px; }
         .subscribe-box h4 { margin: 0 0 8px 0; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-family: serif; }
         .subscribe-box p { margin: 0 0 15px 0; font-size: 12px; color: #666; }
-        .subscribe-btn { background: #b22222; color: #fff; border: none; padding: 10px 18px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; font-weight: bold; }
+        .subscribe-btn { background: #b22222; color: #fff; border: none; padding: 10px 18px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; font-weight: bold; border-radius: 4px; }
 
         .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; font-size: 12px; margin-bottom: 20px; }
         .contact-item label { display: block; color: #777; text-transform: uppercase; font-size: 10px; margin-bottom: 3px; letter-spacing: 0.5px; }
         .contact-item a, .contact-item span { font-weight: bold; color: #b22222; text-decoration: none; }
 
+        /* Sticky VIP Bottom Bar */
+        .vip-floating-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #111111, #1a1a1a);
+            border-top: 2px solid #d4af37;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+            box-sizing: border-box;
+        }
+        .vip-floating-bar .vip-text {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .vip-btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .vip-action-btn {
+            background: #d4af37;
+            color: #111;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+        }
+        .vip-action-btn:hover {
+            background: #fff2b2;
+        }
+        .vip-whatsapp-btn {
+            background: #25d366;
+            color: #fff;
+        }
+
         @media (max-width: 768px) {
-            .top-image-grid, .specs-grid, .rates-container, .services-grid-3col, .contact-grid, .selfie-grid, .video-grid { grid-template-columns: 1fr; }
+            .top-image-grid, .specs-grid, .rates-container, .contact-grid, .selfie-grid, .video-grid { grid-template-columns: 1fr; }
+            .vip-floating-bar { flex-direction: column; gap: 8px; text-align: center; }
+            body { padding-bottom: 110px; }
         }
     </style>
 </head>
@@ -219,7 +264,8 @@
     <!-- Header -->
     <div class="site-header">
         <h1>Zelo Agency</h1>
-        <p><span id="header-name">Loading...</span> ♥</p>
+        <!-- Styled with Bold Gold Font, Red Heart, and Bold Red VIP matching directory card -->
+        <p><span id="header-name" style="color: #b8860b; font-weight: 800; font-size: 1.3rem; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Susanna <span style="color: #e71d36; font-size: 1.1rem;">❤ VIP</span></span></p>
     </div>
 
     <div class="profile-container">
@@ -384,25 +430,25 @@
 
         <!-- Availability Section -->
         <div class="section-title">When can we meet?</div>
-        <table class="availability-table">
+        <table class="availability-table" style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px;">
             <thead>
                 <tr>
-                    <th>Weekday</th>
-                    <th>From</th>
-                    <th>Until</th>
+                    <th style="text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; text-transform: uppercase; font-size: 11px; color: #777;">Weekday</th>
+                    <th style="text-align: left; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; text-transform: uppercase; font-size: 11px; color: #777;">From</th>
+                    <th style="text-align: right; padding: 8px 0; border-bottom: 1px solid #ccc; font-weight: 600; text-transform: uppercase; font-size: 11px; color: #777;">Until</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Monday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Tuesday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Wednesday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Thursday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Friday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Saturday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
-                <tr><td>Sunday</td><td>1:00 pm</td><td>10:00 pm</td></tr>
+                <tr><td style="padding: 8px 0; border-bottom: 1px solid #eee;">Monday</td><td style="padding: 8px 0; border-bottom: 1px solid #eee;">1:00 pm</td><td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">10:00 pm</td></tr>
+                <tr><td style="padding: 8px 0; border-bottom: 1px solid #eee;">Tuesday</td><td style="padding: 8px 0; border-bottom: 1px solid #eee;">1:00 pm</td><td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">10:00 pm</td></tr>
+                <tr><td style="padding: 8px 0; border-bottom: 1px solid #eee;">Wednesday</td><td style="padding: 8px 0; border-bottom: 1px solid #eee;">1:00 pm</td><td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">10:00 pm</td></tr>
+                <tr><td style="padding: 8px 0; border-bottom: 1px solid #eee;">Thursday</td><td style="padding: 8px 0; border-bottom: 1px solid #eee;">1:00 pm</td><td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">10:00 pm</td></tr>
+                <tr><td style="padding: 8px 0; border-bottom: 1px solid #eee;">Friday</td><td style="padding: 8px 0; border-bottom: 1px solid #eee;">1:00 pm</td><td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">10:00 pm</td></tr>
+                <tr><td style="padding: 8px 0; border-bottom: 1px solid #eee;">Saturday</td><td style="padding: 8px 0; border-bottom: 1px solid #eee;">1:00 pm</td><td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">10:00 pm</td></tr>
+                <tr><td style="padding: 8px 0; border-bottom: 1px solid #eee;">Sunday</td><td style="padding: 8px 0; border-bottom: 1px solid #eee;">1:00 pm</td><td style="padding: 8px 0; border-bottom: 1px solid #eee; text-align: right;">10:00 pm</td></tr>
             </tbody>
         </table>
-        <p class="availability-note">• Flexible hours by appointment.<br>Pre-bookings are recommended to avoid disappointment.</p>
+        <p class="availability-note" style="font-size: 12px; color: #555; margin-bottom: 30px;">• Flexible hours by appointment.<br>Pre-bookings are recommended to avoid disappointment.</p>
 
         <div class="subscribe-box">
             <h4>Subscribe to my availability</h4>
@@ -433,6 +479,15 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Sticky VIP Bottom Action Bar -->
+    <div class="vip-floating-bar">
+        <span class="vip-text">✨ SUSANNA [VIP ELITE STATUS]</span>
+        <div class="vip-btn-group">
+            <a href="sms:0406133210" class="vip-action-btn">📱 SMS Booking</a>
+            <a href="https://wa.me/61406133210" class="vip-action-btn vip-whatsapp-btn">💬 WhatsApp Concierge</a>
+        </div>
     </div>
 
     <script>
@@ -471,7 +526,6 @@
         if (profiles[talentKey]) {
             const p = profiles[talentKey];
             document.getElementById('page-title').innerText = p.name + " | Zelo Agency";
-            document.getElementById('header-name').innerText = p.name + " — " + p.status;
             document.getElementById('cta-name').innerText = p.name;
             document.getElementById('sub-name').innerText = p.name;
             document.getElementById('tour-name').innerText = p.name;
