@@ -76,6 +76,9 @@
             padding: 20px;
             border-radius: 6px;
             background: #fafafa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .rate-column h3 { 
             font-size: 15px; 
@@ -106,6 +109,15 @@
             text-align: right; 
             color: #555; 
             font-size: 12px;
+        }
+        .calculation-box {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px dashed #ccc;
+            font-size: 13px;
+            font-weight: bold;
+            color: #b22222;
+            text-align: center;
         }
         .subscribe-box { 
             border: 1px solid #e0e0e0; 
@@ -175,36 +187,46 @@
         <div class="rates-container">
             <!-- Standard Listing Tier -->
             <div class="rate-column">
-                <h3>Standard Listing ($49/mo)</h3>
-                <table class="rate-table">
-                    <tr>
-                        <td>Per Referral</td>
-                        <td>$20 back</td>
-                        <td>Per converted referral</td>
-                    </tr>
-                    <tr>
-                        <td>5 Converted Referrals</td>
-                        <td>$49</td>
-                        <td>100% commission refund</td>
-                    </tr>
-                </table>
+                <div>
+                    <h3>Standard Listing ($49/mo)</h3>
+                    <table class="rate-table">
+                        <tr>
+                            <td>Per Referral</td>
+                            <td>$20 back</td>
+                            <td>Per converted referral</td>
+                        </tr>
+                        <tr>
+                            <td>5 Converted Referrals</td>
+                            <td>$49</td>
+                            <td>100% commission refund</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="calculation-box">
+                    Calculation of earnings per 5 referrals = $129 cash back
+                </div>
             </div>
 
             <!-- Premium Banner Tier -->
             <div class="rate-column">
-                <h3>Premium Banner ($99/mo)</h3>
-                <table class="rate-table">
-                    <tr>
-                        <td>Per Referral</td>
-                        <td>$40 back</td>
-                        <td>Per converted referral</td>
-                    </tr>
-                    <tr>
-                        <td>5 Converted Referrals</td>
-                        <td>$99</td>
-                        <td>100% commission refund</td>
-                    </tr>
-                </table>
+                <div>
+                    <h3>Premium Banner ($99/mo)</h3>
+                    <table class="rate-table">
+                        <tr>
+                            <td>Per Referral</td>
+                            <td>$40 back</td>
+                            <td>Per converted referral</td>
+                        </tr>
+                        <tr>
+                            <td>5 Converted Referrals</td>
+                            <td>$99</td>
+                            <td>100% commission refund</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="calculation-box">
+                    Calculation of earnings per 5 referrals = $259 cash back
+                </div>
             </div>
         </div>
 
