@@ -43,6 +43,13 @@
             --font-sans: 'Inter', -apple-system, sans-serif;
         }
 
+        /* Force Hide YouTube Subtitles / Captions Inside Embeds */
+        .ytp-caption-window-container, .ytp-caption-segment {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+
         /* Custom Scrollbar for Luxury Feel */
         ::-webkit-scrollbar {
             width: 8px;
