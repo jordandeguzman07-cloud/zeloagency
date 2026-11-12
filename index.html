@@ -495,7 +495,7 @@
         <a href="apply.html">Join the Roster Now ›</a>
     </div>
 
-    <!-- Top Right Flashing Launch Notice -->
+    <!-- Top Right Launch Announcement Banner -->
     <div class="launch-banner">
         <span class="pulse-dot"></span>
         We are officially open & recruiting Australia wide
@@ -549,25 +549,23 @@
         </ul>
     </nav>
 
-    <!-- Distinguished Guests AI Welcome Video Section -->
+    <!-- Distinguished Guests YouTube Welcome Video Section -->
     <section style="background: var(--bg-obsidian); padding: 70px 0; border-bottom: 1px solid var(--border-subtle); text-align: center;">
         <div class="container" style="max-width: 950px; margin: 0 auto;">
             <h3 style="font-family: var(--font-serif); font-size: 2.4rem; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;">An Exclusive Welcome</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; letter-spacing: 0.2em; text-transform: uppercase;">For Our Distinguished Guests</p>
             
-            <!-- Native HTML5 Video Player (Autoplaying Muted to bypass browser restriction, with manual un-mute/controls) -->
-            <div style="position: relative; border-radius: 4px; overflow: hidden; border: 1.5px solid var(--accent); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); background: #000; margin-bottom: 30px; max-width: 950px; margin-left: auto; margin-right: auto;">
-                <video id="welcomeVideo" controls autoplay muted loop playsinline preload="auto" style="width: 100%; display: block; max-height: 520px; object-fit: cover;">
-                    <source src="zelo-welcome.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <!-- Sleek Click-to-Unmute Badge -->
-                <div onclick="const v = document.getElementById('welcomeVideo'); v.muted = !v.muted; this.style.display = 'none';" style="position: absolute; bottom: 20px; right: 20px; background: rgba(9,9,9,0.85); border: 1px solid var(--accent); color: var(--accent); padding: 8px 14px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; z-index: 5;">
-                    🔊 Tap to Unmute
-                </div>
+            <!-- YouTube Embed Container (Autoplaying Unmuted/Volume On with Custom UI and Hidden Branding) -->
+            <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 4px; overflow: hidden; border: 1.5px solid var(--accent); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); background: #000; margin-bottom: 30px;">
+                <iframe src="https://www.youtube.com/embed/dxdgwo4cEzc?autoplay=1&mute=0&controls=1&loop=1&playlist=dxdgwo4cEzc&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1" 
+                        title="Zelo Agency Welcome" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
             </div>
 
-            <!-- Added Welcome Subtext & Copy -->
+            <!-- Welcome Subtext & Copy -->
             <p style="color: var(--text-main); font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 15px;">
                 Please browse our elite beautiful models.
             </p>
@@ -791,7 +789,7 @@
             </div>
             
             <p style="color: #555555; font-size: 0.75rem; margin-top: 35px; border-top: 1px solid #151515; padding-top: 25px; letter-spacing: 0.08em;">
-                &copy; 2026 Zelo Agency Australia. All rights reserved. 18+ Adult Directory & Flat-Rate Advertising Platform.
+                &copy; 2026 Zelo Agency Australia. All rights rights reserved. 18+ Adult Directory & Flat-Rate Advertising Platform.
             </p>
         </div>
     </footer>
