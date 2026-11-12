@@ -555,13 +555,25 @@
             <h3 style="font-family: var(--font-serif); font-size: 2.4rem; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;">An Exclusive Welcome</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; letter-spacing: 0.2em; text-transform: uppercase;">For Our Distinguished Guests</p>
             
-            <!-- Native HTML5 Video Player (Zero YouTube Branding, Zero Captions, Full Volume Control) -->
+            <!-- Native HTML5 Video Player (Autoplay with Sound Enabled via JS) -->
             <div style="position: relative; border-radius: 4px; overflow: hidden; border: 1.5px solid var(--accent); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); background: #000; margin-bottom: 30px; max-width: 950px; margin-left: auto; margin-right: auto;">
-                <video controls autoplay loop playsinline preload="auto" style="width: 100%; display: block; max-height: 520px; object-fit: cover;">
+                <video id="welcomeVideo" controls autoplay muted loop playsinline preload="auto" style="width: 100%; display: block; max-height: 520px; object-fit: cover;">
                     <source src="zelo-welcome.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const vid = document.getElementById("welcomeVideo");
+                    if (vid) {
+                        vid.muted = false;
+                        vid.play().catch(() => {
+                            vid.muted = true;
+                            vid.play();
+                        });
+                    }
+                });
+            </script>
 
             <!-- Added Welcome Subtext & Copy -->
             <p style="color: var(--text-main); font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 15px;">
