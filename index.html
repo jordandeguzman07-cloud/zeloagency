@@ -160,12 +160,12 @@
             font-family: var(--font-sans);
         }
 
-        /* Frozen City Navigation Filters */
+        /* Frozen City Navigation Filters - Perfectly Balanced Single Line */
         .filters {
-            background: rgba(9, 9, 9, 0.9);
+            background: rgba(9, 9, 9, 0.95);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 20px 0;
+            padding: 14px 0;
             position: sticky;
             top: 45px;
             z-index: 1001;
@@ -174,23 +174,32 @@
         .filter-tabs {
             display: flex;
             justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
+            gap: 8px;
+            flex-wrap: nowrap;
             list-style: none;
             align-items: center;
+            overflow-x: auto;
+            padding: 0 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .filter-tabs::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for sleek look */
         }
 
         .filter-btn {
             background: transparent;
             border: 1px solid var(--border-subtle);
             color: var(--text-muted);
-            padding: 9px 22px;
+            padding: 7px 14px;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 400;
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
+            white-space: nowrap;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             text-decoration: none;
             display: inline-block;
@@ -210,7 +219,7 @@
             border: 1px solid var(--accent);
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .referral-nav-btn:hover {
@@ -509,19 +518,17 @@
 
     <!-- Frozen Navigation / Filters -->
     <nav class="filters">
-        <div class="container">
-            <ul class="filter-tabs">
-                <li><button class="filter-btn active" onclick="filterCity('all', this)">All Talent</button></li>
-                <li><button class="filter-btn" onclick="filterCity('sydney', this)">Sydney</button></li>
-                <li><button class="filter-btn" onclick="filterCity('melbourne', this)">Melbourne</button></li>
-                <li><button class="filter-btn" onclick="filterCity('brisbane', this)">Brisbane</button></li>
-                <li><button class="filter-btn" onclick="filterCity('perth', this)">Perth</button></li>
-                <li><button class="filter-btn" onclick="filterCity('adelaide', this)">Adelaide</button></li>
-                <li><a href="apply.html" class="filter-btn" style="background: var(--accent); color: var(--bg-obsidian); text-decoration: none; border-color: var(--accent); font-weight: 500;">✨ Apply / Join Us</a></li>
-                <li><a href="referral.html" class="filter-btn referral-nav-btn">🔥 Partnership Referral Program</a></li>
-                <li><a href="pricing.html" class="filter-btn" style="background: transparent; color: var(--accent); text-decoration: none; border-color: var(--accent);">👑 Pricing</a></li>
-            </ul>
-        </div>
+        <ul class="filter-tabs">
+            <li><button class="filter-btn active" onclick="filterCity('all', this)">All Talent</button></li>
+            <li><button class="filter-btn" onclick="filterCity('sydney', this)">Sydney</button></li>
+            <li><button class="filter-btn" onclick="filterCity('melbourne', this)">Melbourne</button></li>
+            <li><button class="filter-btn" onclick="filterCity('brisbane', this)">Brisbane</button></li>
+            <li><button class="filter-btn" onclick="filterCity('perth', this)">Perth</button></li>
+            <li><button class="filter-btn" onclick="filterCity('adelaide', this)">Adelaide</button></li>
+            <li><a href="apply.html" class="filter-btn" style="background: var(--accent); color: var(--bg-obsidian); text-decoration: none; border-color: var(--accent); font-weight: 500;">✨ Apply / Join Us</a></li>
+            <li><a href="referral.html" class="filter-btn referral-nav-btn">🔥 Partnership Referral</a></li>
+            <li><a href="pricing.html" class="filter-btn" style="background: transparent; color: var(--accent); text-decoration: none; border-color: var(--accent);">👑 Pricing</a></li>
+        </ul>
     </nav>
 
     <!-- Main Content -->
