@@ -261,7 +261,7 @@
             font-weight: 500;
             background-size: cover;
             background-position: center;
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), background-image 0.5s ease-in-out;
         }
 
         .card:hover .image-placeholder {
@@ -282,7 +282,17 @@
             z-index: 10;
         }
 
-        .badge.active { background-color: var(--success); }
+        /* Flashing/Pulsing Glow Animation for Available Badges */
+        @keyframes badgeFlash {
+            0% { opacity: 1; box-shadow: 0 0 4px rgba(46, 196, 182, 0.4); }
+            50% { opacity: 0.5; box-shadow: 0 0 14px rgba(46, 196, 182, 0.9); }
+            100% { opacity: 1; box-shadow: 0 0 4px rgba(46, 196, 182, 0.4); }
+        }
+
+        .badge.active { 
+            background-color: var(--success); 
+            animation: badgeFlash 2s infinite ease-in-out;
+        }
         .badge.off { background-color: var(--text-muted); }
         
         /* Red Premium Elite VIP Badge */
@@ -478,11 +488,11 @@
         <h2 class="section-title">Featured Portfolios</h2>
         
         <div class="grid" id="talent-grid">
-            <!-- Profile Card 1: Susanna (Enhanced with Gold Border, Glow, Striking Bold Gold Font, Red Heart, and Bold Red VIP) -->
+            <!-- Profile Card 1: Susanna (Enhanced with Gold Border, Glow, Rotating Hover Gallery, and Red VIP Badge) -->
             <a href="profile.html?name=susanna" class="card-link talent-card" data-city="sydney">
                 <div class="card" style="border: 2px solid #d4af37 !important; box-shadow: 0 0 25px rgba(212, 175, 55, 0.5), inset 0 0 10px rgba(212, 175, 55, 0.3) !important; animation: shimmerGlow 3s infinite ease-in-out; background: var(--bg-card);">
                     <span class="badge danger-vip">Premium Elite VIP</span>
-                    <div class="image-placeholder" style="background-image: url('images/susanna/1.jpg'); color: transparent;">Susanna</div>
+                    <div class="image-placeholder hover-rotate" data-images="images/susanna/1.jpg,images/susanna/2.jpg,images/susanna/3.jpg,images/susanna/4.jpg,images/susanna/5.jpg" style="background-image: url('images/susanna/1.jpg'); color: transparent;">Susanna</div>
                     <div class="card-info">
                         <h3 style="color: var(--accent); font-size: 1.5rem; font-weight: 400; font-family: var(--font-serif);">Susanna <span style="color: #e71d36; font-size: 1.1rem;">❤ VIP</span></h3>
                         <p>Sydney</p>
@@ -494,7 +504,7 @@
             <a href="chloe.html" class="card-link talent-card" data-city="sydney">
                 <div class="card">
                     <span class="badge active">Available</span>
-                    <div class="image-placeholder" style="background-image: url('chloe.jpeg'); color: transparent;">Chloe Star</div>
+                    <div class="image-placeholder hover-rotate" data-images="chloe.jpeg" style="background-image: url('chloe.jpeg'); color: transparent;">Chloe Star</div>
                     <div class="card-info">
                         <h3>Chloe Star</h3>
                         <p>Sydney</p>
@@ -506,7 +516,7 @@
             <a href="natalia.html" class="card-link talent-card" data-city="melbourne">
                 <div class="card">
                     <span class="badge active">Available</span>
-                    <div class="image-placeholder" style="background-image: url('images/Natalia.jpeg'); color: transparent;">Natalia</div>
+                    <div class="image-placeholder hover-rotate" data-images="images/Natalia.jpeg" style="background-image: url('images/Natalia.jpeg'); color: transparent;">Natalia</div>
                     <div class="card-info">
                         <h3>Natalia</h3>
                         <p>Melbourne</p>
@@ -690,7 +700,7 @@
         </div>
     </footer>
 
-    <!-- Interactive Filtering Script -->
+    <!-- Interactive Filtering & Hover Gallery Rotation Script -->
     <script>
         function filterCity(city, btn) {
             const buttons = document.querySelectorAll('.filter-btn');
@@ -706,6 +716,34 @@
                 }
             });
         }
+
+        // Hover Image Gallery Rotation Script
+        document.querySelectorAll('.talent-card').forEach(card => {
+            const imgDiv = card.querySelector('.hover-rotate');
+            if (!imgDiv) return;
+
+            const imagesAttr = imgDiv.getAttribute('data-images');
+            if (!imagesAttr) return;
+
+            const images = imagesAttr.split(',');
+            if (images.length <= 1) return;
+
+            let currentIndex = 0;
+            let intervalId = null;
+
+            card.addEventListener('mouseenter', () => {
+                intervalId = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    imgDiv.style.backgroundImage = `url('${images[currentIndex].trim()}')`;
+                }, 1200); // Rotates image every 1.2 seconds on hover
+            });
+
+            card.addEventListener('mouseleave', () => {
+                clearInterval(intervalId);
+                currentIndex = 0;
+                imgDiv.style.backgroundImage = `url('${images[0].trim()}')`; // Reset to primary portrait
+            });
+        });
     </script>
 </body>
 </html>
