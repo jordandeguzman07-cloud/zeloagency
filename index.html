@@ -43,13 +43,6 @@
             --font-sans: 'Inter', -apple-system, sans-serif;
         }
 
-        /* Force Hide YouTube Subtitles / Captions Inside Embeds */
-        .ytp-caption-window-container, .ytp-caption-segment {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-        }
-
         /* Custom Scrollbar for Luxury Feel */
         ::-webkit-scrollbar {
             width: 8px;
@@ -562,18 +555,14 @@
             <h3 style="font-family: var(--font-serif); font-size: 2.4rem; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;">An Exclusive Welcome</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; letter-spacing: 0.2em; text-transform: uppercase;">For Our Distinguished Guests</p>
             
-            <!-- YouTube Embed Container (Auto-playing muted for browser compliance + Tap to Turn Sound On Overlay) -->
+            <!-- YouTube Embed Container (Auto Sound On: mute=0) -->
             <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 4px; overflow: hidden; border: 1.5px solid var(--accent); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); background: #000; margin-bottom: 30px;">
-                <iframe id="ytVideo" src="https://www.youtube.com/embed/dxdgwo4cEzc?autoplay=1&mute=1&controls=1&loop=1&playlist=dxdgwo4cEzc&modestbranding=1&rel=0" 
+                <iframe src="https://www.youtube.com/embed/dxdgwo4cEzc?autoplay=1&mute=0&controls=1&loop=1&playlist=dxdgwo4cEzc&modestbranding=1&rel=0" 
                         title="Zelo Agency Welcome" 
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                 </iframe>
-                <!-- Click to Turn Sound On Overlay Button -->
-                <div id="unmuteOverlay" onclick="const iframe = document.getElementById('ytVideo'); iframe.src = 'https://www.youtube.com/embed/dxdgwo4cEzc?autoplay=1&mute=0&controls=1&loop=1&playlist=dxdgwo4cEzc&modestbranding=1&rel=0'; this.style.display='none';" style="position: absolute; bottom: 20px; right: 20px; background: rgba(9,9,9,0.85); border: 1px solid var(--accent); color: var(--accent); padding: 8px 14px; border-radius: 20px; font-size: 0.75rem; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; z-index: 5;">
-                    🔊 Tap to Turn Sound On
-                </div>
             </div>
 
             <!-- Welcome Subtext & Copy -->
