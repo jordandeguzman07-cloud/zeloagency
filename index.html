@@ -13,36 +13,47 @@
     <meta name="google-site-verification" content="hn6LpSxHUMWnbvaWEUucTXW8TImGtWerQDFOFN3pna0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zelo Talent Agency | Genuine & Professional</title>
+    <title>Zelo Agency | Elite Private Showcase & Independent Directory</title>
+    <!-- Google Fonts for Quiet Luxury Serif & Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Base Reset & Variables */
+        /* Base Reset & Variables: Obsidian & Champagne Gold Theme */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         :root {
-            --primary: #111111;
-            --accent: #d4af37; /* Elegant Gold */
-            --bg-light: #f9f9f9;
-            --text-dark: #222222;
-            --text-muted: #666666;
+            --bg-obsidian: #0B0B0B;
+            --bg-card: #141414;
+            --bg-light: #111111;
+            --accent: #D4AF37; /* Elegant Gold */
+            --accent-muted: #AA8C2C;
+            --text-main: #F4F4F4;
+            --text-muted: #9A9A9A;
+            --border-subtle: rgba(212, 175, 55, 0.2);
             --success: #2ec4b6;
             --danger: #e71d36;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: var(--bg-obsidian);
+            color: var(--text-main);
+            font-family: var(--font-sans);
             line-height: 1.6;
+            letter-spacing: 0.02em;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
         /* Frozen Top Announcement & Event Launch Bar */
@@ -51,13 +62,14 @@
             top: 0;
             z-index: 1002;
             background: #000000;
-            color: #d4af37;
+            color: var(--accent);
             text-align: center;
-            padding: 10px 15px;
+            padding: 12px 15px;
             font-size: 0.85rem;
-            font-weight: 600;
-            border-bottom: 1px solid #222;
-            letter-spacing: 0.5px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-subtle);
+            letter-spacing: 0.05em;
+            font-family: var(--font-sans);
         }
 
         .top-launch-bar a {
@@ -75,106 +87,102 @@
             background: rgba(20, 20, 20, 0.95);
             border: 1px solid var(--accent);
             color: #fff;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.05em;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
 
         .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             background-color: #2ecc71;
             border-radius: 50%;
-            box-shadow: 0 0 0 rgba(46, 204, 113, 0.4);
             animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
-            }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 6px rgba(46, 204, 113, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
-            }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
         }
 
-        /* Header & Hero */
+        /* Header & Hero Showroom Entrance */
         header {
-            background-color: var(--primary);
+            background-color: var(--bg-obsidian);
             color: white;
             text-align: center;
-            padding: 40px 0 30px;
-            border-bottom: 4px solid var(--accent);
+            padding: 50px 0 40px;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .header-logo-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         header p {
             color: var(--accent);
-            font-size: 0.95rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 0.3em;
             margin-top: 10px;
+            font-family: var(--font-sans);
         }
 
         /* Frozen City Navigation Filters */
         .filters {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding: 15px 0;
+            background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 18px 0;
             position: sticky;
-            top: 41px;
+            top: 45px;
             z-index: 1001;
         }
 
         .filter-tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
             list-style: none;
             align-items: center;
         }
 
         .filter-btn {
-            background: none;
-            border: 1px solid #ddd;
-            padding: 8px 18px;
-            border-radius: 20px;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             text-decoration: none;
             display: inline-block;
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            background-color: var(--accent);
+            color: var(--bg-obsidian);
+            border-color: var(--accent);
+            font-weight: 500;
         }
 
         .referral-nav-btn {
-            background-color: #111;
-            color: #fff;
+            background-color: transparent;
+            color: var(--accent);
             border: 1px solid var(--accent);
             display: inline-flex;
             align-items: center;
@@ -183,26 +191,28 @@
 
         .referral-nav-btn:hover {
             background-color: var(--accent);
-            color: #111;
-            border-color: var(--accent);
+            color: var(--bg-obsidian);
         }
 
         /* Profile Grid Section */
         .section-title {
             text-align: center;
-            margin: 40px 0 20px;
-            font-size: 1.8rem;
-            position: relative;
+            margin: 60px 0 30px;
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--text-main);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
         }
 
-        /* Profile Cards */
+        /* Profile Cards (Quiet Luxury Lookbook Style) */
         .card-link {
             text-decoration: none;
             color: inherit;
@@ -210,43 +220,52 @@
         }
 
         .card {
-            background: white;
-            border-radius: 8px;
+            background: var(--bg-card);
+            border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-subtle);
             position: relative;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         /* Shimmering Glow Animation for Susanna's Elite Card */
         @keyframes shimmerGlow {
             0% {
                 border-color: #d4af37;
-                box-shadow: 0 0 20px rgba(212, 175, 55, 0.7), inset 0 0 10px rgba(212, 175, 55, 0.4);
+                box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(212, 175, 55, 0.2);
             }
             50% {
                 border-color: #fff2b2;
-                box-shadow: 0 0 40px rgba(212, 175, 55, 1), 0 0 15px rgba(255, 255, 255, 0.9), inset 0 0 20px rgba(212, 175, 55, 0.7);
+                box-shadow: 0 0 45px rgba(212, 175, 55, 0.7), 0 0 15px rgba(255, 255, 255, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.4);
             }
             100% {
                 border-color: #d4af37;
-                box-shadow: 0 0 20px rgba(212, 175, 55, 0.7), inset 0 0 10px rgba(212, 175, 55, 0.4);
+                box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(212, 175, 55, 0.2);
             }
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
         }
 
         .image-placeholder {
             width: 100%;
-            height: 320px;
-            background-color: #e9ecef;
+            height: 380px;
+            background-color: #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
+            color: transparent;
             font-weight: 500;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover .image-placeholder {
+            transform: scale(1.03);
         }
 
         .badge {
@@ -255,9 +274,10 @@
             left: 15px;
             padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
+            font-size: 0.7rem;
+            font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.1em;
             color: white;
             z-index: 10;
         }
@@ -268,87 +288,124 @@
         /* Red Premium Elite VIP Badge */
         .badge.danger-vip { 
             background-color: var(--danger); 
-            box-shadow: 0 2px 8px rgba(231, 29, 54, 0.4);
-            letter-spacing: 0.5px;
+            box-shadow: 0 2px 12px rgba(231, 29, 54, 0.5);
+            letter-spacing: 0.1em;
         }
 
         .card-info {
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
+            background: var(--bg-card);
         }
 
         .card-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+            color: var(--text-main);
         }
 
         .card-info p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.2em;
         }
 
         /* Contact Section */
         .contact-section {
-            background-color: var(--primary);
+            background-color: var(--bg-obsidian);
             color: white;
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
+            border-top: 1px solid var(--border-subtle);
         }
 
         .contact-section h2 {
-            margin-bottom: 10px;
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
             color: var(--accent);
+        }
+
+        .contact-section p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
         }
 
         .contact-method {
-            background: rgba(255,255,255,0.05);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--bg-card);
+            padding: 35px 25px;
+            border-radius: 2px;
+            border: 1px solid var(--border-subtle);
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent);
         }
 
         .contact-method h4 {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .contact-method p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         .contact-link {
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
             color: var(--accent);
             text-decoration: none;
-            font-weight: bold;
-            border-bottom: 1px dashed var(--accent);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 2px;
+            transition: color 0.3s ease;
         }
 
         .contact-link:hover {
-            color: white;
-            border-bottom-style: solid;
+            color: #ffffff;
+            border-bottom-color: #ffffff;
         }
 
         /* Footer */
         footer {
-            background-color: #0a0a0a;
+            background-color: #070707;
             color: #777;
             text-align: center;
-            padding: 20px 0;
-            font-size: 0.85rem;
-            border-top: 1px solid #222;
+            padding: 30px 0;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            border-top: 1px solid var(--border-subtle);
         }
 
         /* Responsive Layout fixes */
         @media (max-width: 768px) {
-            .grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-            .launch-banner { font-size: 11px; padding: 6px 10px; right: 10px; top: 125px; }
+            .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+            .launch-banner { font-size: 10px; padding: 6px 10px; right: 10px; top: 125px; }
         }
     </style>
 </head>
@@ -382,7 +439,7 @@
                     <polygon points="140,20 144,24 140,28 136,24" fill="#D4AF37" />
                     
                     <!-- Subtitle -->
-                    <text x="140" y="105" fill="#D4AF37" font-family="'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="4" text-anchor="middle">EXCLUSIVE TALENT</text>
+                    <text x="140" y="105" fill="#D4AF37" font-family="'Inter', sans-serif" font-size="10" font-weight="600" letter-spacing="4" text-anchor="middle">EXCLUSIVE TALENT</text>
                     
                     <!-- Gold Gradient Definition -->
                     <defs>
@@ -395,7 +452,7 @@
                 </svg>
             </div>
             <p>♥ Genuine | Exclusive | Memorable ♥</p>
-            <p style="color: #ffffff; font-size: 0.85rem; font-weight: 400; letter-spacing: 2px; margin-top: 5px; text-transform: uppercase;">Elite Escorts & Independent Companion Directory Australia</p>
+            <p style="color: #ffffff; font-size: 0.85rem; font-weight: 300; letter-spacing: 0.25em; margin-top: 8px; text-transform: uppercase; font-family: var(--font-sans);">Elite Escorts & Independent Companion Directory Australia</p>
         </div>
     </header>
 
@@ -409,9 +466,9 @@
                 <li><button class="filter-btn" onclick="filterCity('brisbane', this)">Brisbane</button></li>
                 <li><button class="filter-btn" onclick="filterCity('perth', this)">Perth</button></li>
                 <li><button class="filter-btn" onclick="filterCity('adelaide', this)">Adelaide</button></li>
-                <li><a href="apply.html" class="filter-btn" style="background: #bdaf72; color: #ffffff; text-decoration: none; border-color: #bdaf72;">✨ Apply / Join Us</a></li>
+                <li><a href="apply.html" class="filter-btn" style="background: var(--accent); color: var(--bg-obsidian); text-decoration: none; border-color: var(--accent); font-weight: 500;">✨ Apply / Join Us</a></li>
                 <li><a href="referral.html" class="filter-btn referral-nav-btn">🔥 Partnership Referral Program</a></li>
-                <li><a href="pricing.html" class="filter-btn" style="background: #111; color: #d4af37; text-decoration: none; border-color: #d4af37;">👑 Pricing</a></li>
+                <li><a href="pricing.html" class="filter-btn" style="background: transparent; color: var(--accent); text-decoration: none; border-color: var(--accent);">👑 Pricing</a></li>
             </ul>
         </div>
     </nav>
@@ -423,11 +480,11 @@
         <div class="grid" id="talent-grid">
             <!-- Profile Card 1: Susanna (Enhanced with Gold Border, Glow, Striking Bold Gold Font, Red Heart, and Bold Red VIP) -->
             <a href="profile.html?name=susanna" class="card-link talent-card" data-city="sydney">
-                <div class="card" style="border: 4px solid #d4af37 !important; box-shadow: 0 0 25px rgba(212, 175, 55, 0.9), 0 0 50px rgba(212, 175, 55, 0.4), inset 0 0 12px rgba(212, 175, 55, 0.5) !important; animation: shimmerGlow 3s infinite ease-in-out; background: #fff;">
+                <div class="card" style="border: 2px solid #d4af37 !important; box-shadow: 0 0 25px rgba(212, 175, 55, 0.5), inset 0 0 10px rgba(212, 175, 55, 0.3) !important; animation: shimmerGlow 3s infinite ease-in-out; background: var(--bg-card);">
                     <span class="badge danger-vip">Premium Elite VIP</span>
-                    <div class="image-placeholder" style="background-image: url('images/susanna/1.jpg'); background-size: cover; background-position: center; color: transparent;">Susanna</div>
+                    <div class="image-placeholder" style="background-image: url('images/susanna/1.jpg'); color: transparent;">Susanna</div>
                     <div class="card-info">
-                        <h3 style="color: #b8860b; font-size: 1.4rem; font-weight: 800; text-shadow: 0 1px 2px rgba(0,0,0,0.15);">Susanna <span style="color: #e71d36; font-size: 1.1rem;">❤ VIP</span></h3>
+                        <h3 style="color: var(--accent); font-size: 1.5rem; font-weight: 400; font-family: var(--font-serif);">Susanna <span style="color: #e71d36; font-size: 1.1rem;">❤ VIP</span></h3>
                         <p>Sydney</p>
                     </div>
                 </div>
@@ -437,7 +494,7 @@
             <a href="chloe.html" class="card-link talent-card" data-city="sydney">
                 <div class="card">
                     <span class="badge active">Available</span>
-                    <div class="image-placeholder" style="background-image: url('chloe.jpeg'); background-size: cover; background-position: center; color: transparent;">Chloe Star</div>
+                    <div class="image-placeholder" style="background-image: url('chloe.jpeg'); color: transparent;">Chloe Star</div>
                     <div class="card-info">
                         <h3>Chloe Star</h3>
                         <p>Sydney</p>
@@ -449,7 +506,7 @@
             <a href="natalia.html" class="card-link talent-card" data-city="melbourne">
                 <div class="card">
                     <span class="badge active">Available</span>
-                    <div class="image-placeholder" style="background-image: url('images/Natalia.jpeg'); background-size: cover; background-position: center; color: transparent;">Natalia</div>
+                    <div class="image-placeholder" style="background-image: url('images/Natalia.jpeg'); color: transparent;">Natalia</div>
                     <div class="card-info">
                         <h3>Natalia</h3>
                         <p>Melbourne</p>
@@ -546,88 +603,88 @@
     </section>
 
     <!-- Roster Pricing Slots -->
-    <section style="background: #fdfdfd; border-top: 1px solid #ddd; padding: 60px 0;">
+    <section style="background: #0f0f0f; border-top: 1px solid var(--border-subtle); padding: 80px 0;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 10px; color: #111;">Join Our Premium Roster</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 40px;">Select your advertising placement option to launch your portfolio profile live</p>
+            <h2 style="text-align: center; margin-bottom: 12px; color: var(--text-main); font-family: var(--font-serif); font-size: 2.2rem; font-weight: 400;">Join Our Premium Roster</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 50px; font-size: 0.95rem; letter-spacing: 0.05em;">Select your advertising placement option to launch your portfolio profile live</p>
             
             <div class="contact-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                 <!-- Plan 1: Standard -->
-                <div class="contact-method" style="background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 40px 30px; text-align: center; border-radius: 8px;">
-                    <h3 style="font-size: 1.6rem; margin-bottom: 10px; color: #111111;">Standard Listing</h3>
-                    <p style="font-size: 2rem; font-weight: bold; color: #bdaf72; margin-bottom: 15px;">$49 <span style="font-size: 1rem; font-weight: normal; color: #666;">/ month</span></p>
-                    <p style="color: #666; margin-bottom: 30px; font-size: 0.95rem;">Premium grid card placement directory slot active across Australia 24/7.</p>
-                    <a href="apply.html?tier=standard" class="contact-link" style="background: #111111; color: #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; width: 80%;">Apply & Join ›</a>
+                <div class="contact-method" style="background: var(--bg-card); padding: 45px 30px; text-align: center; border-radius: 2px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main);">Standard Listing</h3>
+                    <p style="font-size: 2.2rem; font-weight: 400; font-family: var(--font-serif); color: var(--accent); margin-bottom: 15px;">$49 <span style="font-size: 0.9rem; font-family: var(--font-sans); color: var(--text-muted);">/ month</span></p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem; line-height: 1.6;">Premium grid card placement directory slot active across Australia 24/7.</p>
+                    <a href="apply.html?tier=standard" class="contact-link" style="background: #111111; color: #ffffff; padding: 14px 25px; border-radius: 2px; text-decoration: none; display: inline-block; font-weight: 500; width: 85%; border: 1px solid var(--border-subtle);">Apply & Join ›</a>
                 </div>
 
                 <!-- Plan 2: Spotlight Boost -->
-                <div class="contact-method" style="background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 40px 30px; text-align: center; border: 2px solid #bdaf72; position: relative; border-radius: 8px;">
-                    <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #bdaf72; color: white; padding: 4px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Highly Requested</span>
-                    <h3 style="font-size: 1.6rem; margin-bottom: 10px; color: #111111;">👑 Spotlight Boost</h3>
-                    <p style="font-size: 2rem; font-weight: bold; color: #bdaf72; margin-bottom: 15px;">$25 <span style="font-size: 1rem; font-weight: normal; color: #666;">/ week</span></p>
-                    <p style="color: #666; margin-bottom: 30px; font-size: 0.95rem;">Lock your portfolio card directly inside our top row grid positions for massive exposure.</p>
-                    <a href="apply.html?tier=spotlight" class="contact-link" style="background: #bdaf72; color: #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; width: 80%;">Apply & Boost ›</a>
+                <div class="contact-method" style="background: var(--bg-card); padding: 45px 30px; text-align: center; border: 1px solid var(--accent); position: relative; border-radius: 2px;">
+                    <span style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--bg-obsidian); padding: 4px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Highly Requested</span>
+                    <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main);">👑 Spotlight Boost</h3>
+                    <p style="font-size: 2.2rem; font-weight: 400; font-family: var(--font-serif); color: var(--accent); margin-bottom: 15px;">$25 <span style="font-size: 0.9rem; font-family: var(--font-sans); color: var(--text-muted);">/ week</span></p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem; line-height: 1.6;">Lock your portfolio card directly inside our top row grid positions for massive exposure.</p>
+                    <a href="apply.html?tier=spotlight" class="contact-link" style="background: var(--accent); color: var(--bg-obsidian); padding: 14px 25px; border-radius: 2px; text-decoration: none; display: inline-block; font-weight: 600; width: 85%; border: none;">Apply & Boost ›</a>
                 </div>
 
                 <!-- Plan 3: Banner Ad -->
-                <div class="contact-method" style="background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 40px 30px; text-align: center; border-radius: 8px;">
-                    <h3 style="font-size: 1.6rem; margin-bottom: 10px; color: #111111;">🚀 Banner Ad</h3>
-                    <p style="font-size: 2rem; font-weight: bold; color: #bdaf72; margin-bottom: 15px;">$99 <span style="font-size: 1rem; font-weight: normal; color: #666;">/ month</span></p>
-                    <p style="color: #666; margin-bottom: 30px; font-size: 0.95rem;">High-visibility premium display banner ad placement across the network (Includes 14-day trial).</p>
-                    <a href="apply.html?tier=banner" class="contact-link" style="background: #111111; color: #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; width: 80%;">Apply for Banner ›</a>
+                <div class="contact-method" style="background: var(--bg-card); padding: 45px 30px; text-align: center; border-radius: 2px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main);">🚀 Banner Ad</h3>
+                    <p style="font-size: 2.2rem; font-weight: 400; font-family: var(--font-serif); color: var(--accent); margin-bottom: 15px;">$99 <span style="font-size: 0.9rem; font-family: var(--font-sans); color: var(--text-muted);">/ month</span></p>
+                    <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 0.9rem; line-height: 1.6;">High-visibility premium display banner ad placement across the network (Includes 14-day trial).</p>
+                    <a href="apply.html?tier=banner" class="contact-link" style="background: #111111; color: #ffffff; padding: 14px 25px; border-radius: 2px; text-decoration: none; display: inline-block; font-weight: 500; width: 85%; border: 1px solid var(--border-subtle);">Apply for Banner ›</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- National Geo-Targeted SEO Hub -->
-    <section style="background: #0a0a0a; color: #888888; padding: 40px 20px; font-family: sans-serif; font-size: 0.85rem; border-top: 1px solid #1a1a1a; line-height: 1.8; width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto; text-align: left;">
-            <h4 style="color: #bdaf72; margin-bottom: 15px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Zelo Agency National Coverage Hub</h4>
-            <p style="margin-bottom: 20px;">
-                Zelo Agency is Australia's fastest-growing flat-rate adult advertising listing network, connecting sophisticated clients with premium independent companions and elite private escort providers nationwide. Our directory architecture optimizes macro-visibility, allowing clients to securely locate active independent providers across all major Australian states and metropolitan cities.
+    <section style="background: #070707; color: var(--text-muted); padding: 50px 20px; font-family: var(--font-sans); font-size: 0.85rem; border-top: 1px solid var(--border-subtle); line-height: 1.8; width: 100%;">
+        <div style="max-width: 1300px; margin: 0 auto; text-align: left;">
+            <h4 style="color: var(--accent); margin-bottom: 15px; font-size: 0.95rem; letter-spacing: 0.15em; text-transform: uppercase; font-family: var(--font-sans);">Zelo Agency National Coverage Hub</h4>
+            <p style="margin-bottom: 25px; color: var(--text-muted);">
+                Zelo Agency is Australia's premier flat-rate adult advertising showcase network, connecting sophisticated clients with independent companions and elite private escort providers nationwide. Our directory architecture optimizes macro-visibility, allowing clients to securely locate active independent providers across all major Australian states and metropolitan cities.
             </p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; color: #666666;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; color: var(--text-muted);">
                 <div>
-                    <strong style="color: #aaaaaa; display: block; margin-bottom: 5px;">📍 Victoria & New South Wales:</strong>
+                    <strong style="color: #cccccc; display: block; margin-bottom: 8px; font-weight: 500;">📍 Victoria & New South Wales:</strong>
                     Independent Companions Victoria • Elite Escorts Victoria • Melbourne Companion Roster • Private Companion Roster New South Wales • Independent Roster Sydney • Sydney Escort Advertising.
                 </div>
                 <div>
-                    <strong style="color: #aaaaaa; display: block; margin-bottom: 5px;">📍 Queensland & Western Australia:</strong>
+                    <strong style="color: #cccccc; display: block; margin-bottom: 8px; font-weight: 500;">📍 Queensland & Western Australia:</strong>
                     Queensland Adult Providers • Elite Roster Brisbane • Gold Coast Independent Companions • Brisbane Companion Services • Western Australia Private Directory Listings • Perth Escorts.
                 </div>
                 <div>
-                    <strong style="color: #aaaaaa; display: block; margin-bottom: 5px;">📍 South Australia, Northern Territory & National:</strong>
+                    <strong style="color: #cccccc; display: block; margin-bottom: 8px; font-weight: 500;">📍 South Australia, Northern Territory & National:</strong>
                     South Australia Elite Companions • Adelaide Private Escorts • Northern Territory Companion Directories • Darwin Independent Providers • Luxury Adult Directory Australia • Flat-Rate Companion Banner Spaces.
                 </div>
             </div>
             
-            <p style="margin-top: 20px; font-size: 0.75rem; color: #444444; border-top: 1px solid #151515; padding-top: 15px;">
+            <p style="margin-top: 25px; font-size: 0.75rem; color: #555555; border-top: 1px solid #141414; padding-top: 20px;">
                 Optimized Content Index: This platform registers public media profiles and verified flat-rate display banners for independent sole-trader adult providers operating legally under Australian state guidelines. Zelo Agency does not operate an agency booking desk and acts solely as an organic search optimization engine.
             </p>
         </div>
     </section>
 
     <!-- Official Business & Advertisement Footer Hub -->
-    <footer style="background: #111111; color: #ffffff; padding: 40px 20px; text-align: center; font-family: sans-serif; border-top: 1px solid #bdaf72; width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h3 style="color: #bdaf72; margin-bottom: 15px; font-size: 1.4rem;">Zelo Agency Corporate Hub</h3>
-            <p style="color: #aaaaaa; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6;">
+    <footer style="background: var(--bg-obsidian); color: #ffffff; padding: 50px 20px; text-align: center; border-top: 1px solid var(--accent); width: 100%;">
+        <div style="max-width: 1300px; margin: 0 auto;">
+            <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; font-family: var(--font-serif); font-weight: 400; letter-spacing: 0.05em;">Zelo Agency Corporate Hub</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
                 Are you an independent provider looking to update your media assets, or a local adult-industry business wanting high-exposure visibility? Get in touch with our operations desk 24/7.
             </p>
-            <p style="color: #ffffff; font-size: 0.95rem; margin-bottom: 25px;">
+            <p style="color: #ffffff; font-size: 0.95rem; margin-bottom: 30px; letter-spacing: 0.05em;">
                 📞 <strong>0406 133 210</strong> &nbsp;|&nbsp; 📧 <strong>admin@zeloagency.com.au</strong>
             </p>
             
-            <div style="margin-bottom: 35px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="mailto:admin@zeloagency.com.au" style="background: transparent; color: #ffffff; border: 1px solid #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">📧 Email Support</a>
-                <a href="tel:0406133210" style="background: transparent; color: #ffffff; border: 1px solid #ffffff; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">📞 Call 0406 133 210</a>
-                <a href="apply.html?tier=banner" style="background: transparent; color: #bdaf72; border: 1px solid #bdaf72; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">🚀 Apply for Display Banner Ad</a>
-                <a href="safety.html" style="background: transparent; color: #bdaf72; border: 1px solid #bdaf72; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;">🛡️ Safety & Resources</a>
+            <div style="margin-bottom: 35px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="mailto:admin@zeloagency.com.au" style="background: transparent; color: #ffffff; border: 1px solid var(--border-subtle); padding: 12px 25px; border-radius: 2px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; font-weight: 400;">📧 Email Support</a>
+                <a href="tel:0406133210" style="background: transparent; color: #ffffff; border: 1px solid var(--border-subtle); padding: 12px 25px; border-radius: 2px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; font-weight: 400;">📞 Call 0406 133 210</a>
+                <a href="apply.html?tier=banner" style="background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 12px 25px; border-radius: 2px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; font-weight: 400;">🚀 Apply for Display Banner Ad</a>
+                <a href="safety.html" style="background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 12px 25px; border-radius: 2px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.05em; font-weight: 400;">🛡️ Safety & Resources</a>
             </div>
             
-            <p style="color: #666666; font-size: 0.8rem; margin-top: 30px; border-top: 1px solid #222222; padding-top: 20px;">
+            <p style="color: #555555; font-size: 0.75rem; margin-top: 30px; border-top: 1px solid #141414; padding-top: 25px; letter-spacing: 0.05em;">
                 &copy; 2026 Zelo Agency Australia. All rights reserved. 18+ Adult Directory & Flat-Rate Advertising Platform.
             </p>
         </div>
