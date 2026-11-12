@@ -284,6 +284,24 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.2);
         }
 
+        /* Isolated Pricing Card Hover Fix */
+        .pricing-card {
+            background: var(--bg-card);
+            padding: 50px 35px;
+            text-align: center;
+            border: 1px solid var(--accent);
+            position: relative;
+            border-radius: 3px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: #fff2b2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.45);
+        }
+
         .image-placeholder {
             width: 100%;
             height: 400px;
@@ -668,7 +686,7 @@
             
             <div class="contact-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
                 <!-- Plan 1: Standard ($49/mo - Highly Requested & Gold Styled) -->
-                <div class="contact-method" style="background: var(--bg-card); padding: 50px 35px; text-align: center; border: 1px solid var(--accent); position: relative; border-radius: 3px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);">
+                <div class="pricing-card">
                     <span style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--bg-obsidian); padding: 5px 18px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;">Highly Requested</span>
                     <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main);">Standard Listing</h3>
                     <p style="font-size: 2.4rem; font-weight: 400; font-family: var(--font-serif); color: var(--accent); margin-bottom: 15px;">$49 <span style="font-size: 0.9rem; font-family: var(--font-sans); color: var(--text-muted);">/ month</span></p>
@@ -677,7 +695,7 @@
                 </div>
 
                 <!-- Plan 2: Spotlight Boost ($25/wk - Top Choice & Gold Styled) -->
-                <div class="contact-method" style="background: var(--bg-card); padding: 50px 35px; text-align: center; border: 1px solid var(--accent); position: relative; border-radius: 3px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);">
+                <div class="pricing-card">
                     <span style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--bg-obsidian); padding: 5px 18px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;">Top Choice</span>
                     <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main);">👑 Spotlight Boost</h3>
                     <p style="font-size: 2.4rem; font-weight: 400; font-family: var(--font-serif); color: var(--accent); margin-bottom: 15px;">$25 <span style="font-size: 0.9rem; font-family: var(--font-sans); color: var(--text-muted);">/ week</span></p>
@@ -686,7 +704,7 @@
                 </div>
 
                 <!-- Plan 3: Banner Ad ($99/mo - Flagged as Premium, Gold Styled & Bordered) -->
-                <div class="contact-method" style="background: var(--bg-card); padding: 50px 35px; text-align: center; border: 1px solid var(--accent); position: relative; border-radius: 3px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);">
+                <div class="pricing-card">
                     <span style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--bg-obsidian); padding: 5px 18px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;">⭐ Premium</span>
                     <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main);">🚀 Banner Ad</h3>
                     <p style="font-size: 2.4rem; font-weight: 400; font-family: var(--font-serif); color: var(--accent); margin-bottom: 15px;">$99 <span style="font-size: 0.9rem; font-family: var(--font-sans); color: var(--text-muted);">/ month</span></p>
