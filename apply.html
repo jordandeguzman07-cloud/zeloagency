@@ -209,13 +209,13 @@
             }
 
             try {
-                // Send form data directly to your Make.com Webhook (delivering to your inbox)
+                // Send form data directly to your Make.com Webhook and wait for complete transmission before redirecting
                 await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
                     method: 'POST',
                     body: formData
                 });
 
-                // Redirect to the correct Stripe payment link
+                // Now safely redirect to the correct Stripe payment link
                 window.location.href = stripeUrl;
 
             } catch (error) {
