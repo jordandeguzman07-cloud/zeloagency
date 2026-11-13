@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Zelo Agency | Elite Private Showcase</title>
+    <title id="page-title">Zelo Escorts | Elite Private Showcase</title>
     <!-- Google Fonts for Quiet Luxury Serif & Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -333,7 +333,7 @@
 
     <!-- Header with Susanna's gold bold name, red heart, VIP, display only, and isolated Premium Elite VIP badge -->
     <div class="site-header">
-        <h1>Zelo Agency</h1>
+        <h1>Zelo Escorts</h1>
         <p><span id="header-name">Loading...</span></p>
         <div>
             <span class="header-badge-pill">Premium Elite VIP Showcase</span>
@@ -355,14 +355,14 @@
                 <div class="spec-item"><label>Location</label><span id="spec-city">Sydney</span></div>
                 <div class="spec-item"><label>Height</label><span id="spec-height">163 cm</span></div>
                 <div class="spec-item"><label>Eyes</label><span id="spec-eyes">Green</span></div>
-                <div class="spec-item"><label>Email</label><span id="spec-email"></span></div>
+                <div class="spec-item"><label>Email</label><span id="spec-email">admin@zeloescorts.com.au</span></div>
                 
                 <div class="spec-item"><label>Age</label><span id="spec-age">22</span></div>
                 <div class="spec-item"><label>Dress Size</label><span id="spec-dress">6</span></div>
                 <div class="spec-item"><label>Place of Service</label><span id="spec-service">Incall, Outcall</span></div>
                 <div class="verified-badge">Verified Elite</div>
 
-                <div class="spec-item"><label>Phone</label><span id="spec-phone"></span></div>
+                <div class="spec-item"><label>Phone</label><span id="spec-phone">0406 133 210</span></div>
                 <div class="spec-item"><label>Hair</label><span id="spec-hair">Dark</span></div>
                 <div class="spec-item"><label>Body Type</label><span id="spec-body">Sexy</span></div>
             </div>
@@ -543,11 +543,11 @@
         <div class="contact-grid">
             <div class="contact-item">
                 <label>Direct Phone</label>
-                <span id="contact-phone"></span>
+                <span id="contact-phone">0406 133 210</span>
             </div>
             <div class="contact-item">
                 <label>Email Agency</label>
-                <a id="contact-email" href="#"></a>
+                <a id="contact-email" href="mailto:admin@zeloescorts.com.au">admin@zeloescorts.com.au</a>
             </div>
         </div>
 
@@ -573,8 +573,8 @@
                 age: "22",
                 dress: "6",
                 service: "Incall, Outcall",
-                phone: "",
-                email: "",
+                phone: "0406 133 210",
+                email: "admin@zeloescorts.com.au",
                 hair: "Dark",
                 body: "Sexy",
                 photo1: "images/susanna/1.jpg",
@@ -595,7 +595,7 @@
 
         if (profiles[talentKey]) {
             const p = profiles[talentKey];
-            document.getElementById('page-title').innerText = "Susanna | Zelo Agency Showcase";
+            document.getElementById('page-title').innerText = "Susanna | Zelo Escorts Showcase";
             document.getElementById('header-name').innerHTML = p.headerText;
             document.getElementById('cta-name').innerText = "Susanna";
             document.getElementById('sub-name').innerText = "Susanna";
@@ -615,6 +615,7 @@
             document.getElementById('spec-body').innerText = p.body;
             document.getElementById('contact-phone').innerText = p.phone;
             document.getElementById('contact-email').innerText = p.email;
+            document.getElementById('contact-email').href = "mailto:" + p.email;
             document.getElementById('whatsapp-link').href = p.whatsapp;
 
             // Populate Video Gallery dynamically
