@@ -43,6 +43,12 @@
             --font-sans: 'Inter', -apple-system, sans-serif;
         }
 
+        /* Image and Video Protection CSS */
+        img, video, .image-placeholder {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
         /* Custom Scrollbar for Luxury Feel */
         ::-webkit-scrollbar {
             width: 8px;
@@ -792,8 +798,22 @@
         </div>
     </footer>
 
-    <!-- Interactive Filtering & Hover Gallery Rotation Script -->
+    <!-- Interactive Filtering, Gallery Rotation, & Asset Protection Script -->
     <script>
+        // Disable right-click context menu on images, videos, and backgrounds
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.classList.contains('image-placeholder')) {
+                e.preventDefault();
+            }
+        });
+
+        // Prevent dragging images or videos to desktop
+        document.addEventListener('dragstart', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.classList.contains('image-placeholder')) {
+                e.preventDefault();
+            }
+        });
+
         function filterCity(city, btn) {
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(b => b.classList.remove('active'));
