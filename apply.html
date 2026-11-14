@@ -183,15 +183,18 @@
             }
         });
 
-        // Helper function to convert files to Base64
+        // Helper function to convert files to pure Base64 without the header prefix
         const fileToBase64 = file => new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
-            reader.onload = () => resolve({
-                name: file.name,
-                type: file.type,
-                data: reader.result
-            });
+            reader.onload = () => {
+                const base64String = reader.result.split(',')[1];
+                resolve({
+                    name: file.name,
+                    type: file.type,
+                    data: base64String
+                });
+            };
             reader.onerror = error => reject(error);
         });
 
