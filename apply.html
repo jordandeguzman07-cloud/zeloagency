@@ -45,7 +45,6 @@
         <p>Complete your profile details, select your rates and services, and upload your portfolio photos and videos below.</p>
 
         <form id="onboardForm">
-            
             <div class="section-header">Basic Details</div>
             
             <label>Stage Name / Alias</label>
@@ -71,7 +70,7 @@
             <input type="tel" name="Phone" required placeholder="0400 000 000">
 
             <label>Email Address</label>
-            <input type="email" name="Email" required placeholder="admin@zeloescorts.com.au">
+            <input type="email" name="Email" required placeholder="yourname@domain.com">
 
             <label>Age</label>
             <input type="number" name="Age" required placeholder="24">
@@ -159,10 +158,10 @@
             <div class="section-header" style="margin-top: 35px;">Portfolio & Bio</div>
             
             <label>Portfolio Photos (Select Images)</label>
-            <input type="file" name="Photos" id="photosInput" accept="image/*" multiple required>
+            <input type="file" name="Photos" accept="image/*" multiple required>
 
             <label>Portfolio Videos (Select Videos)</label>
-            <input type="file" name="Videos" id="videosInput" accept="video/*" multiple>
+            <input type="file" name="Videos" accept="video/*" multiple>
 
             <label>Bio / Profile Introduction</label>
             <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
@@ -172,6 +171,7 @@
     </div>
 
     <script>
+        // Auto-select dropdown based on URL query parameter from homepage buttons
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const tierParam = urlParams.get('tier');
@@ -186,87 +186,46 @@
             }
         });
 
-        // Helper to convert files to Base64 so JSON payload can carry them cleanly to Make.com
-        const toBase64 = file => new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => resolve({ name: file.name, type: file.type, data: reader.result });
-            reader.onerror = error => reject(error);
-        });
-
         document.getElementById('onboardForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Processing Files & Sending...';
+            submitBtn.textContent = 'Submitting & Redirecting to Stripe...';
             submitBtn.disabled = true;
 
-            const formElement = this;
-            const formData = new FormData(formElement);
-            
-            // Build plain JSON object from form text fields
-            const data = {};
-            formData.forEach((value, key) => {
-                if (key !== 'Photos' && key !== 'Videos' && key !== 'Service_Item') {
-                    data[key] = value;
-                }
-            });
+            const formData = new FormData(this);
+            const selectedTier = document.getElementById('listingTier').value;
 
-            // Gather services checkboxes
+            // Explicitly collect checked boxes into a text string variable called 'Services'
             const selectedServices = [];
             document.querySelectorAll('input[name="Service_Item"]:checked').forEach((checkbox) => {
                 selectedServices.push(checkbox.value);
             });
-            data.Services_List = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
+            formData.set('Services', selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected');
 
-            // Process uploaded Photos into Base64
-            const photoFiles = document.getElementById('photosInput').files;
-            data.Photos = [];
-            for (let file of photoFiles) {
-                const base64File = await toBase64(file);
-                data.Photos.push(base64File);
-            }
-
-            // Process uploaded Videos into Base64
-            const videoFiles = document.getElementById('videosInput').files;
-            data.Videos = [];
-            for (let file of videoFiles) {
-                const base64File = await toBase64(file);
-                data.Videos.push(base64File);
-            }
-
-            const selectedTier = document.getElementById('listingTier').value;
-            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default ($49)
+            // Determine correct Stripe link based on chosen tier
+            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default / Standard ($49)
             
             if (selectedTier.includes('Premium Banner')) {
-                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99
+                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99 Banner Link
             } else if (selectedTier.includes('Spotlight Boost')) {
-                stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25
+                stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight Boost Link
             }
 
             try {
-                // Send JSON payload to Make.com webhook (JSON payloads pass through CORS & Webhook parsers effortlessly)
-                const response = await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
+                // Send form data directly to your Make.com Webhook and wait for complete transmission before redirecting
+                await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+                    body: formData
                 });
 
-                if (response.ok) {
-                    submitBtn.textContent = 'Success! Redirecting to Stripe...';
-                } else {
-                    submitBtn.textContent = 'Redirecting to Stripe...';
-                }
-            } catch (error) {
-                console.error('Webhook transmission error:', error);
-                submitBtn.textContent = 'Redirecting to Stripe...';
-            }
-
-            // Route to Stripe checkout
-            setTimeout(() => {
+                // Now safely redirect to the correct Stripe payment link
                 window.location.href = stripeUrl;
-            }, 1200);
+
+            } catch (error) {
+                console.error('Webhook submission error:', error);
+                // Fallback redirect to Stripe even if webhook hiccups, ensuring user flow is never blocked
+                window.location.href = stripeUrl;
+            }
         });
     </script>
 
