@@ -44,14 +44,7 @@
         <h1>Model Profile Submission</h1>
         <p>Complete your profile details, select your rates and services, and upload your portfolio photos and videos below.</p>
 
-        <!-- FormSubmit handles the email delivery directly without webhooks or CORS blocks -->
-        <form id="onboardForm" action="https://formsubmit.co/admin@zeloescorts.com.au" method="POST" enctype="multipart/form-data">
-            
-            <!-- Hidden configuration fields for clean email layout -->
-            <input type="hidden" name="_subject" value="New Model Application - Zelo Escorts">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-
+        <form id="onboardForm">
             <div class="section-header">Basic Details</div>
             
             <label>Stage Name / Alias</label>
@@ -77,7 +70,7 @@
             <input type="tel" name="Phone" required placeholder="0400 000 000">
 
             <label>Email Address</label>
-            <input type="email" name="Email" required placeholder="admin@zeloescorts.com.au">
+            <input type="email" name="Email" required placeholder="yourname@domain.com">
 
             <label>Age</label>
             <input type="number" name="Age" required placeholder="24">
@@ -162,4 +155,134 @@
             </div>
 
 
-            <div class="section-header" style="margin-top: 35px;">Portfolio & Bio
+            <div class="section-header" style="margin-top: 35px;">Portfolio & Bio</div>
+            
+            <label>Portfolio Photos (Select Images)</label>
+            <input type="file" name="Photos" id="photosInput" accept="image/*" multiple required>
+
+            <label>Portfolio Videos (Select Videos)</label>
+            <input type="file" name="Videos" id="videosInput" accept="video/*" multiple>
+
+            <label>Bio / Profile Introduction</label>
+            <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
+
+            <button type="submit" class="btn-submit" id="submitBtn">Submit Application & Continue to Stripe</button>
+        </form>
+    </div>
+
+    <script>
+        // Auto-select dropdown based on URL query parameter from homepage buttons
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tierParam = urlParams.get('tier');
+            const tierSelect = document.getElementById('listingTier');
+
+            if (tierParam === 'standard') {
+                tierSelect.value = 'Standard Monthly Listing ($49/mo)';
+            } else if (tierParam === 'spotlight') {
+                tierSelect.value = 'Spotlight Boost Upgrade ($25/wk)';
+            } else if (tierParam === 'banner') {
+                tierSelect.value = 'Premium Banner Advertisement ($99/mo)';
+            }
+        });
+
+        // Helper function to convert files to Base64
+        const fileToBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve({
+                name: file.name,
+                type: file.type,
+                data: reader.result
+            });
+            reader.onerror = error => reject(error);
+        });
+
+        document.getElementById('onboardForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.textContent = 'Processing Files & Redirecting...';
+            submitBtn.disabled = true;
+
+            const selectedTier = document.getElementById('listingTier').value;
+
+            // Explicitly collect checked boxes into a text string variable called 'Services'
+            const selectedServices = [];
+            document.querySelectorAll('input[name="Service_Item"]:checked').forEach((checkbox) => {
+                selectedServices.push(checkbox.value);
+            });
+            const servicesString = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
+
+            // Process uploaded photos and videos into Base64 format
+            const photoFiles = document.getElementById('photosInput').files;
+            const videoFiles = document.getElementById('videosInput').files;
+
+            const photosArray = [];
+            for (let file of photoFiles) {
+                const base64File = await fileToBase64(file);
+                photosArray.push(base64File);
+            }
+
+            const videosArray = [];
+            for (let file of videoFiles) {
+                const base64File = await fileToBase64(file);
+                videosArray.push(base64File);
+            }
+
+            // Build clean JSON payload object containing text, services, and base64 files
+            const payload = {
+                Stage_Name: document.querySelector('[name="Stage_Name"]').value,
+                Listing_Tier: selectedTier,
+                City: document.querySelector('[name="City"]').value,
+                Phone: document.querySelector('[name="Phone"]').value,
+                Email: document.querySelector('[name="Email"]').value,
+                Age: document.querySelector('[name="Age"]').value,
+                Height: document.querySelector('[name="Height"]').value,
+                Hair: document.querySelector('[name="Hair"]').value,
+                Eyes: document.querySelector('[name="Eyes"]').value,
+                Dress_Size: document.querySelector('[name="Dress_Size"]').value,
+                Body_Type: document.querySelector('[name="Body_Type"]').value,
+                Place_Of_Service: document.querySelector('[name="Place_Of_Service"]').value,
+                Incall_1Hr_Rate: document.querySelector('[name="Incall_1Hr_Rate"]').value,
+                Outcall_1Hr_Rate: document.querySelector('[name="Outcall_1Hr_Rate"]').value,
+                Incall_Overnight_Rate: document.querySelector('[name="Incall_Overnight_Rate"]').value,
+                Outcall_Overnight_Rate: document.querySelector('[name="Outcall_Overnight_Rate"]').value,
+                Custom_Rates_Notes: document.querySelector('[name="Custom_Rates_Notes"]').value,
+                Services: servicesString,
+                Bio: document.querySelector('[name="Bio"]').value,
+                Photos: photosArray,
+                Videos: videosArray
+            };
+
+            // Determine correct Stripe link based on chosen tier
+            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default / Standard ($49)
+            
+            if (selectedTier.includes('Premium Banner')) {
+                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99 Banner Link
+            } else if (selectedTier.includes('Spotlight Boost')) {
+                stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight Boost Link
+            }
+
+            try {
+                // Send clean JSON payload to your Make.com Webhook
+                await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                // Now safely redirect to the correct Stripe payment link
+                window.location.href = stripeUrl;
+
+            } catch (error) {
+                console.error('Webhook submission error:', error);
+                // Fallback redirect to Stripe even if webhook hiccups, ensuring user flow is never blocked
+                window.location.href = stripeUrl;
+            }
+        });
+    </script>
+
+</body>
+</html>
