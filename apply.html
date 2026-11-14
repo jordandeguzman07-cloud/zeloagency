@@ -44,13 +44,9 @@
         <h1>Model Profile Submission</h1>
         <p>Complete your profile details, select your rates and services, and upload your portfolio photos and videos below.</p>
 
-        <!-- Hidden iframe target so the page doesn't break, letting Make.com receive the post in the background -->
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { window.location = document.getElementById('redirectUrlInput').value; }"></iframe>
-
-        <form id="onboardForm" action="https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj" method="POST" enctype="multipart/form-data" target="hidden_iframe">
+        <!-- Direct form submission targeting Make.com webhook -->
+        <form id="onboardForm" action="https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj" method="POST" enctype="multipart/form-data">
             
-            <input type="hidden" name="redirect_url" id="redirectUrlInput" value="https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00">
-
             <div class="section-header">Basic Details</div>
             
             <label>Stage Name / Alias</label>
@@ -177,8 +173,6 @@
     </div>
 
     <script>
-        let submitted = false;
-
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const tierParam = urlParams.get('tier');
@@ -191,32 +185,27 @@
             } else if (tierParam === 'banner') {
                 tierSelect.value = 'Premium Banner Advertisement ($99/mo)';
             }
-            updateStripeLink();
         });
 
-        const tierSelect = document.getElementById('listingTier');
-        const redirectInput = document.getElementById('redirectUrlInput');
+        // This allows the form to transmit data to Make.com, then redirects to Stripe
+        document.getElementById('onboardForm').addEventListener('submit', function(e) {
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.textContent = 'Submitting & Redirecting...';
+            submitBtn.disabled = true;
 
-        function updateStripeLink() {
-            const selectedTier = tierSelect.value;
-            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default Standard ($49)
+            const selectedTier = document.getElementById('listingTier').value;
+            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default ($49)
             
             if (selectedTier.includes('Premium Banner')) {
-                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99 Banner
+                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99
             } else if (selectedTier.includes('Spotlight Boost')) {
-                stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight
+                stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25
             }
-            redirectInput.value = stripeUrl;
-        }
 
-        tierSelect.addEventListener('change', updateStripeLink);
-
-        document.getElementById('onboardForm').addEventListener('submit', function() {
-            updateStripeLink();
-            submitted = true;
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Transmitting Data & Redirecting...';
-            submitBtn.disabled = true;
+            // Small delay to allow the multipart form POST to dispatch to Make.com before changing page
+            setTimeout(() => {
+                window.location.href = stripeUrl;
+            }, 1200);
         });
     </script>
 
