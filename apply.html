@@ -198,7 +198,7 @@
         document.getElementById('onboardForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Processing Photos & Sending to Webhook...';
+            submitBtn.textContent = 'Processing Photos & Redirecting to Stripe...';
             submitBtn.disabled = true;
 
             const selectedTier = document.getElementById('listingTier').value;
@@ -252,7 +252,7 @@
             }
 
             try {
-                // Send clean JSON payload to your new Make.com Webhook
+                // Send clean JSON payload to your Make.com Webhook
                 await fetch('https://hook.eu1.make.com/wex3u5x3c72778gogod1w5j6kngejjla', {
                     method: 'POST',
                     headers: {
@@ -261,20 +261,13 @@
                     body: JSON.stringify(payload)
                 });
 
-                console.log('Webhook successfully sent!');
-                alert('Webhook data sent successfully! Check Make.com to verify structure.');
-
-                // UNCOMMENT THIS LINE ONCE WEBHOOK IS TESTED & MAPPED:
-                // window.location.href = stripeUrl;
-
-                // Re-enable button for testing convenience
-                submitBtn.textContent = 'Test Sent Successfully!';
+                // Safely redirect to the correct Stripe payment link
+                window.location.href = stripeUrl;
 
             } catch (error) {
                 console.error('Webhook submission error:', error);
-                alert('Webhook error: ' + error.message);
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Application & Continue to Stripe';
+                // Fallback redirect to Stripe even if webhook hiccups, ensuring user flow is never blocked
+                window.location.href = stripeUrl;
             }
         });
     </script>
