@@ -44,8 +44,8 @@
         <h1>Model Profile Submission</h1>
         <p>Complete your profile details, select your rates and services, and upload your portfolio photos and videos below.</p>
 
-        <!-- Direct FormSubmit Action with built-in redirection and anti-spam bypass -->
-        <form id="onboardForm" action="https://formsubmit.co/zeloagency.au@hotmail.com" method="POST" enctype="multipart/form-data">
+        <!-- Direct FormSubmit Action pointing to your actual business email -->
+        <form id="onboardForm" action="https://formsubmit.co/admin@zeloescorts.com.au" method="POST" enctype="multipart/form-data">
             
             <!-- FormSubmit configuration parameters -->
             <input type="hidden" name="_subject" value="New Zelo Talent Application & Portfolio">
@@ -210,7 +210,6 @@
 
         tierSelect.addEventListener('change', updateStripeLink);
 
-        // Update button text on submit to give instant user feedback
         document.getElementById('onboardForm').addEventListener('submit', function() {
             updateStripeLink();
             const submitBtn = document.getElementById('submitBtn');
