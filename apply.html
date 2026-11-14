@@ -44,8 +44,10 @@
         <h1>Model Profile Submission</h1>
         <p>Complete your profile details, select your rates and services, and upload your portfolio photos and videos below.</p>
 
-        <!-- Native form action targets Make.com webhook directly without CORS payload blocks -->
-        <form id="onboardForm" action="https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj" method="POST" enctype="multipart/form-data">
+        <!-- Hidden iframe target so the page doesn't break, letting Make.com receive the post in the background -->
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { window.location = document.getElementById('redirectUrlInput').value; }"></iframe>
+
+        <form id="onboardForm" action="https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj" method="POST" enctype="multipart/form-data" target="hidden_iframe">
             
             <input type="hidden" name="redirect_url" id="redirectUrlInput" value="https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00">
 
@@ -175,6 +177,8 @@
     </div>
 
     <script>
+        let submitted = false;
+
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const tierParam = urlParams.get('tier');
@@ -207,18 +211,12 @@
 
         tierSelect.addEventListener('change', updateStripeLink);
 
-        // Native submission flow handling data transmission and seamless redirect
-        document.getElementById('onboardForm').addEventListener('submit', function(e) {
+        document.getElementById('onboardForm').addEventListener('submit', function() {
             updateStripeLink();
+            submitted = true;
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Submitting & Redirecting to Stripe...';
+            submitBtn.textContent = 'Transmitting Data & Redirecting...';
             submitBtn.disabled = true;
-
-            // Allow the browser to fire the multipart payload natively to Make.com,
-            // then smoothly redirect them to their selected Stripe checkout page.
-            setTimeout(() => {
-                window.location.href = redirectInput.value;
-            }, 1200);
         });
     </script>
 
