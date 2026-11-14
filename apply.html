@@ -192,7 +192,6 @@
             submitBtn.textContent = 'Submitting & Redirecting to Stripe...';
             submitBtn.disabled = true;
 
-            const formData = new FormData(this);
             const selectedTier = document.getElementById('listingTier').value;
 
             // Explicitly collect checked boxes into a text string variable called 'Services'
@@ -200,7 +199,30 @@
             document.querySelectorAll('input[name="Service_Item"]:checked').forEach((checkbox) => {
                 selectedServices.push(checkbox.value);
             });
-            formData.set('Services', selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected');
+            const servicesString = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
+
+            // Build a clean JSON payload object so Make.com catches every text field reliably
+            const payload = {
+                Stage_Name: document.querySelector('[name="Stage_Name"]').value,
+                Listing_Tier: selectedTier,
+                City: document.querySelector('[name="City"]').value,
+                Phone: document.querySelector('[name="Phone"]').value,
+                Email: document.querySelector('[name="Email"]').value,
+                Age: document.querySelector('[name="Age"]').value,
+                Height: document.querySelector('[name="Height"]').value,
+                Hair: document.querySelector('[name="Hair"]').value,
+                Eyes: document.querySelector('[name="Eyes"]').value,
+                Dress_Size: document.querySelector('[name="Dress_Size"]').value,
+                Body_Type: document.querySelector('[name="Body_Type"]').value,
+                Place_Of_Service: document.querySelector('[name="Place_Of_Service"]').value,
+                Incall_1Hr_Rate: document.querySelector('[name="Incall_1Hr_Rate"]').value,
+                Outcall_1Hr_Rate: document.querySelector('[name="Outcall_1Hr_Rate"]').value,
+                Incall_Overnight_Rate: document.querySelector('[name="Incall_Overnight_Rate"]').value,
+                Outcall_Overnight_Rate: document.querySelector('[name="Outcall_Overnight_Rate"]').value,
+                Custom_Rates_Notes: document.querySelector('[name="Custom_Rates_Notes"]').value,
+                Services: servicesString,
+                Bio: document.querySelector('[name="Bio"]').value
+            };
 
             // Determine correct Stripe link based on chosen tier
             let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default / Standard ($49)
@@ -212,10 +234,13 @@
             }
 
             try {
-                // Send form data directly to your Make.com Webhook and wait for complete transmission before redirecting
+                // Send clean JSON payload to your Make.com Webhook
                 await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
                 });
 
                 // Now safely redirect to the correct Stripe payment link
