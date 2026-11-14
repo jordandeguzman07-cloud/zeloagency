@@ -44,8 +44,8 @@
         <h1>Model Profile Submission</h1>
         <p>Complete your profile details, select your rates and services, and upload your portfolio photos and videos below.</p>
 
-        <!-- Standard form wrapper for JavaScript handling -->
-        <form id="onboardForm">
+        <!-- Native form pointing straight to Make.com webhook endpoint -->
+        <form id="onboardForm" action="https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj" method="POST" enctype="multipart/form-data">
             
             <div class="section-header">Basic Details</div>
             
@@ -187,20 +187,11 @@
             }
         });
 
-        document.getElementById('onboardForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        // Native submit listener: lets the form post out to Make.com, then redirects to Stripe
+        document.getElementById('onboardForm').addEventListener('submit', function() {
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Transmitting to Make.com...';
+            submitBtn.textContent = 'Submitting & Redirecting...';
             submitBtn.disabled = true;
-
-            const formData = new FormData(this);
-
-            // Package checkboxes nicely
-            const selectedServices = [];
-            document.querySelectorAll('input[name="Service_Item"]:checked').forEach((checkbox) => {
-                selectedServices.push(checkbox.value);
-            });
-            formData.set('Services', selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected');
 
             const selectedTier = document.getElementById('listingTier').value;
             let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default ($49)
@@ -211,24 +202,7 @@
                 stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25
             }
 
-            try {
-                // Send form data directly to your Make.com webhook endpoint
-                const response = await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    submitBtn.textContent = 'Success! Redirecting to Stripe...';
-                } else {
-                    submitBtn.textContent = 'Redirecting to Stripe...';
-                }
-            } catch (error) {
-                console.error('Transmission error:', error);
-                submitBtn.textContent = 'Redirecting to Stripe...';
-            }
-
-            // Route to Stripe after data transmission
+            // Short delay to allow form packet dispatch before navigation
             setTimeout(() => {
                 window.location.href = stripeUrl;
             }, 1200);
