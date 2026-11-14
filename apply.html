@@ -185,45 +185,35 @@
             }
         });
 
-        document.getElementById('onboardForm').addEventListener('submit', async function(e) {
+        document.getElementById('onboardForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Sending to Agency & Redirecting...';
+            submitBtn.textContent = 'Redirecting to Checkout...';
             submitBtn.disabled = true;
 
             const selectedTier = document.getElementById('listingTier').value;
 
-            // Automatically package form fields and files into FormData
-            const formData = new FormData(this);
+            // Collect text fields
+            const stageName = document.querySelector('[name="Stage_Name"]').value;
+            const email = document.querySelector('[name="Email"]').value;
+            const phone = document.querySelector('[name="Phone"]').value;
 
-            // Explicitly compile checked boxes into a clean text string
+            // Compile checked services
             const selectedServices = [];
             document.querySelectorAll('input[name="Service_Item"]:checked').forEach((checkbox) => {
                 selectedServices.push(checkbox.value);
             });
             const servicesString = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
-            formData.set('Services', servicesString);
 
-            // Determine correct Stripe link based on chosen tier
+            // Determine correct Stripe link
             let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default Standard ($49)
-            
             if (selectedTier.includes('Premium Banner')) {
                 stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99 Banner
             } else if (selectedTier.includes('Spotlight Boost')) {
                 stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight
             }
 
-            try {
-                // Send data asynchronously to Make.com webhook first
-                await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
-                    method: 'POST',
-                    body: formData
-                });
-            } catch (error) {
-                console.error('Webhook error:', error);
-            }
-
-            // Immediately redirect to the correct Stripe payment link after sending
+            // Immediately redirect user to Stripe so transaction flow is never blocked
             window.location.href = stripeUrl;
         });
     </script>
