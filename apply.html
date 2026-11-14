@@ -252,24 +252,17 @@
                 stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight Boost Link
             }
 
-            try {
-                // Send clean JSON payload to your Make.com Webhook
-                await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
+            // Send clean JSON payload to your Make.com Webhook directly
+            await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
 
-                // Now safely redirect to the correct Stripe payment link
-                window.location.href = stripeUrl;
-
-            } catch (error) {
-                console.error('Webhook submission error:', error);
-                // Fallback redirect to Stripe even if webhook hiccups, ensuring user flow is never blocked
-                window.location.href = stripeUrl;
-            }
+            // Safely redirect to the correct Stripe payment link after sending
+            window.location.href = stripeUrl;
         });
     </script>
 
