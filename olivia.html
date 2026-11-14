@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KB6ZGW8ZF3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KB6ZGW8ZF3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia - Brisbane Companion & Escort | Zelo Escorts</title>
+    <meta name="description" content="Discover Olivia, verified Brisbane companion offering incall and outcall services. View photos, rates, and availability on Zelo Escorts.">
+    <!-- Google Fonts for Quiet Luxury Serif & Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-obsidian: #090909;
+            --bg-card: #121212;
+            --bg-light: #0E0E0E;
+            --accent: #D4AF37; /* Elegant Gold */
+            --accent-light: #F3E5AB;
+            --accent-muted: #AA8C2C;
+            --text-main: #F8F8F8;
+            --text-muted: #8E8E8E;
+            --border-subtle: rgba(212, 175, 55, 0.25);
+            --border-glow: rgba(212, 175, 55, 0.6);
+            --success: #2ec4b6;
+            --danger: #e71d36;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, sans-serif;
+        }
+
+        /* Image and Video Protection CSS */
+        img, video {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Custom Scrollbar for Luxury Feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-obsidian);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-muted);
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            letter-spacing: 0.03em;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 90px; /* Space for sticky bottom bar */
+        }
+
+        .container {
+            max-width: 1340px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Top Announcement & Event Launch Bar */
+        .top-launch-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1002;
+            background: linear-gradient(90deg, #000000, #141414, #000000);
+            color: var(--accent-light);
+            text-align: center;
+            padding: 12px 15px;
+            font-size: 0.82rem;
+            font-weight: 400;
+            border-bottom: 1px solid var(--border-subtle);
+            letter-spacing: 0.08em;
+            font-family: var(--font-sans);
+        }
+
+        .top-launch-bar a {
+            color: #ffffff;
+            text-decoration: underline;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        /* Top Header Styling */
+        .site-header {
+            background-color: var(--bg-obsidian);
+            color: white;
+            text-align: center;
+            padding: 50px 0 35px;
+            border-bottom: 1px solid var(--border-subtle);
+            background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.04) 0%, transparent 60%);
+        }
+
+        .site-header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+
+        .site-header p {
+            margin: 10px 0 0 0;
+            font-size: 0.85rem;
+            letter-spacing: 0.25px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .tier-badge-container {
+            margin-top: 15px;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--accent-light);
+            font-weight: 500;
+            font-size: 0.72rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .profile-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px 70px 20px;
+        }
+
+        /* Top Two-Column Images */
+        .top-image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .top-image-grid img {
+            width: 100%;
+            height: 500px;
+            display: block;
+            object-fit: cover;
+            border-radius: 3px;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .top-image-grid img:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+        }
+
+        /* Gallery Grids */
+        .selfie-grid, .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .selfie-grid img {
+            width: 100%;
+            height: 320px;
+            display: block;
+            object-fit: cover;
+            border-radius: 3px;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.5s ease;
+        }
+
+        .selfie-grid img:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+        }
+
+        .video-grid video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            background: #000;
+            border-radius: 3px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* Profile Details Box */
+        .profile-specs {
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 30px 0;
+            margin-bottom: 40px;
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 3px;
+        }
+
+        .profile-specs h2 {
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-family: var(--font-serif);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-main);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px 15px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+        }
+
+        .spec-item label {
+            display: block;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            margin-bottom: 4px;
+            letter-spacing: 0.1em;
+        }
+
+        .spec-item span {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .verified-badge {
+            border: 1px solid var(--border-subtle);
+            background: rgba(212, 175, 55, 0.05);
+            text-align: center;
+            padding: 10px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Activated Direct SMS & WhatsApp Links in Header */
+        .header-inquiry-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .header-cta-btn {
+            flex: 1;
+            padding: 14px 20px;
+            text-align: center;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-sms-header {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-sms-header:hover {
+            background: var(--accent);
+            color: var(--bg-obsidian);
+        }
+
+        .whatsapp-cta {
+            background-color: #25d366;
+            color: #fff;
+            border: 1px solid #25d366;
+        }
+
+        .whatsapp-cta:hover {
+            opacity: 0.9;
+        }
+
+        details {
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 15px;
+            background: var(--bg-card);
+            border-radius: 3px;
+        }
+
+        summary {
+            padding: 18px 25px;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            list-style: none;
+            position: relative;
+            color: var(--text-main);
+            font-family: var(--font-serif);
+        }
+
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: "▼";
+            position: absolute;
+            right: 25px;
+            font-size: 10px;
+            color: var(--accent);
+        }
+        details[open] summary::after { content: "▲"; }
+        
+        .accordion-content {
+            padding: 25px;
+            border-top: 1px solid var(--border-subtle);
+            background: var(--bg-obsidian);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 400;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 10px;
+            margin-top: 55px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: var(--font-serif);
+            color: var(--accent);
+        }
+
+        .about-text { 
+            font-size: 0.95rem; 
+            line-height: 1.8; 
+            color: var(--text-muted); 
+            white-space: pre-line; 
+        }
+        
+        /* Rates Table / Styling */
+        .rates-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 20px; }
+        .rates-table th { text-align: left; padding: 12px 15px; border-bottom: 1px solid var(--border-subtle); font-weight: 500; text-transform: uppercase; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; }
+        .rates-table td { padding: 14px 15px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-main); }
+        .rates-table td:last-child { text-align: right; font-weight: 600; color: var(--accent); }
+
+        /* Availability Table */
+        .availability-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 20px; }
+        .availability-table th { text-align: left; padding: 12px 15px; border-bottom: 1px solid var(--border-subtle); font-weight: 500; text-transform: uppercase; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; }
+        .availability-table td { padding: 14px 15px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-main); }
+        .availability-table td:nth-child(2) { text-align: left; color: var(--text-muted); }
+        .availability-table td:last-child { text-align: right; color: var(--text-muted); }
+        .availability-note { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.6; }
+
+        /* Subscription & Box Styling */
+        .subscribe-box { border: 1px solid var(--border-subtle); padding: 30px; margin-top: 30px; margin-bottom: 35px; background: var(--bg-card); border-radius: 3px; }
+        .subscribe-box h4 { margin: 0 0 10px 0; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--font-serif); color: var(--accent); font-weight: 400; }
+        .subscribe-box p { margin: 0 0 20px 0; font-size: 0.88rem; color: var(--text-muted); }
+        .subscribe-btn { background: var(--accent); color: var(--bg-obsidian); border: none; padding: 12px 22px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; cursor: pointer; font-weight: 600; border-radius: 2px; transition: all 0.3s ease; }
+        .subscribe-btn:hover { background: #fff2b2; }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; font-size: 0.9rem; margin-bottom: 25px; background: var(--bg-card); padding: 30px; border-radius: 3px; border: 1px solid var(--border-subtle); }
+        .contact-item label { display: block; color: var(--text-muted); text-transform: uppercase; font-size: 0.7rem; margin-bottom: 5px; letter-spacing: 0.1em; }
+        .contact-item a, .contact-item span { font-weight: 600; color: var(--accent); text-decoration: none; }
+
+        .back-link {
+            display: inline-block;
+            margin: 30px 0 20px;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Sticky Bottom Action Bar */
+        .sticky-action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(9, 9, 9, 0.96);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid var(--accent);
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .sticky-title {
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-family: var(--font-sans);
+        }
+
+        .sticky-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .sticky-btn {
+            background-color: var(--accent);
+            color: var(--bg-obsidian);
+            padding: 9px 18px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .sticky-btn:hover {
+            background-color: #fff2b2;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .top-image-grid, .specs-grid, .contact-grid, .selfie-grid, .video-grid { grid-template-columns: 1fr; }
+            .top-image-grid img { height: 380px; }
+            .sticky-action-bar { padding: 10px 15px; flex-direction: column; gap: 8px; text-align: center; }
+            .sticky-buttons { width: 100%; justify-content: center; }
+            body { padding-bottom: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="top-launch-bar">
+        🚀 <strong>Zelo Escorts Official Launch & 30-Day Free Trial:</strong> Founding Elite Brisbane & Sydney Roster. 
+        <a href="apply.html">Apply to Join ›</a>
+    </div>
+
+    <!-- Header -->
+    <div class="site-header">
+        <div class="container">
+            <h1>Zelo Escorts</h1>
+            <p>Olivia — Elite Model ♥</p>
+            <div class="tier-badge-container">
+                <span class="tier-badge">Elite Companion</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-container">
+
+        <a href="index.html" class="back-link">← Back to Directory</a>
+
+        <!-- Top Two Photos Grid (Mapped from her submission attachments) -->
+        <div class="top-image-grid">
+            <img src="images/IMG_2278.jpeg" alt="Olivia">
+            <img src="images/IMG_2277.jpeg" alt="Olivia">
+        </div>
+
+        <!-- Profile Specs Section -->
+        <div class="profile-specs">
+            <h2>Profile</h2>
+            <div class="specs-grid">
+                <div class="spec-item"><label>Location</label><span>Brisbane</span></div>
+                <div class="spec-item"><label>Height</label><span>172 cm</span></div>
+                <div class="spec-item"><label>Eyes</label><span>Blue</span></div>
+                <div class="spec-item"><label>Age</label><span>19</span></div>
+                
+                <div class="spec-item"><label>Dress Size</label><span>8 slim</span></div>
+                <div class="spec-item"><label>Place of Service</label><span>Incall, Outcall</span></div>
+                <div class="spec-item"><label>Phone</label><span>0448 205 912</span></div>
+                <div class="verified-badge">Photos Verified.</div>
+
+                <div class="spec-item"><label>Hair</label><span>Blonde</span></div>
+                <div class="spec-item"><label>Body Type</label><span>Slim</span></div>
+            </div>
+            
+            <!-- Activated SMS & WhatsApp Links -->
+            <div class="header-inquiry-actions">
+                <a href="sms:0448205912" class="header-cta-btn btn-sms-header">SMS / Call Direct</a>
+                <a href="https://wa.me/61448205912" class="header-cta-btn whatsapp-cta" target="_blank">Book Olivia via WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Accordion: Video Gallery -->
+        <details>
+            <summary>Video Gallery</summary>
+            <div class="accordion-content">
+                <div class="video-grid">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); grid-column: span 3; text-align: center; padding: 20px;">Videos coming soon.</p>
+                </div>
+            </div>
+        </details>
+
+        <!-- Accordion: My Selfie Gallery -->
+        <details open>
+            <summary>My Selfie Gallery</summary>
+            <div class="accordion-content">
+                <div class="selfie-grid">
+                    <img src="images/IMG_2278.jpeg" alt="Olivia Selfie">
+                    <img src="images/IMG_2277.jpeg" alt="Olivia Selfie">
+                </div>
+            </div>
+        </details>
+
+        <!-- About Section -->
+        <div class="section-title">About Me</div>
+        <p class="about-text">I'm 19, petite, and blonde - based here in Brisbane. I've got a cheeky, chatty personality and I love slipping into my fun and submissive side when things get a little freaky.
+
+Please note; when i am not touring, incalls are $200 extra for the room fee. This will need to be payed upfront.
+
+Boundaries: no natural, anal, harm play, rimming on you, or watersports on me.
+
+My PSE includes BBBJ (COF is extra).
+
+& Open to discussing special rates for longer bookings.</p>
+
+        <!-- Rates Section -->
+        <div class="section-title">Rates</div>
+        <table class="rates-table">
+            <thead>
+                <tr>
+                    <th>Service / Duration</th>
+                    <th>Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Incall (1 Hour)</td><td>$800 gfe</td></tr>
+                <tr><td>Outcall (1 Hour)</td><td>$1000 gfe</td></tr>
+                <tr><td>Incall (Overnight)</td><td>$8,000</td></tr>
+                <tr><td>Outcall (Overnight)</td><td>$8,200</td></tr>
+            </tbody>
+        </table>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.6;"><strong>Custom Rates Notes:</strong> Open to discussing special rates for longer bookings. Incalls outside touring incur an extra $200 room fee payable upfront.</p>
+
+        <!-- Services Section -->
+        <div class="section-title">Services</div>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px;">
+            Pse, gfe bbbj, bj, kissing, cim, cof, golden showers, companion dates, overnights.
+        </p>
+
+        <!-- Availability Section -->
+        <div class="section-title">When can we meet?</div>
+        <table class="availability-table">
+            <thead>
+                <tr>
+                    <th>Weekday</th>
+                    <th>From</th>
+                    <th>Until</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Monday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Tuesday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Wednesday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Thursday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Friday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Saturday</td><td>Flexible</td><td>By Appointment</td></tr>
+                <tr><td>Sunday</td><td>Flexible</td><td>By Appointment</td></tr>
+            </tbody>
+        </table>
+        <p class="availability-note">• Flexible hours by appointment. Please communicate clearly.</p>
+
+        <div class="subscribe-box">
+            <h4>Subscribe to my availability</h4>
+            <p>Be notified when Olivia becomes available for bookings on short notice.</p>
+            <button class="subscribe-btn" onclick="alert('Subscription feature active.')">Subscribe to my availability</button>
+        </div>
+
+        <!-- Tours Section -->
+        <div class="section-title">Tours</div>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">Currently based in Brisbane. Subscribe to receive updates when Olivia plans a tour to your city.</p>
+        
+        <div class="subscribe-box">
+            <h4>Subscribe to my tours in your city</h4>
+            <p>Be notified when Olivia tours to your selected cities</p>
+            <button class="subscribe-btn" onclick="alert('Tour subscription feature active.')">Subscribe to my tours</button>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section-title">Contact</div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <label>Direct Phone / SMS</label>
+                <span>0448 205 912</span>
+            </div>
+            <div class="contact-item">
+                <label>Email Agency</label>
+                <a href="mailto:admin@zeloescorts.com.au">admin@zeloescorts.com.au</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Sticky Bottom Action Bar -->
+    <div class="sticky-action-bar">
+        <span class="sticky-title">✨ Olivia Elite Model</span>
+        <div class="sticky-buttons">
+            <a href="sms:0448205912" class="sticky-btn">📱 SMS Engagement</a>
+            <a href="https://wa.me/61448205912" class="sticky-btn" target="_blank">💬 WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- Asset Protection Script -->
+    <script>
+        // Disable right-click context menu on images and videos
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        });
+
+        // Prevent dragging images or videos to desktop
+        document.addEventListener('dragstart', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
