@@ -158,10 +158,10 @@
             <div class="section-header" style="margin-top: 35px;">Portfolio & Bio</div>
             
             <label>Portfolio Photos (Select Images)</label>
-            <input type="file" name="Photos" accept="image/*" multiple required>
+            <input type="file" name="Photos" id="photosInput" accept="image/*" multiple required>
 
             <label>Portfolio Videos (Select Videos)</label>
-            <input type="file" name="Videos" accept="video/*" multiple>
+            <input type="file" name="Videos" id="videosInput" accept="video/*" multiple>
 
             <label>Bio / Profile Introduction</label>
             <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
@@ -186,10 +186,22 @@
             }
         });
 
+        // Helper function to convert files to Base64
+        const fileToBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve({
+                name: file.name,
+                type: file.type,
+                data: reader.result
+            });
+            reader.onerror = error => reject(error);
+        });
+
         document.getElementById('onboardForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Submitting & Redirecting to Stripe...';
+            submitBtn.textContent = 'Processing Files & Redirecting...';
             submitBtn.disabled = true;
 
             const selectedTier = document.getElementById('listingTier').value;
@@ -201,7 +213,23 @@
             });
             const servicesString = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
 
-            // Build a clean JSON payload object so Make.com catches every text field reliably
+            // Process uploaded photos and videos into Base64 format
+            const photoFiles = document.getElementById('photosInput').files;
+            const videoFiles = document.getElementById('videosInput').files;
+
+            const photosArray = [];
+            for (let file of photoFiles) {
+                const base64File = await fileToBase64(file);
+                photosArray.push(base64File);
+            }
+
+            const videosArray = [];
+            for (let file of videoFiles) {
+                const base64File = await fileToBase64(file);
+                videosArray.push(base64File);
+            }
+
+            // Build clean JSON payload object containing text, services, and base64 files
             const payload = {
                 Stage_Name: document.querySelector('[name="Stage_Name"]').value,
                 Listing_Tier: selectedTier,
@@ -221,7 +249,9 @@
                 Outcall_Overnight_Rate: document.querySelector('[name="Outcall_Overnight_Rate"]').value,
                 Custom_Rates_Notes: document.querySelector('[name="Custom_Rates_Notes"]').value,
                 Services: servicesString,
-                Bio: document.querySelector('[name="Bio"]').value
+                Bio: document.querySelector('[name="Bio"]').value,
+                Photos: photosArray,
+                Videos: videosArray
             };
 
             // Determine correct Stripe link based on chosen tier
