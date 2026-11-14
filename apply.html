@@ -183,18 +183,15 @@
             }
         });
 
-        // Helper function to strip data URI prefix and pass pure base64
+        // Helper function to keep full data URI prefix so Make's parser recognizes the file type correctly
         const fileToBase64 = file => new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
-            reader.onload = () => {
-                const base64String = reader.result.split(',')[1];
-                resolve({
-                    name: file.name,
-                    type: file.type,
-                    data: base64String
-                });
-            };
+            reader.onload = () => resolve({
+                name: file.name,
+                type: file.type,
+                data: reader.result
+            });
             reader.onerror = error => reject(error);
         });
 
@@ -213,7 +210,7 @@
             });
             const servicesString = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
 
-            // Process uploaded photos into Base64 format
+            // Process uploaded photos into Base64 format with data URI intact
             const photoFiles = document.getElementById('photosInput').files;
             const photosArray = [];
             for (let file of photoFiles) {
