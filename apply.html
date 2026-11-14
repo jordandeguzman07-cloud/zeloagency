@@ -252,16 +252,17 @@
                 stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight Boost Link
             }
 
-            // Send clean JSON payload to your Make.com Webhook directly
+            // Send payload to Make.com with mode: 'no-cors' to bypass browser CORS blocking
             await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload)
             });
 
-            // Safely redirect to the correct Stripe payment link after sending
+            // Safely redirect to the correct Stripe payment link immediately after dispatching
             window.location.href = stripeUrl;
         });
     </script>
