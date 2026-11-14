@@ -42,6 +42,12 @@
             --font-sans: 'Inter', -apple-system, sans-serif;
         }
 
+        /* Image and Video Protection CSS */
+        img, video {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
         /* Custom Scrollbar for Luxury Feel */
         ::-webkit-scrollbar {
             width: 8px;
@@ -625,5 +631,21 @@
         </div>
     </div>
 
+    <!-- Asset Protection Script -->
+    <script>
+        // Disable right-click context menu on images and videos
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        });
+
+        // Prevent dragging images or videos to desktop
+        document.addEventListener('dragstart', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
