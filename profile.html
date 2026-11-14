@@ -32,6 +32,12 @@
             --font-sans: 'Inter', -apple-system, sans-serif;
         }
 
+        /* Image and Video Protection CSS */
+        img, video {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
         body {
             font-family: var(--font-sans);
             margin: 0;
@@ -563,6 +569,20 @@
     </div>
 
     <script>
+        // Disable right-click context menu on images and videos
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        });
+
+        // Prevent dragging images or videos to desktop
+        document.addEventListener('dragstart', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+                e.preventDefault();
+            }
+        });
+
         // Talent Database Mapping
         const profiles = {
             "susanna": {
