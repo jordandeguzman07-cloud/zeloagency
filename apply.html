@@ -185,35 +185,89 @@
             }
         });
 
-        document.getElementById('onboardForm').addEventListener('submit', function(e) {
+        const fileToBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve({
+                name: file.name,
+                type: file.type,
+                data: reader.result
+            });
+            reader.onerror = error => reject(error);
+        });
+
+        document.getElementById('onboardForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Redirecting to Checkout...';
+            submitBtn.textContent = 'Sending to Webhook & Redirecting...';
             submitBtn.disabled = true;
 
             const selectedTier = document.getElementById('listingTier').value;
 
-            // Collect text fields
-            const stageName = document.querySelector('[name="Stage_Name"]').value;
-            const email = document.querySelector('[name="Email"]').value;
-            const phone = document.querySelector('[name="Phone"]').value;
-
-            // Compile checked services
             const selectedServices = [];
             document.querySelectorAll('input[name="Service_Item"]:checked').forEach((checkbox) => {
                 selectedServices.push(checkbox.value);
             });
             const servicesString = selectedServices.length > 0 ? selectedServices.join(', ') : 'None selected';
 
-            // Determine correct Stripe link
-            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default Standard ($49)
-            if (selectedTier.includes('Premium Banner')) {
-                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99 Banner
-            } else if (selectedTier.includes('Spotlight Boost')) {
-                stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight
+            const photoFiles = document.getElementById('photosInput').files;
+            const videoFiles = document.getElementById('videosInput').files;
+
+            const photosArray = [];
+            for (let file of photoFiles) {
+                const base64File = await fileToBase64(file);
+                photosArray.push(base64File);
             }
 
-            // Immediately redirect user to Stripe so transaction flow is never blocked
+            const videosArray = [];
+            for (let file of videoFiles) {
+                const base64File = await fileToBase64(file);
+                videosArray.push(base64File);
+            }
+
+            const payload = {
+                Stage_Name: document.querySelector('[name="Stage_Name"]').value,
+                Listing_Tier: selectedTier,
+                City: document.querySelector('[name="City"]').value,
+                Phone: document.querySelector('[name="Phone"]').value,
+                Email: document.querySelector('[name="Email"]').value,
+                Age: document.querySelector('[name="Age"]').value,
+                Height: document.querySelector('[name="Height"]').value,
+                Hair: document.querySelector('[name="Hair"]').value,
+                Eyes: document.querySelector('[name="Eyes"]').value,
+                Dress_Size: document.querySelector('[name="Dress_Size"]').value,
+                Body_Type: document.querySelector('[name="Body_Type"]').value,
+                Place_Of_Service: document.querySelector('[name="Place_Of_Service"]').value,
+                Incall_1Hr_Rate: document.querySelector('[name="Incall_1Hr_Rate"]').value,
+                Outcall_1Hr_Rate: document.querySelector('[name="Outcall_1Hr_Rate"]').value,
+                Incall_Overnight_Rate: document.querySelector('[name="Incall_Overnight_Rate"]').value,
+                Outcall_Overnight_Rate: document.querySelector('[name="Outcall_Overnight_Rate"]').value,
+                Custom_Rates_Notes: document.querySelector('[name="Custom_Rates_Notes"]').value,
+                Services: servicesString,
+                Bio: document.querySelector('[name="Bio"]').value,
+                Photos: photosArray,
+                Videos: videosArray
+            };
+
+            let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00';
+            if (selectedTier.includes('Premium Banner')) {
+                stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02';
+            } else if (selectedTier.includes('Spotlight Boost')) {
+                stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01';
+            }
+
+            try {
+                // THIS IS THE LINE THAT WAS MISSING: It actually sends the JSON payload to Make.com
+                await fetch('https://hook.eu1.make.com/tflhadgz3ovraupj5pspvabhg5bb5jwj', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (error) {
+                console.error('Webhook error:', error);
+            }
+
+            // Instantly redirect to Stripe after sending
             window.location.href = stripeUrl;
         });
     </script>
