@@ -183,18 +183,15 @@
             }
         });
 
-        // Helper function to convert files to pure Base64 without the header prefix
+        // Helper function to convert files to Base64 with data URI header intact
         const fileToBase64 = file => new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
-            reader.onload = () => {
-                const base64String = reader.result.split(',')[1];
-                resolve({
-                    name: file.name,
-                    type: file.type,
-                    data: base64String
-                });
-            };
+            reader.onload = () => resolve({
+                name: file.name,
+                type: file.type,
+                data: reader.result
+            });
             reader.onerror = error => reject(error);
         });
 
@@ -269,7 +266,6 @@
 
             } catch (error) {
                 console.error('Webhook submission error:', error);
-                // Fallback redirect to Stripe even if webhook hiccups, ensuring user flow is never blocked
                 window.location.href = stripeUrl;
             }
         });
