@@ -157,8 +157,9 @@
 
             <div class="section-header" style="margin-top: 35px;">Portfolio & Bio</div>
             
+            <!-- CHANGED TO PHOTOS[] ARRAY FORMAT -->
             <label>Portfolio Photos (Select Images)</label>
-            <input type="file" name="Photos" id="photosInput" accept="image/*" multiple required>
+            <input type="file" name="Photos[]" id="photosInput" accept="image/*" multiple required>
 
             <label>Bio / Profile Introduction</label>
             <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
@@ -258,7 +259,7 @@
                 // Append standard form fields manually
                 const rawFormData = new FormData(this);
                 for (let [key, value] of rawFormData.entries()) {
-                    if (key !== 'Photos') {
+                    if (key !== 'Photos[]') {
                         formData.append(key, value);
                     }
                 }
@@ -266,12 +267,12 @@
                 formData.set('Listing_Tier', selectedTier);
                 formData.set('Services', servicesString);
 
-                // Compress all selected photos
+                // Compress all selected photos and append using Photos[] array notation
                 const photoInput = document.getElementById('photosInput');
                 if (photoInput && photoInput.files.length > 0) {
                     for (let i = 0; i < photoInput.files.length; i++) {
                         const compressed = await compressImage(photoInput.files[i]);
-                        formData.append('Photos', compressed);
+                        formData.append('Photos[]', compressed, compressed.name);
                     }
                 }
 
