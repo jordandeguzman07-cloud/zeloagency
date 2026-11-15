@@ -157,7 +157,6 @@
 
             <div class="section-header" style="margin-top: 35px;">Portfolio & Bio</div>
             
-            <!-- CHANGED TO PHOTOS[] ARRAY FORMAT -->
             <label>Portfolio Photos (Select Images)</label>
             <input type="file" name="Photos[]" id="photosInput" accept="image/*" multiple required>
 
@@ -253,13 +252,13 @@
                     stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight Boost Link
                 }
 
-                // Build FormData and compress any attached images to prevent 413 Content Too Large failures
+                // Build FormData and compress any attached images to prevent duplication and 413 errors
                 const formData = new FormData();
                 
-                // Append standard form fields manually
+                // Append standard form fields manually, filtering out both 'Photos' and 'Photos[]'
                 const rawFormData = new FormData(this);
                 for (let [key, value] of rawFormData.entries()) {
-                    if (key !== 'Photos[]') {
+                    if (key !== 'Photos[]' && key !== 'Photos') {
                         formData.append(key, value);
                     }
                 }
