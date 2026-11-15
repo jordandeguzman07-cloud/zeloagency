@@ -155,10 +155,26 @@
             </div>
 
 
-            <div class="section-header" style="margin-top: 35px;">Portfolio & Bio</div>
+            <!-- Individual Photo Upload Slots (6 Slots) -->
+            <div class="section-header" style="margin-top: 35px;">Portfolio Photos</div>
             
-            <label>Portfolio Photos (Select Images)</label>
-            <input type="file" name="Photos[]" id="photosInput" accept="image/*" multiple required>
+            <label>Photo 1 (Required)</label>
+            <input type="file" name="Photo1" id="photo1" accept="image/*" required>
+
+            <label>Photo 2 (Optional)</label>
+            <input type="file" name="Photo2" id="photo2" accept="image/*">
+
+            <label>Photo 3 (Optional)</label>
+            <input type="file" name="Photo3" id="photo3" accept="image/*">
+
+            <label>Photo 4 (Optional)</label>
+            <input type="file" name="Photo4" id="photo4" accept="image/*">
+
+            <label>Photo 5 (Optional)</label>
+            <input type="file" name="Photo5" id="photo5" accept="image/*">
+
+            <label>Photo 6 (Optional)</label>
+            <input type="file" name="Photo6" id="photo6" accept="image/*">
 
             <label>Bio / Profile Introduction</label>
             <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
@@ -183,11 +199,11 @@
             }
         });
 
-        // Helper function to compress images before submission to prevent 413 errors
+        // Helper function to compress images client-side to prevent 413 errors
         function compressImage(file, maxWidth = 1000, quality = 0.7) {
             return new Promise((resolve) => {
-                if (!file.type.startsWith('image/')) {
-                    resolve(file);
+                if (!file || !file.type.startsWith('image/')) {
+                    resolve(null);
                     return;
                 }
                 const reader = new FileReader();
@@ -222,7 +238,7 @@
             });
         }
 
-        // Force bind using explicit event listener on window load
+        // Form submission handler
         window.addEventListener('load', () => {
             const form = document.getElementById('onboardForm');
             if (!form) return;
@@ -236,7 +252,7 @@
 
                 const selectedTier = document.getElementById('listingTier').value;
 
-                // Explicitly collect checked boxes into a text string variable called 'Services'
+                // Collect checked services into a text string
                 const selectedServices = [];
                 document.querySelectorAll('input[name="Service_Item"]:checked').forEach((checkbox) => {
                     selectedServices.push(checkbox.value);
@@ -252,13 +268,13 @@
                     stripeUrl = 'https://buy.stripe.com/28E3cx1SU7Vn5eKgIL8ww01'; // $25 Spotlight Boost Link
                 }
 
-                // Build FormData and compress any attached images to prevent duplication and 413 errors
+                // Build clean FormData payload
                 const formData = new FormData();
                 
-                // Append standard form fields manually, filtering out both 'Photos' and 'Photos[]'
+                // Append text fields, filtering out individual photo inputs so we can attach compressed versions cleanly
                 const rawFormData = new FormData(this);
                 for (let [key, value] of rawFormData.entries()) {
-                    if (key !== 'Photos[]' && key !== 'Photos') {
+                    if (!['Photo1', 'Photo2', 'Photo3', 'Photo4', 'Photo5', 'Photo6'].includes(key)) {
                         formData.append(key, value);
                     }
                 }
@@ -266,12 +282,15 @@
                 formData.set('Listing_Tier', selectedTier);
                 formData.set('Services', servicesString);
 
-                // Compress all selected photos and append using Photos[] array notation
-                const photoInput = document.getElementById('photosInput');
-                if (photoInput && photoInput.files.length > 0) {
-                    for (let i = 0; i < photoInput.files.length; i++) {
-                        const compressed = await compressImage(photoInput.files[i]);
-                        formData.append('Photos[]', compressed, compressed.name);
+                // Compress and append each of the 6 individual photo slots if selected
+                const photoSlots = ['photo1', 'photo2', 'photo3', 'photo4', 'photo5', 'photo6'];
+                for (let i = 0; i < photoSlots.length; i++) {
+                    const inputElem = document.getElementById(photoSlots[i]);
+                    if (inputElem && inputElem.files.length > 0) {
+                        const compressed = await compressImage(inputElem.files[0]);
+                        if (compressed) {
+                            formData.append(`Photo${i+1}`, compressed, compressed.name);
+                        }
                     }
                 }
 
@@ -289,7 +308,7 @@
                     }
                 } catch (error) {
                     console.error('Webhook error:', error);
-                    // Fail-safe redirect so user always reaches Stripe checkout even if network drops
+                    // Fail-safe redirect so user always reaches Stripe checkout
                     window.location.href = stripeUrl;
                 }
             });
