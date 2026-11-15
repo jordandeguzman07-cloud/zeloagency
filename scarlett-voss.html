@@ -251,7 +251,7 @@
             color: var(--text-main);
         }
         .about-text { font-size: 0.95rem; line-height: 1.8; color: var(--text-muted); }
-        
+
         /* Rates Tables */
         .rates-container { display: flex; gap: 40px; margin-bottom: 20px; }
         .rate-column { flex: 1; background: var(--bg-card); padding: 25px; border: 1px solid var(--border-subtle); border-radius: 2px; }
@@ -362,7 +362,7 @@
                 <div class="spec-item"><label>Height</label><span id="spec-height">167 cm</span></div>
                 <div class="spec-item"><label>Eyes</label><span id="spec-eyes">Hazel</span></div>
                 <div class="spec-item"><label>Email</label><span id="spec-email">scarlettvoss28@outlook.com.au</span></div>
-                
+
                 <div class="spec-item"><label>Age</label><span id="spec-age">25</span></div>
                 <div class="spec-item"><label>Dress Size</label><span id="spec-dress">10</span></div>
                 <div class="spec-item"><label>Place of Service</label><span id="spec-service">Incall, Outcall</span></div>
@@ -372,7 +372,7 @@
                 <div class="spec-item"><label>Hair</label><span id="spec-hair">Blonde</span></div>
                 <div class="spec-item"><label>Body Type</label><span id="spec-body">Curvy</span></div>
             </div>
-            
+
             <a id="whatsapp-link" href="#" class="whatsapp-cta" target="_blank">Initiate Private Inquiry for <span id="cta-name">Talent</span></a>
         </div>
 
@@ -499,7 +499,7 @@
         <!-- Tours Section -->
         <div class="section-title">Touring Schedule</div>
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Currently no tours planned. Subscribe to receive updates when <span id="tour-name">Scarlett Voss</span> plans a showcase tour to your city</p>
-        
+
         <div class="subscribe-box">
             <h4>Subscribe to city tour notifications</h4>
             <p>Be notified when <span id="tour-sub-name">Scarlett Voss</span> tours to your selected cities</p>
@@ -545,7 +545,7 @@
             }
         });
 
-        // Talent Database Mapping (Scarlett3.jpeg as primary featured photo1)
+        // Talent Database Mapping including Scarlett's top two photos (`images/Scarlett3.jpeg` and `images/Scarlett1.jpeg`) in the curated portfolio gallery to fill any empty grid spaces cleanly
         const profiles = {
             "scarlett voss": {
                 headerText: '<span style="color: var(--accent); font-weight: 500; font-size: 1.3rem; font-family: var(--font-serif); letter-spacing: 0.05em;">Scarlett Voss <span style="color: #e71d36; font-size: 0.9em;">❤ VIP</span></span> — Private Showcase ❤',
@@ -564,6 +564,8 @@
                 photo2: "images/Scarlett1.jpeg",
                 videos: [],
                 selfies: [
+                    "images/Scarlett3.jpeg",
+                    "images/Scarlett1.jpeg",
                     "images/Scarlett2.jpeg",
                     "images/Scarlett4.jpeg",
                     "images/Scarlett.jpeg",
