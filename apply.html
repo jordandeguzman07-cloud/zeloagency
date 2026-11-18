@@ -175,26 +175,11 @@
             </div>
 
 
-            <!-- Individual Photo Upload Slots (6 Slots) -->
+            <!-- Single Multi-File Upload Input -->
             <div class="section-header" style="margin-top: 35px;">Portfolio Photos</div>
             
-            <label>Photo 1 (Required)</label>
-            <input type="file" name="Photo1" id="photo1" accept="image/*" required>
-
-            <label>Photo 2 (Optional)</label>
-            <input type="file" name="Photo2" id="photo2" accept="image/*">
-
-            <label>Photo 3 (Optional)</label>
-            <input type="file" name="Photo3" id="photo3" accept="image/*">
-
-            <label>Photo 4 (Optional)</label>
-            <input type="file" name="Photo4" id="photo4" accept="image/*">
-
-            <label>Photo 5 (Optional)</label>
-            <input type="file" name="Photo5" id="photo5" accept="image/*">
-
-            <label>Photo 6 (Optional)</label>
-            <input type="file" name="Photo6" id="photo6" accept="image/*">
+            <label>Portfolio Photos (1 to 6 photos)</label>
+            <input type="file" name="Photos" id="photos" accept="image/*" multiple required>
 
             <label>Bio / Profile Introduction</label>
             <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
@@ -291,10 +276,10 @@
                 // Build clean FormData payload
                 const formData = new FormData();
                 
-                // Append text fields, filtering out individual photo inputs so we can attach compressed versions cleanly
+                // Append text fields, omitting the original file input element
                 const rawFormData = new FormData(this);
                 for (let [key, value] of rawFormData.entries()) {
-                    if (!['Photo1', 'Photo2', 'Photo3', 'Photo4', 'Photo5', 'Photo6'].includes(key)) {
+                    if (key !== 'Photos') {
                         formData.append(key, value);
                     }
                 }
@@ -302,14 +287,13 @@
                 formData.set('Listing_Tier', selectedTier);
                 formData.set('Services', servicesString);
 
-                // Compress and append each of the 6 individual photo slots if selected
-                const photoSlots = ['photo1', 'photo2', 'photo3', 'photo4', 'photo5', 'photo6'];
-                for (let i = 0; i < photoSlots.length; i++) {
-                    const inputElem = document.getElementById(photoSlots[i]);
-                    if (inputElem && inputElem.files.length > 0) {
-                        const compressed = await compressImage(inputElem.files[0]);
+                // Compress and append each selected photo under the unified 'Photos' array key
+                const photosInput = document.getElementById('photos');
+                if (photosInput && photosInput.files.length > 0) {
+                    for (const file of photosInput.files) {
+                        const compressed = await compressImage(file);
                         if (compressed) {
-                            formData.append(`Photo${i+1}`, compressed, compressed.name);
+                            formData.append('Photos', compressed, compressed.name);
                         }
                     }
                 }
