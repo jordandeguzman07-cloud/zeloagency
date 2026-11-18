@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zelo Escorts | Australia's Premium Independent Directory</title>
-    <meta name="description" content="Join Australia's newest premium independent directory. Keep 100% of your earnings with flat monthly pricing and zero booking commissions.">
+    <meta name="description" content="Browse verified elite independent escorts and companion profiles across Sydney, Melbourne, Brisbane, Perth, and Adelaide on Zelo Escorts. Keep 100% of your earnings with flat monthly pricing.">
 
     <!-- Google Structured Data (Schema.org) ItemList connecting all roster names, ages, and phone numbers to Zelo Escorts -->
     <script type="application/ld+json">
@@ -99,6 +99,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         :root {
@@ -214,12 +218,12 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
         }
 
-        /* Header & Hero Showroom Entrance */
+        /* Header & Hero Showroom Entrance (Tightened) */
         header {
             background-color: var(--bg-obsidian);
             color: white;
             text-align: center;
-            padding: 60px 0 45px;
+            padding: 30px 0 20px;
             border-bottom: 1px solid var(--border-subtle);
             background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.04) 0%, transparent 60%);
         }
@@ -228,16 +232,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 6px;
         }
 
         header p {
             color: var(--accent);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.4em;
-            margin-top: 10px;
+            letter-spacing: 0.35em;
+            margin-top: 4px;
             font-family: var(--font-sans);
         }
 
@@ -308,6 +312,75 @@
             color: var(--bg-obsidian);
         }
 
+        /* Ultra-Slim Compact Client-First Hero */
+        .compact-hero {
+            background: linear-gradient(180deg, #111111 0%, #090909 100%);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .compact-hero h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-main);
+            letter-spacing: 0.06em;
+            margin-bottom: 8px;
+        }
+
+        .compact-hero p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto 18px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            background: var(--accent);
+            color: var(--bg-obsidian);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-gold:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+
         /* SEO City Description Blocks */
         .city-seo-block {
             display: none;
@@ -338,7 +411,7 @@
         /* Profile Grid Section */
         .section-title {
             text-align: center;
-            margin: 50px 0 30px;
+            margin: 40px 0 30px;
             font-family: var(--font-serif);
             font-size: 2.6rem;
             font-weight: 400;
@@ -351,7 +424,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
             gap: 45px;
-            margin-bottom: 100px;
+            margin-bottom: 90px;
         }
 
         .card-link {
@@ -503,7 +576,7 @@
         .contact-section {
             background-color: var(--bg-obsidian);
             color: white;
-            padding: 100px 0;
+            padding: 80px 0;
             text-align: center;
             border-top: 1px solid var(--border-subtle);
             background-image: radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
@@ -529,7 +602,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 60px;
+            margin-top: 50px;
         }
 
         .contact-method {
@@ -631,6 +704,7 @@
         @media (max-width: 768px) {
             .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
             .launch-banner { font-size: 10px; padding: 6px 10px; right: 10px; top: 125px; }
+            .compact-hero h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -653,7 +727,7 @@
         <div class="container">
             <div class="header-logo-wrapper">
                 <!-- Hexagon Gold Emblem Logo -->
-                <svg width="280" height="120" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="200" height="85" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Outer Hexagon Crest -->
                     <path d="M140 10 L170 30 L170 65 L140 85 L110 65 L110 30 Z" stroke="url(#goldGradient)" stroke-width="2.5" fill="none" />
                     
@@ -677,7 +751,7 @@
                 </svg>
             </div>
             <p>♥ Genuine | Exclusive | Memorable ♥</p>
-            <h1 style="color: #ffffff; font-size: 0.85rem; font-weight: 300; letter-spacing: 0.3em; margin-top: 8px; text-transform: uppercase; font-family: var(--font-sans);">Elite Escorts & Independent Companion Directory Australia</h1>
+            <h1 style="color: #ffffff; font-size: 0.8rem; font-weight: 300; letter-spacing: 0.25em; margin-top: 6px; text-transform: uppercase; font-family: var(--font-sans);">Elite Escorts & Independent Companion Directory Australia</h1>
         </div>
     </header>
 
@@ -697,137 +771,15 @@
         </ul>
     </nav>
 
-    <!-- MAIN HERO & TRUST LAYER (ABOVE EVERYTHING ELSE) -->
-    <section style="background: #111; color: #fff; padding: 80px 20px; text-align: center; border-bottom: 1px solid #222;">
-      <div style="max-width: 900px; margin: 0 auto;">
-        <h1 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; line-height: 1.2;">
-          Join Australia's Premium Independent Directory
-        </h1>
-        
-        <p style="font-size: 1.2rem; color: #ccc; line-height: 1.6; margin-bottom: 30px;">
-          Zelo Escorts was created as a transparent alternative to commission-based directories. We believe independent providers should keep 100% of their earnings, maintain direct client communication, and advertise through simple flat-rate pricing.
-        </p>
-
-        <!-- Primary Action CTA & Micro-copy -->
-        <div style="margin-bottom: 40px;">
-          <a href="apply.html" style="display: inline-block; background: #d4af37; color: #000; font-size: 1.15rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; box-shadow: 0 4px 20px rgba(212,175,55,0.3);">
-            Apply For Listing &rarr;
-          </a>
-          <div style="margin-top: 12px; font-size: 0.9rem; color: #888; letter-spacing: 0.3px;">
-            No lock-in contracts &bull; Direct client enquiries &bull; Keep 100% of earnings
-          </div>
-        </div>
-
-        <!-- Enhanced Trust Checkmarks Grid with Real Proof -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left; background: #181818; padding: 30px; border-radius: 8px; border: 1px solid #2a2a2a;">
-          
-          <div style="background: #111; padding: 15px; border-radius: 6px; border: 1px solid #222;">
-            <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 4px;">✅ Keep 100% of Your Earnings</div>
-            <div style="font-size: 0.85rem; color: #888; line-height: 1.4;">Zero agency cuts, middleman fees, or hidden percentages taken from your bookings.</div>
-          </div>
-
-          <div style="background: #111; padding: 15px; border-radius: 6px; border: 1px solid #222;">
-            <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 4px;">✅ Direct Client Communication</div>
-            <div style="font-size: 0.85rem; color: #888; line-height: 1.4;">Enquiries go straight to your phone or email. No agency dispatchers in the middle.</div>
-          </div>
-
-          <div style="background: #111; padding: 15px; border-radius: 6px; border: 1px solid #222;">
-            <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 4px;">✅ No Booking Commissions</div>
-            <div style="font-size: 0.85rem; color: #888; line-height: 1.4;">You control your schedule, rates, and bookings entirely independently.</div>
-          </div>
-
-          <div style="background: #111; padding: 15px; border-radius: 6px; border: 1px solid #222;">
-            <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 4px;">✅ Flat Monthly Pricing</div>
-            <div style="font-size: 0.85rem; color: #888; line-height: 1.4;">Predictable, transparent advertising costs with zero unexpected overhead.</div>
-          </div>
-
-          <div style="background: #111; padding: 15px; border-radius: 6px; border: 1px solid #222;">
-            <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 4px;">✅ Australia-Wide Exposure</div>
-            <div style="font-size: 0.85rem; color: #888; line-height: 1.4;">Targeted local landing pages indexing across Sydney, Melbourne, Brisbane, and beyond.</div>
-          </div>
-
-          <div style="background: #111; padding: 15px; border-radius: 6px; border: 1px solid #222;">
-            <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 4px;">✅ Secure Cloudflare-Powered Application</div>
-            <div style="font-size: 0.85rem; color: #888; line-height: 1.4;">Encrypted submissions, immutable R2 JSON data backups, and instant email receipts.</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW ZELO WORKS SECTION -->
-    <section style="background: #141414; color: #fff; padding: 60px 20px; text-align: center; border-bottom: 1px solid #222;">
-      <div style="max-width: 900px; margin: 0 auto;">
-        <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 15px; color: #fff;">How Zelo Works</h2>
-        <p style="color: #aaa; font-size: 1.1rem; margin-bottom: 40px;">A streamlined onboarding process designed to get your profile live securely and quickly.</p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left;">
-          <div style="background: #1b1b1b; padding: 25px; border-radius: 8px; border: 1px solid #2a2a2a;">
-            <span style="color: #d4af37; font-size: 1.5rem; font-weight: 800; display: block; margin-bottom: 10px;">01</span>
-            <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">Apply Online</h3>
-            <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5; margin: 0;">Upload your profile details, verification info, and portfolio photos securely.</p>
-          </div>
-
-          <div style="background: #1b1b1b; padding: 25px; border-radius: 8px; border: 1px solid #2a2a2a;">
-            <span style="color: #d4af37; font-size: 1.5rem; font-weight: 800; display: block; margin-bottom: 10px;">02</span>
-            <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">Get Approved</h3>
-            <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5; margin: 0;">Our curation team reviews your submission. All applications are reviewed within 24 hours.</p>
-          </div>
-
-          <div style="background: #1b1b1b; padding: 25px; border-radius: 8px; border: 1px solid #2a2a2a;">
-            <span style="color: #d4af37; font-size: 1.5rem; font-weight: 800; display: block; margin-bottom: 10px;">03</span>
-            <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">Go Live</h3>
-            <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5; margin: 0;">Receive direct client enquiries while maintaining full control over your rates, availability, and bookings.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOUNDER STORY / WHY ZELO EXISTS SECTION -->
-    <section style="background: #0d0d0d; color: #fff; padding: 80px 20px; border-bottom: 1px solid #222;">
-      <div style="max-width: 750px; margin: 0 auto; text-align: left;">
-        <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; color: #fff; text-align: center;">Why Zelo Exists</h2>
-        
-        <div style="background: #161616; padding: 40px; border-radius: 8px; border: 1px solid #252525; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-          <p style="font-size: 1.1rem; color: #ccc; line-height: 1.7; margin-bottom: 20px;">
-            Zelo Escorts was created as a transparent alternative to traditional, commission-based directories. 
-          </p>
-          <p style="font-size: 1.1rem; color: #ccc; line-height: 1.7; margin-bottom: 20px;">
-            We believe independent providers should keep 100% of their earnings, maintain direct client communication, and advertise through simple flat-rate pricing—without an agency taking a cut of your hard work.
-          </p>
-          <p style="font-size: 1.1rem; color: #ccc; line-height: 1.7; margin-bottom: 25px;">
-            Our goal is simple: create a premium directory where independent providers can advertise transparently, communicate directly with clients, and retain full control of their business.
-          </p>
-          
-          <div style="border-top: 1px solid #222; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; color: #888; font-size: 0.95rem;">
-            <span><strong>Zelo Escorts Team</strong> &mdash; Australian Owned & Operated</span>
-            <span style="color: #d4af37;">Direct Support & Response within 24h</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Distinguished Guests Direct HTML5 Video Welcome Section -->
-    <section style="background: var(--bg-obsidian); padding: 70px 0; border-bottom: 1px solid var(--border-subtle); text-align: center;">
-        <div class="container" style="max-width: 950px; margin: 0 auto;">
-            <h3 style="font-family: var(--font-serif); font-size: 2.4rem; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;">An Exclusive Welcome</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; letter-spacing: 0.2em; text-transform: uppercase;">For Our Distinguished Guests</p>
-            
-            <!-- Direct HTML5 Video Player Container with Controls for Volume/Sound -->
-            <div style="position: relative; width: 100%; max-width: 950px; margin: 0 auto; border-radius: 4px; overflow: hidden; border: 1.5px solid var(--accent); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); background: #000; margin-bottom: 30px;">
-                <video width="100%" height="auto" autoplay controls loop playsinline style="display: block; width: 100%; height: auto;">
-                    <source src="zelo-welcome..mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+    <!-- Ultra-Slim Compact Client-First Hero -->
+    <section class="compact-hero">
+        <div class="container">
+            <h2>Australia's Premium Independent Directory</h2>
+            <p>Browse verified independent companions across Sydney, Melbourne, Brisbane, Perth and Adelaide.</p>
+            <div class="hero-cta-group">
+                <a href="#featured-profiles" class="btn-gold">View Profiles</a>
+                <a href="apply.html" class="btn-outline">Apply For Listing</a>
             </div>
-
-            <!-- Welcome Subtext & Copy -->
-            <p style="color: var(--text-main); font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 15px;">
-                Please browse our elite beautiful escorts.
-            </p>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; letter-spacing: 0.05em; max-width: 750px; margin: 0 auto;">
-                At Zelo Escorts we have Australia's finest and most beautiful escorts ready to please you and make your dreams come true.
-            </p>
         </div>
     </section>
 
@@ -863,7 +815,7 @@
             <p>Discover verified independent companions, elite adult advertising portfolios, and independent provider listings across Tasmania, Hobart, and regional areas on Zelo Escorts.</p>
         </div>
 
-        <h2 class="section-title">Featured Portfolios</h2>
+        <h2 id="featured-profiles" class="section-title">Featured Portfolios</h2>
         
         <div class="grid" id="talent-grid">
             <!-- Profile Card 1: Susanna (Premium Elite VIP Showcase) -->
@@ -929,87 +881,151 @@
                     </div>
                 </div>
             </a>
-
-            <!-- Profile Card 6: Alex Rivera -->
-            <a href="profile.html?name=alex-rivera" class="card-link talent-card" data-city="melbourne">
-                <div class="card">
-                    <span class="badge active">Available</span>
-                    <div class="image-placeholder">Alex Rivera</div>
-                    <div class="card-info">
-                        <h3>Alex Rivera</h3>
-                        <p>MELBOURNE</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Profile Card 7: Jordan Lee -->
-            <a href="profile.html?name=jordan-lee" class="card-link talent-card" data-city="sydney">
-                <div class="card">
-                    <span class="badge active">Available</span>
-                    <div class="image-placeholder">Jordan Lee</div>
-                    <div class="card-info">
-                        <h3>Jordan Lee</h3>
-                        <p>SYDNEY</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Profile Card 8: Morgan Taylor -->
-            <a href="profile.html?name=morgan-taylor" class="card-link talent-card" data-city="brisbane">
-                <div class="card">
-                    <span class="badge active">Available</span>
-                    <div class="image-placeholder">Morgan Taylor</div>
-                    <div class="card-info">
-                        <h3>Morgan Taylor</h3>
-                        <p>BRISBANE</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Profile Card 9: Sam Jenkins -->
-            <a href="profile.html?name=sam-jenkins" class="card-link talent-card" data-city="adelaide">
-                <div class="card">
-                    <span class="badge off">Booked</span>
-                    <div class="image-placeholder">Sam Jenkins</div>
-                    <div class="card-info">
-                        <h3>Sam Jenkins</h3>
-                        <p>ADELAIDE</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Profile Card 10: Taylor Wong -->
-            <a href="profile.html?name=taylor-wong" class="card-link talent-card" data-city="melbourne">
-                <div class="card">
-                    <span class="badge active">Available</span>
-                    <div class="image-placeholder">Taylor Wong</div>
-                    <div class="card-info">
-                        <h3>Taylor Wong</h3>
-                        <p>MELBOURNE</p>
-                    </div>
-                </div>
-            </a>
         </div>
     </main>
 
-    <!-- Booking / Contact Block -->
-    <section class="contact-section">
-        <div class="container">
-            <h2>Connect With Zelo Escorts</h2>
-            <p>Choose your preferred communication platform below</p>
+    <!-- Distinguished Guests Direct HTML5 Video Welcome Section -->
+    <section style="background: var(--bg-obsidian); padding: 70px 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); text-align: center;">
+        <div class="container" style="max-width: 950px; margin: 0 auto;">
+            <h3 style="font-family: var(--font-serif); font-size: 2.4rem; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;">An Exclusive Welcome</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; letter-spacing: 0.2em; text-transform: uppercase;">For Our Distinguished Guests</p>
             
-            <div class="contact-grid">
-                <div class="contact-method">
-                    <h4>WhatsApp Chat</h4>
-                    <p>Connect instantly online</p>
-                    <a href="https://wa.me/61406133210" class="contact-link">Chat via WhatsApp ›</a>
-                </div>
+            <!-- Direct HTML5 Video Player Container with Controls for Volume/Sound -->
+            <div style="position: relative; width: 100%; max-width: 950px; margin: 0 auto; border-radius: 4px; overflow: hidden; border: 1.5px solid var(--accent); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); background: #000; margin-bottom: 30px;">
+                <video width="100%" height="auto" controls loop playsinline style="display: block; width: 100%; height: auto;">
+                    <source src="zelo-welcome..mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
+
+            <!-- Welcome Subtext & Copy -->
+            <p style="color: var(--text-main); font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 15px;">
+                Please browse our elite beautiful escorts.
+            </p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; letter-spacing: 0.05em; max-width: 750px; margin: 0 auto;">
+                At Zelo Escorts we have Australia's finest and most beautiful escorts ready to please you and make your dreams come true.
+            </p>
         </div>
     </section>
 
+    <!-- ========================================================================= -->
+    <!-- PROVIDER SECTION: TRUST, BENEFITS, HOW IT WORKS & FOUNDER STORY           -->
+    <!-- ========================================================================= -->
+    <div id="provider-info">
+        <!-- PROVIDER HERO & REAL PROOF TRUST GRID -->
+        <section style="background: #111; color: #fff; padding: 80px 20px; text-align: center; border-bottom: 1px solid #222;">
+          <div style="max-width: 900px; margin: 0 auto;">
+            <span style="color: var(--accent); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 12px;">For Independent Providers</span>
+            <h2 style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; margin-bottom: 20px; letter-spacing: 0.04em; line-height: 1.2;">
+              Want To Join Zelo?
+            </h2>
+            
+            <p style="font-size: 1.15rem; color: #ccc; line-height: 1.6; margin-bottom: 30px;">
+              Zelo Escorts was created as a transparent alternative to commission-based directories. We believe independent providers should keep 100% of their earnings, maintain direct client communication, and advertise through simple flat-rate pricing.
+            </p>
+
+            <!-- Primary Action CTA & Micro-copy -->
+            <div style="margin-bottom: 45px;">
+              <a href="apply.html" style="display: inline-block; background: #d4af37; color: #000; font-size: 1.1rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; box-shadow: 0 4px 20px rgba(212,175,55,0.3);">
+                Apply For Listing &rarr;
+              </a>
+              <div style="margin-top: 12px; font-size: 0.9rem; color: #888; letter-spacing: 0.3px;">
+                No lock-in contracts &bull; Direct client enquiries &bull; Keep 100% of earnings
+              </div>
+            </div>
+
+            <!-- Enhanced Trust Checkmarks Grid with Real Proof -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; text-align: left; background: #181818; padding: 30px; border-radius: 8px; border: 1px solid #2a2a2a;">
+              
+              <div style="background: #111; padding: 18px; border-radius: 6px; border: 1px solid #222;">
+                <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 6px;">✅ Keep 100% of Your Earnings</div>
+                <div style="font-size: 0.85rem; color: #888; line-height: 1.5;">Zero agency cuts, middleman fees, or hidden percentages taken from your bookings.</div>
+              </div>
+
+              <div style="background: #111; padding: 18px; border-radius: 6px; border: 1px solid #222;">
+                <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 6px;">✅ Direct Client Communication</div>
+                <div style="font-size: 0.85rem; color: #888; line-height: 1.5;">Enquiries go straight to your phone or email. No agency dispatchers in the middle.</div>
+              </div>
+
+              <div style="background: #111; padding: 18px; border-radius: 6px; border: 1px solid #222;">
+                <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 6px;">✅ No Booking Commissions</div>
+                <div style="font-size: 0.85rem; color: #888; line-height: 1.5;">You control your schedule, rates, and bookings entirely independently.</div>
+              </div>
+
+              <div style="background: #111; padding: 18px; border-radius: 6px; border: 1px solid #222;">
+                <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 6px;">✅ Flat Monthly Pricing</div>
+                <div style="font-size: 0.85rem; color: #888; line-height: 1.5;">Predictable, transparent advertising costs with zero unexpected overhead.</div>
+              </div>
+
+              <div style="background: #111; padding: 18px; border-radius: 6px; border: 1px solid #222;">
+                <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 6px;">✅ Australia-Wide Exposure</div>
+                <div style="font-size: 0.85rem; color: #888; line-height: 1.5;">Targeted local landing pages indexing across Sydney, Melbourne, Brisbane, and beyond.</div>
+              </div>
+
+              <div style="background: #111; padding: 18px; border-radius: 6px; border: 1px solid #222;">
+                <div style="font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 6px;">✅ Secure Cloudflare-Powered Application</div>
+                <div style="font-size: 0.85rem; color: #888; line-height: 1.5;">Encrypted submissions, immutable R2 JSON data backups, and instant email receipts.</div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- HOW ZELO WORKS SECTION -->
+        <section style="background: #141414; color: #fff; padding: 70px 20px; text-align: center; border-bottom: 1px solid #222;">
+          <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="font-family: var(--font-serif); font-size: 2.3rem; font-weight: 400; margin-bottom: 12px; color: #fff; letter-spacing: 0.05em;">How Zelo Works</h2>
+            <p style="color: #aaa; font-size: 1.05rem; margin-bottom: 40px;">A streamlined onboarding process designed to get your profile live securely and quickly.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left;">
+              <div style="background: #1b1b1b; padding: 28px; border-radius: 8px; border: 1px solid #2a2a2a;">
+                <span style="color: #d4af37; font-size: 1.5rem; font-weight: 800; display: block; margin-bottom: 10px;">01</span>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">Apply Online</h3>
+                <p style="color: #bbb; font-size: 0.95rem; line-height: 1.6; margin: 0;">Upload your profile details, verification info, and portfolio photos securely.</p>
+              </div>
+
+              <div style="background: #1b1b1b; padding: 28px; border-radius: 8px; border: 1px solid #2a2a2a;">
+                <span style="color: #d4af37; font-size: 1.5rem; font-weight: 800; display: block; margin-bottom: 10px;">02</span>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">Get Approved</h3>
+                <p style="color: #bbb; font-size: 0.95rem; line-height: 1.6; margin: 0;">Our curation team reviews your submission. All applications are reviewed within 24 hours.</p>
+              </div>
+
+              <div style="background: #1b1b1b; padding: 28px; border-radius: 8px; border: 1px solid #2a2a2a;">
+                <span style="color: #d4af37; font-size: 1.5rem; font-weight: 800; display: block; margin-bottom: 10px;">03</span>
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: #fff;">Go Live</h3>
+                <p style="color: #bbb; font-size: 0.95rem; line-height: 1.6; margin: 0;">Receive direct client enquiries while maintaining full control over your rates, availability, and bookings.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOUNDER STORY / WHY ZELO EXISTS SECTION -->
+        <section style="background: #0d0d0d; color: #fff; padding: 80px 20px; border-bottom: 1px solid #222;">
+          <div style="max-width: 750px; margin: 0 auto; text-align: left;">
+            <h2 style="font-family: var(--font-serif); font-size: 2.3rem; font-weight: 400; margin-bottom: 25px; color: #fff; text-align: center; letter-spacing: 0.05em;">Why Zelo Exists</h2>
+            
+            <div style="background: #161616; padding: 40px; border-radius: 8px; border: 1px solid #252525; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+              <p style="font-size: 1.05rem; color: #ccc; line-height: 1.75; margin-bottom: 20px;">
+                Zelo Escorts was created as a transparent alternative to traditional, commission-based directories. 
+              </p>
+              <p style="font-size: 1.05rem; color: #ccc; line-height: 1.75; margin-bottom: 20px;">
+                We believe independent providers should keep 100% of their earnings, maintain direct client communication, and advertise through simple flat-rate pricing—without an agency taking a cut of your hard work.
+              </p>
+              <p style="font-size: 1.05rem; color: #ccc; line-height: 1.75; margin-bottom: 25px;">
+                Our goal is simple: create a premium directory where independent providers can advertise transparently, communicate directly with clients, and retain full control of their business.
+              </p>
+              
+              <div style="border-top: 1px solid #222; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; color: #888; font-size: 0.9rem;">
+                <span><strong>Zelo Escorts Team</strong> &mdash; Australian Owned & Operated</span>
+                <span style="color: #d4af37;">Direct Support & Response within 24h</span>
+              </div>
+            </div>
+          </div>
+        </section>
+    </div>
+
     <!-- Roster Pricing Slots -->
-    <section style="background: #0d0d0d; border-top: 1px solid var(--border-subtle); padding: 90px 0;">
+    <section style="background: #090909; padding: 90px 0;">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 12px; color: var(--text-main); font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.08em;">Join Our Premium Roster</h2>
             <p style="text-align: center; color: var(--text-muted); margin-bottom: 55px; font-size: 0.95rem; letter-spacing: 0.05em;">Select your advertising placement option to launch your portfolio profile live (46 of 50 founding slots remaining)</p>
@@ -1040,6 +1056,22 @@
                     <p style="font-size: 2.4rem; font-weight: 400; font-family: var(--font-serif); color: var(--accent); margin-bottom: 15px;">$99 <span style="font-size: 0.9rem; font-family: var(--font-sans); color: var(--text-muted);">/ month</span></p>
                     <p style="color: var(--text-muted); margin-bottom: 35px; font-size: 0.9rem; line-height: 1.6;">High-visibility premium display banner ad placement across the network (Includes 30-day trial).</p>
                     <a href="apply.html?tier=banner" class="contact-link" style="background: var(--accent); color: var(--bg-obsidian); padding: 14px 25px; border-radius: 2px; text-decoration: none; display: inline-block; font-weight: 600; width: 85%; border: none;">Apply for Banner ›</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking / Contact Block -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Connect With Zelo Escorts</h2>
+            <p>Choose your preferred communication platform below</p>
+            
+            <div class="contact-grid">
+                <div class="contact-method">
+                    <h4>WhatsApp Chat</h4>
+                    <p>Connect instantly online</p>
+                    <a href="https://wa.me/61406133210" class="contact-link">Chat via WhatsApp ›</a>
                 </div>
             </div>
         </div>
