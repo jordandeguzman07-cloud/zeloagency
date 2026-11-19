@@ -49,6 +49,7 @@
             padding: 3px 9px;
             border-radius: 999px;
             white-space: nowrap;
+            text-decoration: none;
         }
 
         label { display: block; margin-top: 15px; color: #d4af37; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
@@ -77,16 +78,7 @@
             text-align: left;
         }
         .guide-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
             margin-bottom: 8px;
-        }
-        .guide-arrow {
-            color: #d4af37;
-            font-size: 1.25rem;
-            font-weight: bold;
-            line-height: 1;
         }
         .pricing-guide h2 {
             color: #d4af37;
@@ -349,7 +341,6 @@
         <!-- Pricing Guide Reference Panel -->
         <aside class="pricing-guide" id="pricingGuide" aria-label="Roster Tiers and Rates Guide">
             <div class="guide-header">
-                <span class="guide-arrow" aria-hidden="true">←</span>
                 <h2>Roster Tiers &amp; Rates</h2>
             </div>
             <p class="guide-sub">Quick reference as you choose your <strong>Select Offering / Listing Tier</strong> option on the left. Keep 100% of your booking earnings with zero commissions.</p>
@@ -531,4 +522,17 @@
                     if (response.ok) {
                         console.log('Worker transmission successful.');
                         window.location.href = stripeUrl;
+                    } else {
+                        throw new Error(`Worker responded with status ${response.status}`);
                     }
+                } catch (error) {
+                    console.error('Worker error:', error);
+                    // Fail-safe redirect so user always reaches Stripe checkout
+                    window.location.href = stripeUrl;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
