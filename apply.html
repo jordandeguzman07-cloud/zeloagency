@@ -14,12 +14,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply / Onboard | Zelo Talent Agency</title>
     <style>
-        body { background: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; padding: 40px 20px; text-align: center; }
-        .form-card { max-width: 650px; margin: 0 auto; background: #141414; padding: 30px; border-radius: 8px; border: 1px solid #d4af37; text-align: left; }
+        * { box-sizing: border-box; }
+        body { background: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; padding: 40px 20px; margin: 0; }
+        .apply-layout {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 650px) minmax(290px, 380px);
+            gap: 28px;
+            align-items: start;
+            justify-content: center;
+        }
+        .form-card { width: 100%; background: #141414; padding: 30px; border-radius: 8px; border: 1px solid #d4af37; text-align: left; }
         h1 { color: #d4af37; font-size: 1.8rem; margin-bottom: 10px; text-align: center; }
-        p { color: #aaa; margin-bottom: 25px; text-align: center; font-size: 0.95rem; }
+        .form-intro { color: #aaa; margin-bottom: 25px; text-align: center; font-size: 0.95rem; }
+
+        .tier-label-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .tier-label-row label { margin-top: 0; }
+        .tier-arrow-pointer {
+            color: #f3e5ab;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: rgba(212, 175, 55, 0.14);
+            border: 1px solid rgba(212, 175, 55, 0.55);
+            padding: 3px 9px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
         label { display: block; margin-top: 15px; color: #d4af37; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
-        input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; background: #222; border: 1px solid #333; color: #fff; border-radius: 4px; box-sizing: border-box; }
+        input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; background: #222; border: 1px solid #333; color: #fff; border-radius: 4px; }
         input[type="file"] { background: #1a1a1a; padding: 10px; border: 1px dashed #d4af37; cursor: pointer; }
         
         .section-header { color: #d4af37; font-size: 1.1rem; border-bottom: 1px solid #333; padding-bottom: 6px; margin-top: 30px; margin-bottom: 10px; font-family: serif; text-transform: uppercase; letter-spacing: 1px; }
@@ -33,6 +66,127 @@
         .btn-submit { display: block; width: 100%; margin-top: 30px; padding: 14px; background: linear-gradient(135deg, #F3E5AB, #D4AF37, #AA771C); color: #000; font-weight: bold; text-align: center; text-decoration: none; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
         .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
 
+        /* Pricing Guide Sidebar */
+        .pricing-guide {
+            position: sticky;
+            top: 24px;
+            background: #141414;
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            padding: 24px 20px;
+            text-align: left;
+        }
+        .guide-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .guide-arrow {
+            color: #d4af37;
+            font-size: 1.25rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .pricing-guide h2 {
+            color: #d4af37;
+            font-size: 1.15rem;
+            margin: 0;
+            font-family: serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .guide-sub {
+            color: #aaa;
+            font-size: 0.82rem;
+            margin: 0 0 18px 0;
+            line-height: 1.45;
+        }
+        .tier-box {
+            background: #191919;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+        .tier-box:last-of-type { margin-bottom: 10px; }
+        .tier-box.active-tier {
+            border-color: #d4af37;
+            box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.35);
+            background: #1d1a11;
+        }
+        .tier-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .tier-title {
+            color: #fff;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .tier-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 3px;
+            white-space: nowrap;
+        }
+        .badge-top { background: #d4af37; color: #000; }
+        .badge-boost { background: #2a2412; color: #f3e5ab; border: 1px solid rgba(212, 175, 55, 0.5); }
+        .badge-vip { background: #b91c1c; color: #fff; }
+        .tier-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: #bbb;
+            padding: 3px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .tier-row strong { color: #f3e5ab; }
+        .tier-features {
+            list-style: none;
+            padding: 8px 0 0 0;
+            margin: 0;
+        }
+        .tier-features li {
+            font-size: 0.75rem;
+            color: #ccc;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            padding-left: 12px;
+            position: relative;
+        }
+        .tier-features li::before {
+            content: "•";
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+        }
+        .tier-features li:last-child { margin-bottom: 0; }
+        .guide-note {
+            font-size: 0.74rem;
+            color: #9a9a9a;
+            margin: 10px 0 0 0;
+            line-height: 1.45;
+        }
+
+        @media (max-width: 960px) {
+            .apply-layout {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+            }
+            .pricing-guide {
+                position: static;
+            }
+        }
+
         @media (max-width: 768px) {
             .rates-grid, .services-grid { grid-template-columns: 1fr; }
         }
@@ -40,155 +194,222 @@
 </head>
 <body>
 
-    <div class="form-card">
-        <h1>Model Profile Submission</h1>
-        <p>Complete your profile details, select your rates and services, and upload your portfolio photos below.</p>
+    <div class="apply-layout">
+        <div class="form-card">
+            <h1>Model Profile Submission</h1>
+            <p class="form-intro">Complete your profile details, select your rates and services, and upload your portfolio photos below.</p>
 
-        <form id="onboardForm">
-            <div class="section-header">Basic Details</div>
-            
-            <label>Stage Name / Alias</label>
-            <input type="text" name="Stage_Name" required placeholder="e.g. Alex Rivera">
+            <form id="onboardForm">
+                <div class="section-header">Basic Details</div>
+                
+                <label>Stage Name / Alias</label>
+                <input type="text" name="Stage_Name" required placeholder="e.g. Alex Rivera">
 
-            <label>Select Offering / Listing Tier</label>
-            <select name="Listing_Tier" id="listingTier" required>
-                <option value="Standard Monthly Listing ($49/mo)">Standard Monthly Listing ($49 / month)</option>
-                <option value="Spotlight Boost Upgrade ($25/wk)">Spotlight Boost Upgrade ($25 / week)</option>
-                <option value="Premium Banner Advertisement ($99/mo)">Premium Banner Advertisement ($99 / month)</option>
-            </select>
-
-            <label>Primary City</label>
-            <select name="City" required>
-                <option value="Sydney">Sydney</option>
-                <option value="Melbourne">Melbourne</option>
-                <option value="Brisbane">Brisbane</option>
-                <option value="Perth">Perth</option>
-                <option value="Adelaide">Adelaide</option>
-                <option value="Tasmania">Tasmania</option>
-            </select>
-
-            <label>Mobile Number / Contact SMS</label>
-            <input type="tel" name="Phone" required placeholder="0400 000 000">
-
-            <label>Email Address</label>
-            <input type="email" name="Email" required placeholder="yourname@domain.com">
-
-            <label>Gender</label>
-            <select name="Gender" required>
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-                <option value="Transgender">Transgender</option>
-            </select>
-
-            <label>Age</label>
-            <input type="number" name="Age" required placeholder="24">
-
-            <label>Ethnicity</label>
-            <input type="text" name="Ethnicity" required placeholder="e.g. Caucasian, Asian, Latina, Mixed">
-
-            <label>Height</label>
-            <input type="text" name="Height" required placeholder="175 CM">
-
-            <label>Hair Color</label>
-            <input type="text" name="Hair" required placeholder="Brunette">
-
-            <label>Eye Color</label>
-            <input type="text" name="Eyes" required placeholder="Hazel">
-
-            <label>Dress Size</label>
-            <input type="text" name="Dress_Size" required placeholder="8">
-
-            <label>Bust Size</label>
-            <input type="text" name="Bust_Size" required placeholder="e.g. B Cup, C Cup">
-
-            <label>Bust Type</label>
-            <select name="Bust_Type" required>
-                <option value="Natural">Natural</option>
-                <option value="Enhanced">Enhanced</option>
-            </select>
-
-            <label>Body Type</label>
-            <input type="text" name="Body_Type" required placeholder="Athletic">
-
-            <label>Place of Service</label>
-            <input type="text" name="Place_Of_Service" required value="Incall, Outcall">
-
-
-            <!-- Rates Section -->
-            <div class="section-header">Rates Setup</div>
-            <div class="rates-grid">
-                <div>
-                    <label>Incall 1 Hour Rate ($)</label>
-                    <input type="text" name="Incall_1Hr_Rate" placeholder="e.g. $1200">
+                <div class="tier-label-row">
+                    <label for="listingTier">Select Offering / Listing Tier</label>
+                    <a href="#pricingGuide" class="tier-arrow-pointer">→ Tier Rates</a>
                 </div>
-                <div>
-                    <label>Outcall 1 Hour Rate ($)</label>
-                    <input type="text" name="Outcall_1Hr_Rate" placeholder="e.g. $1200">
+                <select name="Listing_Tier" id="listingTier" required>
+                    <option value="Standard Monthly Listing ($49/mo)">Standard Monthly Listing ($49 / month)</option>
+                    <option value="Spotlight Boost Upgrade ($25/wk)">Spotlight Boost Upgrade ($25 / week)</option>
+                    <option value="Premium Banner Advertisement ($99/mo)">Premium Banner Advertisement ($99 / month)</option>
+                </select>
+
+                <label>Primary City</label>
+                <select name="City" required>
+                    <option value="Sydney">Sydney</option>
+                    <option value="Melbourne">Melbourne</option>
+                    <option value="Brisbane">Brisbane</option>
+                    <option value="Perth">Perth</option>
+                    <option value="Adelaide">Adelaide</option>
+                    <option value="Tasmania">Tasmania</option>
+                </select>
+
+                <label>Mobile Number / Contact SMS</label>
+                <input type="tel" name="Phone" required placeholder="0400 000 000">
+
+                <label>Email Address</label>
+                <input type="email" name="Email" required placeholder="yourname@domain.com">
+
+                <label>Gender</label>
+                <select name="Gender" required>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Transgender">Transgender</option>
+                </select>
+
+                <label>Age</label>
+                <input type="number" name="Age" required placeholder="24">
+
+                <label>Ethnicity</label>
+                <input type="text" name="Ethnicity" required placeholder="e.g. Caucasian, Asian, Latina, Mixed">
+
+                <label>Height</label>
+                <input type="text" name="Height" required placeholder="175 CM">
+
+                <label>Hair Color</label>
+                <input type="text" name="Hair" required placeholder="Brunette">
+
+                <label>Eye Color</label>
+                <input type="text" name="Eyes" required placeholder="Hazel">
+
+                <label>Dress Size</label>
+                <input type="text" name="Dress_Size" required placeholder="8">
+
+                <label>Bust Size</label>
+                <input type="text" name="Bust_Size" required placeholder="e.g. B Cup, C Cup">
+
+                <label>Bust Type</label>
+                <select name="Bust_Type" required>
+                    <option value="Natural">Natural</option>
+                    <option value="Enhanced">Enhanced</option>
+                </select>
+
+                <label>Body Type</label>
+                <input type="text" name="Body_Type" required placeholder="Athletic">
+
+                <label>Place of Service</label>
+                <input type="text" name="Place_Of_Service" required value="Incall, Outcall">
+
+
+                <!-- Rates Section -->
+                <div class="section-header">Rates Setup</div>
+                <div class="rates-grid">
+                    <div>
+                        <label>Incall 1 Hour Rate ($)</label>
+                        <input type="text" name="Incall_1Hr_Rate" placeholder="e.g. $1200">
+                    </div>
+                    <div>
+                        <label>Outcall 1 Hour Rate ($)</label>
+                        <input type="text" name="Outcall_1Hr_Rate" placeholder="e.g. $1200">
+                    </div>
+                    <div>
+                        <label>Incall Overnight Rate ($)</label>
+                        <input type="text" name="Incall_Overnight_Rate" placeholder="e.g. $4000">
+                    </div>
+                    <div>
+                        <label>Outcall Overnight Rate ($)</label>
+                        <input type="text" name="Outcall_Overnight_Rate" placeholder="e.g. $9500">
+                    </div>
                 </div>
-                <div>
-                    <label>Incall Overnight Rate ($)</label>
-                    <input type="text" name="Incall_Overnight_Rate" placeholder="e.g. $4000">
+                <label>Custom Rates / Additional Details</label>
+                <textarea name="Custom_Rates_Notes" rows="2" placeholder="List any specific 30min, 2hr, or dinner date rates..."></textarea>
+
+
+                <!-- Services Section -->
+                <div class="section-header">Services Offered</div>
+                <label>Select all services you provide:</label>
+                <div class="services-grid">
+                    <label><input type="checkbox" name="Service_Item" value="Affectionate cuddling"> Affectionate cuddling</label>
+                    <label><input type="checkbox" name="Service_Item" value="Affectionate kissing"> Affectionate kissing</label>
+                    <label><input type="checkbox" name="Service_Item" value="Anal play – On you"> Anal play – On you</label>
+                    <label><input type="checkbox" name="Service_Item" value="B + D – bondage + discipline"> B + D – bondage + discipline</label>
+                    <label><input type="checkbox" name="Service_Item" value="BBBJ – bare back blow job"> BBBJ – bare back blow job</label>
+                    <label><input type="checkbox" name="Service_Item" value="BDSM"> BDSM</label>
+                    <label><input type="checkbox" name="Service_Item" value="BLS – balls licking"> BLS – balls licking</label>
+                    <label><input type="checkbox" name="Service_Item" value="Body worship"> Body worship</label>
+                    <label><input type="checkbox" name="Service_Item" value="Bondage"> Bondage</label>
+                    <label><input type="checkbox" name="Service_Item" value="CBT – cock and ball torture"> CBT – cock and ball torture</label>
+                    <label><input type="checkbox" name="Service_Item" value="CD – cross dressing"> CD – cross dressing</label>
+                    <label><input type="checkbox" name="Service_Item" value="Costumes"> Costumes</label>
+                    <label><input type="checkbox" name="Service_Item" value="DATY – oral on me"> DATY – oral on me</label>
+                    <label><input type="checkbox" name="Service_Item" value="DFK – deep French kissing"> DFK – deep French kissing</label>
+                    <label><input type="checkbox" name="Service_Item" value="Dinner companion"> Dinner companion</label>
+                    <label><input type="checkbox" name="Service_Item" value="Dirty talk"> Dirty talk</label>
+                    <label><input type="checkbox" name="Service_Item" value="Doggy style"> Doggy style</label>
+                    <label><input type="checkbox" name="Service_Item" value="Erotic sensual massage"> Erotic sensual massage</label>
+                    <label><input type="checkbox" name="Service_Item" value="FE – female ejaculation"> FE – female ejaculation</label>
+                    <label><input type="checkbox" name="Service_Item" value="Fetish"> Fetish</label>
+                    <label><input type="checkbox" name="Service_Item" value="Filming"> Filming</label>
+                    <label><input type="checkbox" name="Service_Item" value="Fly Me To You"> Fly Me To You</label>
+                    <label><input type="checkbox" name="Service_Item" value="Foot fetish"> Foot fetish</label>
+                    <label><input type="checkbox" name="Service_Item" value="GFE – girlfriend experience"> GFE – girlfriend experience</label>
+                    <label><input type="checkbox" name="Service_Item" value="Happy ending"> Happy ending</label>
+                    <label><input type="checkbox" name="Service_Item" value="HJ – hand job"> HJ – hand job</label>
+                    <label><input type="checkbox" name="Service_Item" value="Massage"> Massage</label>
+                    <label><input type="checkbox" name="Service_Item" value="Overnight stays"> Overnight stays</label>
+                    <label><input type="checkbox" name="Service_Item" value="PSE – porn star experience"> PSE – porn star experience</label>
+                    <label><input type="checkbox" name="Service_Item" value="Travel Companion"> Travel Companion</label>
                 </div>
-                <div>
-                    <label>Outcall Overnight Rate ($)</label>
-                    <input type="text" name="Outcall_Overnight_Rate" placeholder="e.g. $9500">
-                </div>
+
+
+                <!-- Single Multi-File Upload Input -->
+                <div class="section-header" style="margin-top: 35px;">Portfolio Photos</div>
+                
+                <label>Portfolio Photos (1 to 6 photos)</label>
+                <input type="file" name="Photos" id="photos" accept="image/*" multiple required>
+
+                <label>Bio / Profile Introduction</label>
+                <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
+
+                <button type="submit" class="btn-submit" id="submitBtn">Submit Application & Continue to Stripe</button>
+            </form>
+        </div>
+
+        <!-- Pricing Guide Reference Panel -->
+        <aside class="pricing-guide" id="pricingGuide" aria-label="Roster Tiers and Rates Guide">
+            <div class="guide-header">
+                <span class="guide-arrow" aria-hidden="true">←</span>
+                <h2>Roster Tiers &amp; Rates</h2>
             </div>
-            <label>Custom Rates / Additional Details</label>
-            <textarea name="Custom_Rates_Notes" rows="2" placeholder="List any specific 30min, 2hr, or dinner date rates..."></textarea>
+            <p class="guide-sub">Quick reference as you choose your <strong>Select Offering / Listing Tier</strong> option on the left. Keep 100% of your booking earnings with zero commissions.</p>
 
-
-            <!-- Services Section -->
-            <div class="section-header">Services Offered</div>
-            <label>Select all services you provide:</label>
-            <div class="services-grid">
-                <label><input type="checkbox" name="Service_Item" value="Affectionate cuddling"> Affectionate cuddling</label>
-                <label><input type="checkbox" name="Service_Item" value="Affectionate kissing"> Affectionate kissing</label>
-                <label><input type="checkbox" name="Service_Item" value="Anal play – On you"> Anal play – On you</label>
-                <label><input type="checkbox" name="Service_Item" value="B + D – bondage + discipline"> B + D – bondage + discipline</label>
-                <label><input type="checkbox" name="Service_Item" value="BBBJ – bare back blow job"> BBBJ – bare back blow job</label>
-                <label><input type="checkbox" name="Service_Item" value="BDSM"> BDSM</label>
-                <label><input type="checkbox" name="Service_Item" value="BLS – balls licking"> BLS – balls licking</label>
-                <label><input type="checkbox" name="Service_Item" value="Body worship"> Body worship</label>
-                <label><input type="checkbox" name="Service_Item" value="Bondage"> Bondage</label>
-                <label><input type="checkbox" name="Service_Item" value="CBT – cock and ball torture"> CBT – cock and ball torture</label>
-                <label><input type="checkbox" name="Service_Item" value="CD – cross dressing"> CD – cross dressing</label>
-                <label><input type="checkbox" name="Service_Item" value="Costumes"> Costumes</label>
-                <label><input type="checkbox" name="Service_Item" value="DATY – oral on me"> DATY – oral on me</label>
-                <label><input type="checkbox" name="Service_Item" value="DFK – deep French kissing"> DFK – deep French kissing</label>
-                <label><input type="checkbox" name="Service_Item" value="Dinner companion"> Dinner companion</label>
-                <label><input type="checkbox" name="Service_Item" value="Dirty talk"> Dirty talk</label>
-                <label><input type="checkbox" name="Service_Item" value="Doggy style"> Doggy style</label>
-                <label><input type="checkbox" name="Service_Item" value="Erotic sensual massage"> Erotic sensual massage</label>
-                <label><input type="checkbox" name="Service_Item" value="FE – female ejaculation"> FE – female ejaculation</label>
-                <label><input type="checkbox" name="Service_Item" value="Fetish"> Fetish</label>
-                <label><input type="checkbox" name="Service_Item" value="Filming"> Filming</label>
-                <label><input type="checkbox" name="Service_Item" value="Fly Me To You"> Fly Me To You</label>
-                <label><input type="checkbox" name="Service_Item" value="Foot fetish"> Foot fetish</label>
-                <label><input type="checkbox" name="Service_Item" value="GFE – girlfriend experience"> GFE – girlfriend experience</label>
-                <label><input type="checkbox" name="Service_Item" value="Happy ending"> Happy ending</label>
-                <label><input type="checkbox" name="Service_Item" value="HJ – hand job"> HJ – hand job</label>
-                <label><input type="checkbox" name="Service_Item" value="Massage"> Massage</label>
-                <label><input type="checkbox" name="Service_Item" value="Overnight stays"> Overnight stays</label>
-                <label><input type="checkbox" name="Service_Item" value="PSE – porn star experience"> PSE – porn star experience</label>
-                <label><input type="checkbox" name="Service_Item" value="Travel Companion"> Travel Companion</label>
+            <div class="tier-box" data-tier-match="Standard Monthly Listing ($49/mo)">
+                <div class="tier-top">
+                    <span class="tier-title">Standard Listing</span>
+                    <span class="tier-badge badge-top">Top Request</span>
+                </div>
+                <div class="tier-row"><span>Monthly Rate</span><strong>$49 / mo</strong></div>
+                <div class="tier-row"><span>Placement</span><span>24/7 Directory Slot</span></div>
+                <div class="tier-row"><span>Free Trial</span><strong>30 Days (Risk-free setup)</strong></div>
+                <ul class="tier-features">
+                    <li><strong>Activated SMS &amp; WhatsApp Links:</strong> Direct inquiry buttons integrated into your profile header.</li>
+                </ul>
             </div>
 
+            <div class="tier-box" data-tier-match="Spotlight Boost Upgrade ($25/wk)">
+                <div class="tier-top">
+                    <span class="tier-title">Spotlight Boost</span>
+                    <span class="tier-badge badge-boost">Boost</span>
+                </div>
+                <div class="tier-row"><span>Weekly Rate</span><strong>$25 / wk</strong></div>
+                <div class="tier-row"><span>Exposure</span><strong>Massive (Top Row Grid)</strong></div>
+                <div class="tier-row"><span>Placement</span><span>Priority placement</span></div>
+                <ul class="tier-features">
+                    <li>Featured top-row visibility across the listing grid for extra profile traffic.</li>
+                </ul>
+            </div>
 
-            <!-- Single Multi-File Upload Input -->
-            <div class="section-header" style="margin-top: 35px;">Portfolio Photos</div>
-            
-            <label>Portfolio Photos (1 to 6 photos)</label>
-            <input type="file" name="Photos" id="photos" accept="image/*" multiple required>
+            <div class="tier-box" data-tier-match="Premium Banner Advertisement ($99/mo)">
+                <div class="tier-top">
+                    <span class="tier-title">Premium Banner &amp; VIP</span>
+                    <span class="tier-badge badge-vip">Premium Elite VIP</span>
+                </div>
+                <div class="tier-row"><span>Monthly Rate</span><strong>$99 / mo</strong></div>
+                <div class="tier-row"><span>Placement</span><span>High-Visibility Banner</span></div>
+                <div class="tier-row"><span>Free Trial</span><strong>30 Days (Includes 30-day trial)</strong></div>
+                <ul class="tier-features">
+                    <li><strong>Highest Exposure &amp; Top Placement:</strong> Guaranteed placement at the top of listing pages.</li>
+                    <li><strong>Custom Styling &amp; Gold Name:</strong> Premium gold font treatment paired with a red heart motif.</li>
+                    <li><strong>Activated SMS &amp; WhatsApp Links:</strong> Direct inquiry buttons in your profile header.</li>
+                    <li><strong>Priority Support:</strong> Dedicated concierge assistance for rapid media updates.</li>
+                </ul>
+            </div>
 
-            <label>Bio / Profile Introduction</label>
-            <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
-
-            <button type="submit" class="btn-submit" id="submitBtn">Submit Application & Continue to Stripe</button>
-        </form>
+            <p class="guide-note">Need help choosing? Contact concierge at <strong>admin@zeloescorts.com.au</strong> or <strong>0406 133 210</strong>.</p>
+        </aside>
     </div>
 
     <script>
+        function syncPricingHighlight() {
+            const tierSelect = document.getElementById('listingTier');
+            if (!tierSelect) return;
+            const selectedVal = tierSelect.value;
+            document.querySelectorAll('.tier-box[data-tier-match]').forEach((box) => {
+                box.classList.toggle('active-tier', box.getAttribute('data-tier-match') === selectedVal);
+            });
+        }
+
         // Auto-select dropdown based on URL query parameter from homepage buttons
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
@@ -202,6 +423,9 @@
             } else if (tierParam === 'banner') {
                 tierSelect.value = 'Premium Banner Advertisement ($99/mo)';
             }
+
+            syncPricingHighlight();
+            tierSelect.addEventListener('change', syncPricingHighlight);
         });
 
         // Helper function to compress images client-side to prevent 413 errors
@@ -307,17 +531,4 @@
                     if (response.ok) {
                         console.log('Worker transmission successful.');
                         window.location.href = stripeUrl;
-                    } else {
-                        throw new Error(`Worker responded with status ${response.status}`);
                     }
-                } catch (error) {
-                    console.error('Worker error:', error);
-                    // Fail-safe redirect so user always reaches Stripe checkout
-                    window.location.href = stripeUrl;
-                }
-            });
-        });
-    </script>
-
-</body>
-</html>
