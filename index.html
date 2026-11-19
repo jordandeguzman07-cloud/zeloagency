@@ -805,7 +805,7 @@
             
             <!-- Direct HTML5 Video Player Container with Controls for Volume/Sound -->
             <div style="position: relative; width: 100%; max-width: 900px; margin: 0 auto 22px; border-radius: 4px; overflow: hidden; border: 1.5px solid var(--accent); box-shadow: 0 0 40px rgba(212, 175, 55, 0.25); background: #000;">
-                <video width="100%" height="auto" controls loop playsinline style="display: block; width: 100%; height: auto;">
+                <video id="welcome-video" width="100%" height="auto" controls loop playsinline preload="metadata" style="display: block; width: 100%; height: auto;">
                     <source src="zelo-welcome.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -1161,6 +1161,20 @@
 
     <!-- Interactive Filtering, Gallery Rotation, & Asset Protection Script -->
     <script>
+        const welcomeVideo = document.getElementById('welcome-video');
+        if (welcomeVideo) {
+            welcomeVideo.addEventListener('error', () => {
+                const mediaErrorMap = {
+                    1: 'MEDIA_ERR_ABORTED',
+                    2: 'MEDIA_ERR_NETWORK',
+                    3: 'MEDIA_ERR_DECODE',
+                    4: 'MEDIA_ERR_SRC_NOT_SUPPORTED'
+                };
+                const code = welcomeVideo.error ? welcomeVideo.error.code : 0;
+                console.error('Welcome video error:', code, mediaErrorMap[code] || 'UNKNOWN');
+            });
+        }
+
         // Disable right-click context menu on images, videos, and backgrounds
         document.addEventListener('contextmenu', function (e) {
             if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.classList.contains('image-placeholder')) {
