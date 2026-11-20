@@ -57,11 +57,11 @@
         label { display: block; margin-top: 15px; color: #d4af37; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
         input, select, textarea { width: 100%; padding: 12px; margin-top: 5px; background: #222; border: 1px solid #333; color: #fff; border-radius: 4px; }
         input[type="file"] { background: #1a1a1a; padding: 10px; border: 1px dashed #d4af37; cursor: pointer; }
-        
+
         .section-header { color: #d4af37; font-size: 1.1rem; border-bottom: 1px solid #333; padding-bottom: 6px; margin-top: 30px; margin-bottom: 10px; font-family: serif; text-transform: uppercase; letter-spacing: 1px; }
-        
+
         .rates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        
+
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; background: #1a1a1a; padding: 15px; border: 1px solid #333; border-radius: 4px; }
         .services-grid label { display: flex; align-items: center; gap: 6px; color: #ccc; font-weight: normal; font-size: 0.8rem; text-transform: none; margin-top: 0; cursor: pointer; }
         .services-grid input[type="checkbox"] { width: auto; margin: 0; cursor: pointer; }
@@ -195,22 +195,22 @@
 
             <form id="onboardForm">
                 <div class="section-header">Basic Details</div>
-                
-                <label>Stage Name / Alias</label>
-                <input type="text" name="Stage_Name" required placeholder="e.g. Alex Rivera">
+
+                <label for="stageName">Stage Name / Alias</label>
+                <input type="text" id="stageName" name="Stage_Name" required placeholder="e.g. Alex Rivera">
 
                 <div class="tier-label-row">
                     <label for="listingTier">Select Offering / Listing Tier</label>
                     <a href="#pricingGuide" class="tier-arrow-pointer">→ Tier Rates</a>
                 </div>
                 <select name="Listing_Tier" id="listingTier" required>
-                    <option value="Standard Monthly Listing ($49/mo)">Standard Monthly Listing ($49 / month)</option>
+                    <option value="Standard Monthly Listing ($49/mo) (Includes 30-day trial)">Standard Monthly Listing ($49 / month) (Includes 30-day trial)</option>
                     <option value="Spotlight Boost Upgrade ($25/wk)">Spotlight Boost Upgrade ($25 / week)</option>
-                    <option value="Premium Banner Advertisement ($99/mo)">Premium Banner Advertisement ($99 / month)</option>
+                    <option value="Premium Banner Advertisement ($99/mo) (Includes 30-day trial)">Premium Banner Advertisement ($99 / month) (Includes 30-day trial)</option>
                 </select>
 
-                <label>Primary City</label>
-                <select name="City" required>
+                <label for="citySelect">Primary City</label>
+                <select id="citySelect" name="City" required>
                     <option value="Sydney">Sydney</option>
                     <option value="Melbourne">Melbourne</option>
                     <option value="Brisbane">Brisbane</option>
@@ -219,75 +219,75 @@
                     <option value="Tasmania">Tasmania</option>
                 </select>
 
-                <label>Mobile Number / Contact SMS</label>
-                <input type="tel" name="Phone" required placeholder="0400 000 000">
+                <label for="phoneInput">Mobile Number / Contact SMS</label>
+                <input type="tel" id="phoneInput" name="Phone" required placeholder="0400 000 000">
 
-                <label>Email Address</label>
-                <input type="email" name="Email" required placeholder="yourname@domain.com">
+                <label for="emailInput">Email Address</label>
+                <input type="email" id="emailInput" name="Email" required placeholder="yourname@domain.com">
 
-                <label>Gender</label>
-                <select name="Gender" required>
+                <label for="genderSelect">Gender</label>
+                <select id="genderSelect" name="Gender" required>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
                     <option value="Transgender">Transgender</option>
                 </select>
 
-                <label>Age</label>
-                <input type="number" name="Age" required placeholder="24">
+                <label for="ageInput">Age</label>
+                <input type="number" id="ageInput" name="Age" min="18" required placeholder="24">
 
-                <label>Ethnicity</label>
-                <input type="text" name="Ethnicity" required placeholder="e.g. Caucasian, Asian, Latina, Mixed">
+                <label for="ethnicityInput">Ethnicity</label>
+                <input type="text" id="ethnicityInput" name="Ethnicity" required placeholder="e.g. Caucasian, Asian, Latina, Mixed">
 
-                <label>Height</label>
-                <input type="text" name="Height" required placeholder="175 CM">
+                <label for="heightInput">Height</label>
+                <input type="text" id="heightInput" name="Height" required placeholder="175 CM">
 
-                <label>Hair Color</label>
-                <input type="text" name="Hair" required placeholder="Brunette">
+                <label for="hairInput">Hair Color</label>
+                <input type="text" id="hairInput" name="Hair" required placeholder="Brunette">
 
-                <label>Eye Color</label>
-                <input type="text" name="Eyes" required placeholder="Hazel">
+                <label for="eyesInput">Eye Color</label>
+                <input type="text" id="eyesInput" name="Eyes" required placeholder="Hazel">
 
-                <label>Dress Size</label>
-                <input type="text" name="Dress_Size" required placeholder="8">
+                <label for="dressSizeInput">Dress Size</label>
+                <input type="text" id="dressSizeInput" name="Dress_Size" required placeholder="8">
 
-                <label>Bust Size</label>
-                <input type="text" name="Bust_Size" required placeholder="e.g. B Cup, C Cup">
+                <label for="bustSizeInput">Bust Size</label>
+                <input type="text" id="bustSizeInput" name="Bust_Size" required placeholder="e.g. B Cup, C Cup">
 
-                <label>Bust Type</label>
-                <select name="Bust_Type" required>
+                <label for="bustTypeSelect">Bust Type</label>
+                <select id="bustTypeSelect" name="Bust_Type" required>
                     <option value="Natural">Natural</option>
                     <option value="Enhanced">Enhanced</option>
                 </select>
 
-                <label>Body Type</label>
-                <input type="text" name="Body_Type" required placeholder="Athletic">
+                <label for="bodyTypeInput">Body Type</label>
+                <input type="text" id="bodyTypeInput" name="Body_Type" required placeholder="Athletic">
 
-                <label>Place of Service</label>
-                <input type="text" name="Place_Of_Service" required value="Incall, Outcall">
+                <label for="placeOfServiceInput">Place of Service</label>
+                <input type="text" id="placeOfServiceInput" name="Place_Of_Service" required value="Incall, Outcall">
 
 
                 <!-- Rates Section -->
                 <div class="section-header">Rates Setup</div>
                 <div class="rates-grid">
                     <div>
-                        <label>Incall 1 Hour Rate ($)</label>
-                        <input type="text" name="Incall_1Hr_Rate" placeholder="e.g. $1200">
+                        <label for="incall1Hr">Incall 1 Hour Rate ($)</label>
+                        <input type="text" id="incall1Hr" name="Incall_1Hr_Rate" placeholder="e.g. $1200">
                     </div>
                     <div>
-                        <label>Outcall 1 Hour Rate ($)</label>
-                        <input type="text" name="Outcall_1Hr_Rate" placeholder="e.g. $1200">
+                        <label for="outcall1Hr">Outcall 1 Hour Rate ($)</label>
+                        <input type="text" id="outcall1Hr" name="Outcall_1Hr_Rate" placeholder="e.g. $1200">
                     </div>
                     <div>
-                        <label>Incall Overnight Rate ($)</label>
-                        <input type="text" name="Incall_Overnight_Rate" placeholder="e.g. $4000">
+                        <label for="incallOvernight">Incall Overnight Rate ($)</label>
+                        <input type="text" id="incallOvernight" name="Incall_Overnight_Rate" placeholder="e.g. $4000">
                     </div>
                     <div>
-                        <label>Outcall Overnight Rate ($)</label>
-                        <input type="text" name="Outcall_Overnight_Rate" placeholder="e.g. $9500">
+                        <label for="outcallOvernight">Outcall Overnight Rate ($)</label>
+                        <input type="text" id="outcallOvernight" name="Outcall_Overnight_Rate" placeholder="e.g. $9500">
                     </div>
                 </div>
-                <label>Custom Rates / Additional Details</label>
-                <textarea name="Custom_Rates_Notes" rows="2" placeholder="List any specific 30min, 2hr, or dinner date rates..."></textarea>
+                <label for="customRatesNotes">Custom Rates / Additional Details</label>
+                <textarea id="customRatesNotes" name="Custom_Rates_Notes" rows="2" placeholder="List any specific 30min, 2hr, or dinner date rates..."></textarea>
 
 
                 <!-- Services Section -->
@@ -329,14 +329,14 @@
 
                 <!-- Single Multi-File Upload Input -->
                 <div class="section-header" style="margin-top: 35px;">Portfolio Photos</div>
-                
-                <label>Portfolio Photos (1 to 6 photos)</label>
+
+                <label for="photos">Portfolio Photos (1 to 6 photos)</label>
                 <input type="file" name="Photos" id="photos" accept="image/*" multiple required>
 
-                <label>Bio / Profile Introduction</label>
-                <textarea name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
+                <label for="bioTextarea">Bio / Profile Introduction</label>
+                <textarea id="bioTextarea" name="Bio" rows="4" placeholder="Tell clients about yourself..."></textarea>
 
-                <button type="submit" class="btn-submit" id="submitBtn">Submit Application & Continue to Stripe</button>
+                <button type="submit" class="btn-submit" id="submitBtn">Submit Application &amp; Continue to Stripe</button>
             </form>
         </div>
 
@@ -347,7 +347,7 @@
             </div>
             <p class="guide-sub">Quick reference as you choose your <strong>Select Offering / Listing Tier</strong> option on the left. Keep 100% of your booking earnings with zero commissions.</p>
 
-            <div class="tier-box" data-tier-match="Standard Monthly Listing ($49/mo)">
+            <div class="tier-box" data-tier-match="Standard Monthly Listing ($49/mo) (Includes 30-day trial)">
                 <div class="tier-top">
                     <span class="tier-title">Standard Listing</span>
                     <span class="tier-badge badge-top">Top Request</span>
@@ -373,7 +373,7 @@
                 </ul>
             </div>
 
-            <div class="tier-box" data-tier-match="Premium Banner Advertisement ($99/mo)">
+            <div class="tier-box" data-tier-match="Premium Banner Advertisement ($99/mo) (Includes 30-day trial)">
                 <div class="tier-top">
                     <span class="tier-title">Premium Banner &amp; VIP</span>
                     <span class="tier-badge badge-vip">Premium Elite VIP</span>
@@ -409,16 +409,18 @@
             const tierParam = urlParams.get('tier');
             const tierSelect = document.getElementById('listingTier');
 
-            if (tierParam === 'standard') {
-                tierSelect.value = 'Standard Monthly Listing ($49/mo)';
-            } else if (tierParam === 'spotlight') {
-                tierSelect.value = 'Spotlight Boost Upgrade ($25/wk)';
-            } else if (tierParam === 'banner') {
-                tierSelect.value = 'Premium Banner Advertisement ($99/mo)';
-            }
+            if (tierSelect) {
+                if (tierParam === 'standard') {
+                    tierSelect.value = 'Standard Monthly Listing ($49/mo) (Includes 30-day trial)';
+                } else if (tierParam === 'spotlight') {
+                    tierSelect.value = 'Spotlight Boost Upgrade ($25/wk)';
+                } else if (tierParam === 'banner') {
+                    tierSelect.value = 'Premium Banner Advertisement ($99/mo) (Includes 30-day trial)';
+                }
 
-            syncPricingHighlight();
-            tierSelect.addEventListener('change', syncPricingHighlight);
+                syncPricingHighlight();
+                tierSelect.addEventListener('change', syncPricingHighlight);
+            }
         });
 
         // Helper function to compress images client-side to prevent 413 errors
@@ -432,7 +434,6 @@
                 reader.readAsDataURL(file);
                 reader.onload = (event) => {
                     const img = new Image();
-                    img.src = event.target.result;
                     img.onload = () => {
                         const canvas = document.createElement('canvas');
                         let width = img.width;
@@ -449,14 +450,22 @@
                         ctx.drawImage(img, 0, 0, width, height);
 
                         canvas.toBlob((blob) => {
-                            const compressedFile = new File([blob], file.name, {
+                            if (!blob) {
+                                resolve(file);
+                                return;
+                            }
+                            const safeName = file.name.replace(/\.[^/.]+$/, '') + '.jpg';
+                            const compressedFile = new File([blob], safeName, {
                                 type: 'image/jpeg',
                                 lastModified: Date.now()
                             });
                             resolve(compressedFile);
                         }, 'image/jpeg', quality);
                     };
+                    img.onerror = () => resolve(file);
+                    img.src = event.target.result;
                 };
+                reader.onerror = () => resolve(file);
             });
         }
 
@@ -468,7 +477,15 @@
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
+                const photosInput = document.getElementById('photos');
+                const fileCount = photosInput && photosInput.files ? photosInput.files.length : 0;
+                if (fileCount < 1 || fileCount > 6) {
+                    alert('Please select between 1 and 6 portfolio photos.');
+                    return;
+                }
+
                 const submitBtn = document.getElementById('submitBtn');
+                const originalBtnText = submitBtn.textContent;
                 submitBtn.textContent = 'Compressing Photos & Submitting...';
                 submitBtn.disabled = true;
 
@@ -483,7 +500,7 @@
 
                 // Determine correct Stripe link based on chosen tier
                 let stripeUrl = 'https://buy.stripe.com/7sYbJ3eFG6RjcHc1NR8ww00'; // Default / Standard ($49)
-                
+
                 if (selectedTier.includes('Premium Banner')) {
                     stripeUrl = 'https://buy.stripe.com/28EeVf0OQ1wZaz4fEH8ww02'; // $99 Banner Link
                 } else if (selectedTier.includes('Spotlight Boost')) {
@@ -492,10 +509,10 @@
 
                 // Build clean FormData payload
                 const formData = new FormData();
-                
+
                 // Append text fields, omitting the original file input element
                 const rawFormData = new FormData(this);
-                for (let [key, value] of rawFormData.entries()) {
+                for (const [key, value] of rawFormData.entries()) {
                     if (key !== 'Photos') {
                         formData.append(key, value);
                     }
@@ -505,8 +522,7 @@
                 formData.set('Services', servicesString);
 
                 // Compress and append each selected photo under the unified 'Photos' array key
-                const photosInput = document.getElementById('photos');
-                if (photosInput && photosInput.files.length > 0) {
+                if (fileCount > 0) {
                     for (const file of photosInput.files) {
                         const compressed = await compressImage(file);
                         if (compressed) {
@@ -530,6 +546,7 @@
                 } catch (error) {
                     console.error('Worker error:', error);
                     // Fail-safe redirect so user always reaches Stripe checkout
+                    submitBtn.textContent = originalBtnText;
                     window.location.href = stripeUrl;
                 }
             });
