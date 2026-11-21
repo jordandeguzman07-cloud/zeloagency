@@ -262,7 +262,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: 4px;
-            padding: 24px 20px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -272,6 +272,22 @@
         .profile-card:hover {
             border-color: var(--accent);
             transform: translateY(-2px);
+        }
+
+        .profile-card-photo {
+            width: 100%;
+            height: 310px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .profile-card-body {
+            padding: 22px 20px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
         }
 
         .profile-badge {
@@ -553,23 +569,40 @@
 
             <div class="profiles-grid">
                 <article class="profile-card">
-                    <div>
-                        <span class="profile-badge">Featured Sydney</span>
-                        <h3>Effie</h3>
-                        <p class="profile-meta">Sydney &bull; Age 24 &bull; Email &amp; Telegram</p>
-                        <p class="profile-desc">Independent Sydney companion available for direct enquiries via email and Telegram across Sydney and surrounding suburbs.</p>
+                    <div class="profile-card-body">
+                        <div>
+                            <span class="profile-badge">Featured Sydney</span>
+                            <h3>Effie</h3>
+                            <p class="profile-meta">Sydney &bull; Age 24 &bull; Email &amp; Telegram</p>
+                            <p class="profile-desc">Independent Sydney companion available for direct enquiries via email and Telegram across Sydney and surrounding suburbs.</p>
+                        </div>
+                        <a href="effie.html" class="profile-link">View Effie's Profile</a>
                     </div>
-                    <a href="effie.html" class="profile-link">View Effie's Profile</a>
                 </article>
 
                 <article class="profile-card">
-                    <div>
-                        <span class="profile-badge">Featured Sydney</span>
-                        <h3>Chloe Star</h3>
-                        <p class="profile-meta">Sydney &bull; Age 29 &bull; Direct Phone</p>
-                        <p class="profile-desc">Independent Sydney companion offering direct phone enquiries and tailored private bookings across Sydney.</p>
+                    <div class="profile-card-body">
+                        <div>
+                            <span class="profile-badge">Featured Sydney</span>
+                            <h3>Chloe Star</h3>
+                            <p class="profile-meta">Sydney &bull; Age 29 &bull; Direct Phone</p>
+                            <p class="profile-desc">Independent Sydney companion offering direct phone enquiries and tailored private bookings across Sydney.</p>
+                        </div>
+                        <a href="chloe.html" class="profile-link">View Chloe Star's Profile</a>
                     </div>
-                    <a href="chloe.html" class="profile-link">View Chloe Star's Profile</a>
+                </article>
+
+                <article class="profile-card">
+                    <img src="images/Kel X1.jpg" alt="Kel X" class="profile-card-photo">
+                    <div class="profile-card-body">
+                        <div>
+                            <span class="profile-badge">Featured Sydney</span>
+                            <h3>Kel X</h3>
+                            <p class="profile-meta">Sydney &bull; Age 36 &bull; 0451 419 822</p>
+                            <p class="profile-desc">Experienced independent companion available by appointment with direct SMS and WhatsApp contact.</p>
+                        </div>
+                        <a href="kel-x.html" class="profile-link">View Kel X's Profile</a>
+                    </div>
                 </article>
             </div>
         </section>
