@@ -710,16 +710,16 @@
         /* Floating Luxury WhatsApp "Live Chat With Us" Widget */
         .zelo-whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 24px;
+            right: 24px;
             z-index: 99999;
             background: rgba(18, 18, 18, 0.95);
             backdrop-filter: blur(12px);
             border: 1px solid var(--accent, #D4AF37);
             color: var(--text-main, #F8F8F8);
-            padding: 12px 20px;
+            padding: 11px 18px;
             border-radius: 50px;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -734,7 +734,7 @@
         .zelo-whatsapp-float:hover {
             background: var(--accent, #D4AF37);
             color: var(--bg-obsidian, #090909);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.5);
         }
 
@@ -762,6 +762,7 @@
             .grid { grid-template-columns: 1fr; }
             .launch-banner { font-size: 10px; padding: 6px 10px; right: 10px; top: 125px; }
             .compact-hero h2 { font-size: 1.6rem; }
+            .zelo-whatsapp-float { right: 16px; bottom: 20px; padding: 10px 16px; font-size: 0.72rem; }
         }
     </style>
 </head>
@@ -1336,5 +1337,25 @@
             });
         });
     </script>
+
+    <!-- Start of Tawk.to Live Chat -->
+    <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    Tawk_API.customStyle = {
+      visibility: {
+        desktop: { position: 'br', xOffset: 24, yOffset: 88 },
+        mobile: { position: 'br', xOffset: 16, yOffset: 80 }
+      }
+    };
+    (function(){
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6b026b214b04363ce4c72039/1k80n4v2o';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+    </script>
+    <!-- End of Tawk.to Live Chat -->
 </body>
 </html>
