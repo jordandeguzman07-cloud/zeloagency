@@ -253,7 +253,7 @@
         /* Featured Profiles Grid */
         .profiles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 20px;
             margin-bottom: 48px;
         }
@@ -276,14 +276,15 @@
 
         .profile-card-photo {
             width: 100%;
-            height: 310px;
+            height: 260px;
             object-fit: cover;
+            object-position: center top;
             display: block;
             border-bottom: 1px solid var(--border-subtle);
         }
 
         .profile-card-body {
-            padding: 22px 20px 24px;
+            padding: 20px 18px 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -527,7 +528,12 @@
 
         .footer-links a:hover { color: var(--accent); }
 
+        @media (max-width: 900px) {
+            .profiles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
         @media (max-width: 640px) {
+            .profiles-grid { grid-template-columns: 1fr; }
             .editorial-card, .faq-section, .provider-cta, .other-cities { padding: 26px 20px; }
             .nav-links { gap: 14px; font-size: 0.78rem; }
         }
