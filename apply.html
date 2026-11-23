@@ -16,7 +16,7 @@
     <meta name="description" content="Apply for an independent companion listing on Zelo Escorts Australia. Flat-rate monthly pricing starting at $49/month with a 30-day trial and 100% earnings kept.">
     <link rel="canonical" href="https://zeloescorts.com.au/apply.html">
     <style>
-        * { box-sizing: border-box; }
+- { box-sizing: border-box; }
         body { background: #0b0b0b; color: #ffffff; font-family: 'Segoe UI', sans-serif; padding: 40px 20px; margin: 0; }
         .apply-layout {
             max-width: 1140px;
@@ -232,7 +232,12 @@
                     <option value="Perth">Perth</option>
                     <option value="Adelaide">Adelaide</option>
                     <option value="Tasmania">Tasmania</option>
+                    <option value="Other">Other</option>
                 </select>
+                <div id="otherCityWrap" style="display: none;">
+                    <label for="otherCityInput">Type City</label>
+                    <input type="text" id="otherCityInput" name="Other_City" placeholder="Type city">
+                </div>
 
                 <label for="phoneInput">Mobile Number / Contact SMS</label>
                 <input type="tel" id="phoneInput" name="Phone" required placeholder="0400 000 000">
@@ -443,6 +448,22 @@
 
         // Auto-select dropdown based on URL query parameter from homepage buttons
         window.addEventListener('DOMContentLoaded', () => {
+            const citySelect = document.getElementById('citySelect');
+            const otherCityWrap = document.getElementById('otherCityWrap');
+            const otherCityInput = document.getElementById('otherCityInput');
+            if (citySelect && otherCityWrap && otherCityInput) {
+                const toggleOtherCity = () => {
+                    const isOther = citySelect.value === 'Other';
+                    otherCityWrap.style.display = isOther ? 'block' : 'none';
+                    otherCityInput.required = isOther;
+                    if (!isOther) {
+                        otherCityInput.value = '';
+                    }
+                };
+                citySelect.addEventListener('change', toggleOtherCity);
+                toggleOtherCity();
+            }
+
             const urlParams = new URLSearchParams(window.location.search);
             const tierParam = urlParams.get('tier');
             const tierSelect = document.getElementById('listingTier');
